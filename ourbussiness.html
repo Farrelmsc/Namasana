@@ -1,74 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Business</title>
-    <link rel="stylesheet" href="css/about.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oil & Gas Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
 </head>
-<body>
-    <header>
-        <div class="logo">OIL & GAS</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a class="active" href="#">Our Business</a></li>
-                <li><a href="#">Our Sustainability</a></li>
-                <li><a href="#">Investor</a></li>
-                <li><a href="#">Publication</a></li>
-                <li><a href="#">Career</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">EN | ID</a></li>
+<body class="bg-white font-sans">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
+            <div class="flex items-center space-x-3">
+                <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
+                    <div class="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-400 to-red-500 text-white font-bold">
+                        O
+                    </div>
+                    <span>OIL & GAS</span>
+                </div>
+            </div>
+            <ul class="hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
+                <li><a href="active" class="text-blue-900 border-b-2 border-blue-700 pb-1">Home</a></li>
+                <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
+                <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Our Sustainability</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Investor</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Publication</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Career</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="business-overview">
-            <h1>Our Business</h1>
-            <h2>Overview of Our Business</h2>
-            <div class="business-categories">
-                <div class="category">Oil & Gas</div>
-                <div class="category">Power</div>
-                <div class="category">Copper & Gold Mining</div>
+        <!-- Footer Section -->
+    <footer class="mt-16 bg-indigo-50 pt-12 pb-8 text-gray-800">
+        <div class="footer-container">
+            <!-- Branding -->
+            <div class="footer-brand">
+                <div class="brand-logo">O</div>
+                <span>OIL & GAS</span>
+                <p>(Lorem) lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="mailto:info@oilgas.com">example@email.com</a>
+                <p>+62 1234 5678 90</p>
             </div>
-            <div class="icon-grid">
-                <div class="icon"><h4>Lorem</h4><p>Lorem ipsum</p></div>
-                <div class="icon"><h4>Lorem</h4><p>Lorem ipsum</p></div>
-                <div class="icon"><h4>Lorem</h4><p>Lorem ipsum</p></div>
-                <div class="icon"><h4>Lorem</h4><p>Lorem ipsum</p></div>
-                <div class="icon"><h4>Lorem</h4><p>Lorem ipsum</p></div>
-                <div class="icon"><h4>Lorem</h4><p>Lorem ipsum</p></div>
-                <div class="icon"><h4>Lorem</h4><p>Lorem ipsum</p></div>
-                <div class="icon"><h4>Lorem</h4><p>Lorem ipsum</p></div>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div class="map-container">
-                <img src="map.png" alt="Map of Indonesia">
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="footer-content">
-            <h2>Oil & Gas</h2>
-            <p>(Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.</p>
-            <p>Phone: +62</p>
-            <p>Email: lorem ipsum dolor</p>
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <h4>About Us</h4>
+                <a href="#">Our Business</a>
+                <a href="#">Our Sustainability</a>
+                <a href="#">Investor</a>
+                <a href="#">Publication</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Career</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">Whistleblower</a>
+                <a href="#">Supplier SBO</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <!-- Powered by -->
+            <div class="footer-powered">
+                <span>Powered by</span>
+                <span>NMS</span>
+            </div>
         </div>
-        <div class="footer-links">
-            <a href="#">About Us</a>
-            <a href="#">Our Business</a>
-            <a href="#">Our Sustainability</a>
-            <a href="#">Investor</a>
-            <a href="#">Publication</a>
-            <a href="#">Whistleblower</a>
-            <a href="#">Supplier Site</a>
-            <a href="#">Privacy Policy</a>
-        </div>
-        <p>Powered by: <span>NMSX</span></p>
     </footer>
-</body>
-</html>
-```
