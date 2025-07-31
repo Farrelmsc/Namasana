@@ -1,306 +1,209 @@
-```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Oil & Gas - Our Business</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  /* Custom underline for active nav */
-  .nav-active {
-    font-weight: 700;
-    border-bottom: 3px solid #1e40af; /* Tailwind blue-800 */
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Business - Landing Page</title>
+  <!-- Google Fonts & Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; }
+    a { text-decoration: none; color: inherit; }
 
-  /* Scroll behavior for anchor links */
-  html {
-    scroll-behavior: smooth;
-  }
+    /* Container */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
-  /* Style for left nav links */
-  .side-nav li {
-    cursor: pointer;
-  }
-  .side-nav li:hover {
-    color: #1e40af;
-  }
+    /* Header */
+    header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .navbar .logo img { height: 40px; }
+    .navbar nav { display: none; }
+    .navbar nav ul { display: flex; gap: 24px; list-style: none; }
+    .navbar nav ul li { position: relative; font-weight: 500; }
+    .navbar nav ul li.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 3px; background: #0051ba;
+      border-radius: 2px;
+    }
+    .navbar .menu-toggle { cursor: pointer; display: block; font-size: 24px; }
 
-  /* Icon container hover effect */
-  .icon-box:hover {
-    background-color: #e0e7ff;
-    border-radius: 0.5rem;
-  }
+    /* Hero */
+    .hero {
+      background: url('https://source.unsplash.com/1600x900/?oil-rig,sea') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .hero h1 { font-size: 2.5rem; }
 
-  /* Footer links hover */
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
+    /* Main layout */
+    .main { display: flex; flex-wrap: wrap; margin-top: 32px; }
+    .sidebar { flex: 1 1 240px; margin-bottom: 24px; }
+    .sidebar ul { list-style: none; background: #f5f5f5; padding: 16px; border-radius: 8px; }
+    .sidebar ul li { padding: 12px 8px; cursor: pointer; font-weight: 500; }
+    .sidebar ul li.active { background: #0051ba; color: #fff; border-radius: 4px; }
+    .content { flex: 3 1 600px; padding-left: 24px; }
 
-  /* Responsive fix for map legend text and boxes */
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-</style>
+    /* Icon grid using Material Icons */
+    .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 24px; margin-bottom: 24px; }
+    .icon-item { text-align: center; }
+    .icon-item .material-icons { font-size: 48px; color: #0051ba; margin-bottom: 8px; }
+    .icon-item .label { font-weight: bold; font-size: 0.9rem; }
+    .icon-item .desc { font-size: 0.8rem; color: #666; }
+
+    /* Paragraph */
+    .content p { margin-bottom: 24px; }
+
+    /* Map section with Google Maps embed */
+    .map-section { text-align: center; margin-bottom: 24px; }
+    .map-section iframe { width: 100%; height: 400px; border: none; border-radius: 8px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; }
+    .legend-item .material-icons { font-size: 16px; color: #0051ba; }
+
+    /* Footer */
+    footer { background: #eaf0ff; padding: 32px 16px; }
+    .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: 0 auto; }
+    .footer-brand { flex: 1 1 200px; }
+    .footer-brand img { height: 60px; margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.9rem; margin-bottom: 8px; }
+    .footer-links { flex: 2 1 400px; display: flex; flex-wrap: wrap; gap: 32px; }
+    .footer-links ul { list-style: none; font-size: 0.9rem; }
+    .footer-links ul li { margin-bottom: 8px; }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .navbar nav { display: block; }
+      .navbar .menu-toggle { display: none; }
+    }
+  </style>
 </head>
-<body class="bg-white font-sans text-gray-800">
-<style>
-    .footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
+<body>
 
-.brand-logo {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 9999px;
-    background: linear-gradient(to bottom right, #fbbf24, #ef4444);
-    color: white;
-    font-size: 1.25rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-brand > span {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #1e3a8a;
-}
-
-.footer-brand p {
-    color: #4b5563;
-    line-height: 1.625;
-    max-width: 20rem;
-}
-
-.footer-brand a {
-    color: #1e40af;
-    font-weight: 600;
-}
-
-.footer-brand a:hover {
-    text-decoration: underline;
-}
-
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.footer-links h4 {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #1e3a8a;
-}
-
-.footer-links a {
-    color: #4b5563;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: #1e40af;
-}
-
-.footer-powered {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #4b5563;
-}
-
-.footer-powered > span:last-child {
-    margin-top: 0.25rem;
-    color: #1e40af;
-    font-weight: 700;
-}
-</style>
-  <!-- Header with logo and nav -->
-  <header class="border-b border-gray-200">
-    <div class="container mx-auto flex flex-wrap items-center justify-between py-4 px-6 max-w-7xl">
-      <a href="#" class="flex items-center text-sm font-semibold text-gray-800">
-        <!-- Logo simulating the flame -->
-        <svg class="w-10 h-10 mr-2" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-          <path fill="#0077c8" d="M50 130s40-56 40-96c0-22-18-34-40-34S10 21 10 54c0 40 40 76 40 76z"/>
-          <path fill="#ff6300" d="M50 96s16-26 16-46c0-12-9-19-16-19-7 0-16 10-16 22 0 20 16 43 16 43z"/>
-          <path fill="#c1c1c1" d="M50 130s15.63-22.1 15.63-38.5c0-15-15.63-24-15.63-24S34 77 34 93c0 18 16 37 16 37z"/>
-        </svg>
-        <span class="text-lg font-bold tracking-tight text-blue-700">OIL <span class="text-orange-500">& GAS</span></span>
-      </a>
-      
-      <nav class="hidden md:flex space-x-6 text-sm text-gray-600">
-        <a href="#" class="hover:text-blue-800">Home</a>
-        <a href="#" class="hover:text-blue-800">About Us</a>
-        <a href="#" class="nav-active">Our Business</a>
-        <a href="#" class="hover:text-blue-800">Our Sustainability</a>
-        <a href="#" class="hover:text-blue-800">Investor</a>
-        <a href="#" class="hover:text-blue-800">Publication</a>
-        <a href="#" class="hover:text-blue-800">Career</a>
-        <a href="#" class="hover:text-blue-800">Contact Us</a>
-        <span class="border-l border-gray-300 h-5"></span>
-        <a href="#" class="hover:text-blue-800 font-semibold">EN</a>
-        <a href="#" class="hover:text-blue-800">ID</a>
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <div class="logo"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Logo" /></div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li class="active"><a href="#">Our Business</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Investor</a></li>
+          <li><a href="#">Publication</a></li>
+          <li><a href="#">Career</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
       </nav>
+      <div class="menu-toggle">☰</div>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section aria-label="Hero Our Business" class="relative w-full bg-gradient-to-r from-black/60 to-black/30">
-    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f79e7e25-f6b2-494f-b64d-00cf10703ae5.png" alt="Offshore oil rig platform with blue sky and calm ocean" 
-      class="w-full object-cover h-[320px] sm:h-[400px] md:h-[460px] lg:h-[540px]" />
-    <div class="absolute inset-0 flex items-center px-6 md:px-20">
-      <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-extrabold drop-shadow-md max-w-4xl leading-tight">Our Business</h1>
-    </div>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Our Business</h1>
   </section>
 
-  <!-- Main Content -->
-  <main class="container max-w-7xl mx-auto px-6 md:px-20 py-12 grid grid-cols-1 md:grid-cols-12 gap-8" role="main">
-
-    <!-- Sidebar Left -->
-    <nav aria-label="Business categories" class="md:col-span-3 bg-white shadow-md rounded-md">
-      <ul class="side-nav select-none text-gray-800 font-normal text-base">
-        <li class="bg-blue-800 text-white rounded-t-md px-5 py-3 font-semibold">Overview</li>
-        <li class="hover:bg-gray-50 px-5 py-3 border-t border-gray-200">Oil & Gas</li>
-        <li class="hover:bg-gray-50 px-5 py-3 border-t border-gray-200">Power</li>
-        <li class="hover:bg-gray-50 px-5 py-3 border-t border-gray-200 rounded-b-md">Copper & Gold Mining</li>
+  <!-- Main -->
+  <div class="container main">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul>
+        <li class="active">Overview</li>
+        <li>Oil & Gas</li>
+        <li>Power</li>
+        <li>Copper & Gold Mining</li>
       </ul>
-    </nav>
+    </aside>
 
-    <!-- Content Right -->
-    <section class="md:col-span-9 bg-white shadow-md rounded-md p-8">
-      <h2 class="text-blue-800 text-2xl font-bold mb-2 border-b border-blue-800 inline-block pb-1">Overview of Our Business</h2>
+    <!-- Content -->
+    <article class="content">
+      <h2>Overview of Our Business</h2>
 
-      <!-- Grid icons -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-10 gap-y-6 mt-6">
-
-        <div class="icon-box flex flex-col items-center text-center text-blue-800">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6a1fad16-178f-4fe3-9b9a-ed3c6898cdd4.png" alt="Oil drilling platform on water icon in navy blue" class="mb-2" />
-          <span class="font-semibold">Lorem</span>
-          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
-        </div>
-        <div class="icon-box flex flex-col items-center text-center text-blue-800">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ab7fbcce-544a-427d-afe1-257c0e2d3c12.png" alt="Laboratory flask with liquid icon in navy blue" class="mb-2" />
-          <span class="font-semibold">Lorem</span>
-          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
-        </div>
-        <div class="icon-box flex flex-col items-center text-center text-blue-800">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9d11854c-5f1e-4dd6-b5f3-ea29f99b4884.png" alt="Electrical bolt icon in navy blue" class="mb-2" />
-          <span class="font-semibold">Lorem</span>
-          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
-        </div>
-        <div class="icon-box flex flex-col items-center text-center text-blue-800">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8b375267-69a3-40e7-9147-3b7048c56a89.png" alt="Speed gauge icon in navy blue with light blue bottom highlight" class="mb-2" />
-          <span class="font-semibold">Lorem</span>
-          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
-        </div>
-
-        <div class="icon-box flex flex-col items-center text-center text-blue-800">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/45ca645d-cc22-471b-804b-79f400f59c24.png" alt="Oil tanker truck icon in blue shades" class="mb-2" />
-          <span class="font-semibold">Lorem</span>
-          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
-        </div>
-        <div class="icon-box flex flex-col items-center text-center text-blue-800">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4b614007-38ae-4688-be95-fca04fcca31f.png" alt="Stacked barrels icon in dark navy blue" class="mb-2" />
-          <span class="font-semibold">Lorem</span>
-          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
-        </div>
-        <div class="icon-box flex flex-col items-center text-center text-blue-800">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0e755cc9-41f1-4004-a24d-e87ad1458546.png" alt="Three standing people icon in dark navy blue" class="mb-2" />
-          <span class="font-semibold">Lorem</span>
-          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
-        </div>
-        <div class="icon-box flex flex-col items-center text-center text-blue-800">
-          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/72c9f370-36bc-4ea4-98c1-076ac35733b6.png" alt="Oil well pump and worker icon in navy blue" class="mb-2" />
-          <span class="font-semibold">Lorem</span>
-          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
-        </div>
+      <div class="icon-grid">
+        <div class="icon-item"><span class="material-icons">coronavirus</span><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
+        <div class="icon-item"><span class="material-icons">opacity</span><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
+        <div class="icon-item"><span class="material-icons">flash_on</span><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
+        <div class="icon-item"><span class="material-icons">speed</span><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
+        <div class="icon-item"><span class="material-icons">local_shipping</span><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
+        <div class="icon-item"><span class="material-icons">storage</span><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
+        <div class="icon-item"><span class="material-icons">group</span><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
+        <div class="icon-item"><span class="material-icons">construction</span><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
       </div>
 
-      <p class="text-gray-800 text-sm mt-8 leading-relaxed">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+        id est laborum.
       </p>
 
-      <hr class="border-gray-300 my-10" />
-
-  <!-- Bottom image with Indonesia islands above footer -->
-  <section aria-label="Indonesia Islands Image" class="relative w-full mb-8">
-    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/96ab3acf-5774-4f87-b929-0ae45a92e780.png" 
-      alt="Silhouette of Indonesian islands blue color with subtle white background gradient" 
-      class="w-full object-cover h-[798px] sm:h-[200px] md:h-[240px]" onerror="this.style.display='none'" />
-  </section>
-
-  <!-- 3 horizontal info boxes under islands -->
-  <section class="container max-w-7xl mx-auto px-6 md:px-20 mb-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-800">
-
-    <div class="border border-gray-300 rounded-lg p-6 flex flex-col items-center bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
-      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a4a259fe-414a-4dbd-8f27-eaa6aa78a3b6.png" alt="Industry icon representing oil production in blue" class="mb-4" />
-      <h3 class="font-semibold text-lg mb-2 text-blue-800 text-center">Lorem Ipsum 1</h3>
-      <p class="text-center text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <div class="border border-gray-300 rounded-lg p-6 flex flex-col items-center bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
-      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5d4dfcfc-3451-4232-9f06-e95eac7ee664.png" alt="Industry icon representing power supply in blue" class="mb-4" />
-      <h3 class="font-semibold text-lg mb-2 text-blue-800 text-center">Lorem Ipsum 2</h3>
-      <p class="text-center text-sm">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-    <div class="border border-gray-300 rounded-lg p-6 flex flex-col items-center bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
-      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2e101c54-af8b-42d1-80df-609b2ae9a91c.png" alt="Industry icon representing mining in blue" class="mb-4" />
-      <h3 class="font-semibold text-lg mb-2 text-blue-800 text-center">Lorem Ipsum 3</h3>
-      <p class="text-center text-sm">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-    </div>
-
-  </section>
-
-    <!-- Footer Section -->
-    <footer class="mt-16 bg-indigo-50 pt-12 pb-8 text-gray-800">
-        <div class="footer-container">
-            <!-- Branding -->
-            <div class="footer-brand">
-                <div class="brand-logo">O</div>
-                <span>OIL & GAS</span>
-                <p>(Lorem) lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="mailto:info@oilgas.com">example@email.com</a>
-                <p>+62 1234 5678 90</p>
-            </div>
-
-            <!-- Footer Links -->
-            <div class="footer-links">
-                <h4>About Us</h4>
-                <a href="#">Our Business</a>
-                <a href="#">Our Sustainability</a>
-                <a href="#">Investor</a>
-                <a href="#">Publication</a>
-            </div>
-
-            <div class="footer-links">
-                <h4>Career</h4>
-                <a href="#">Contact Us</a>
-                <a href="#">Whistleblower</a>
-                <a href="#">Supplier SBO</a>
-                <a href="#">Privacy Policy</a>
-            </div>
-
-            <!-- Powered by -->
-            <div class="footer-powered">
-                <span>Powered by</span>
-                <span>NMS</span>
-            </div>
+      <div class="map-section">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6327465.92575131!2d97.14080323685937!3d-2.8431818305091065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d4c8e8471a47725%3A0x501cb52bb0b2d4c!2sIndonesia!5e0!3m2!1sen!2sid!4v1623905512131!5m2!1sen!2sid" 
+          allowfullscreen loading="lazy"></iframe>
+        <div class="legend">
+          <div class="legend-item"><span class="material-icons">coronavirus</span>Lorem ipsum</div>
+          <div class="legend-item"><span class="material-icons">flash_on</span>Lorem ipsum</div>
+          <div class="legend-item"><span class="material-icons">opacity</span>Lorem ipsum</div>
+          <div class="legend-item"><span class="material-icons">local_shipping</span>Lorem ipsum</div>
         </div>
-    </footer>
+        <p><a href="#">See All Maps &gt;</a></p>
+      </div>
+    </article>
+  </div>
 
-<script>
-  // No additional JS required for static responsiveness
-</script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content container">
+      <div class="footer-brand">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Company Logo" />
+        <p>(Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.</p>
+        <p>📞 +62 8123456789</p>
+        <p>✉️ info@example.com</p>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><strong>About</strong></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Business</a></li>
+          <li><a href="#">Our Sustainability</a></li>
+          <li><a href="#">Investor</a></li>
+          <li><a href="#">Publication</a></li>
+        </ul>
+        <ul>
+          <li><strong>Company</strong></li>
+          <li><a href="#">Career</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Supplier Site</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Whistleblower</a></li>
+        </ul>
+        <ul>
+          <li><strong>Powered by</strong></li>
+          <li><img src="https://www.gstatic.com/images/branding/product/1x/maps_48dp.png" alt="Google Maps Icon" style="height:30px;"></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
+  <script>
+    // Toggle mobile menu
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
 </body>
 </html>
-```
