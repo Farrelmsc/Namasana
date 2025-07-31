@@ -1,213 +1,300 @@
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Business - Landing Page</title>
-  <style>
-    /* Reset & Base */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Oil & Gas - Our Business</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Custom underline for active nav */
+  .nav-active {
+    font-weight: 700;
+    border-bottom: 3px solid #1e40af; /* Tailwind blue-800 */
+  }
 
-    /* Container */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+  /* Scroll behavior for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
 
-    /* Header / Nav */
-    header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
-    .navbar .logo img { height: 40px; }
-    .navbar nav { display: none; }
-    .navbar nav ul { display: flex; gap: 24px; list-style: none; }
-    .navbar nav ul li { position: relative; }
-    .navbar nav ul li.active::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0; right: 0;
-      height: 3px; background: #0051ba;
-      border-radius: 2px;
-    }
-    .navbar .menu-toggle { cursor: pointer; display: block; }
+  /* Style for left nav links */
+  .side-nav li {
+    cursor: pointer;
+  }
+  .side-nav li:hover {
+    color: #1e40af;
+  }
 
-    /* Hero */
-    .hero {
-      background: url('hero-image.jpg') center/cover no-repeat;
-      height: 50vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    }
-    .hero h1 { font-size: 2.5rem; }
+  /* Icon container hover effect */
+  .icon-box:hover {
+    background-color: #e0e7ff;
+    border-radius: 0.5rem;
+  }
 
-    /* Main content layout */
-    .main { display: flex; flex-wrap: wrap; margin-top: 32px; }
-    .sidebar { flex: 1 1 240px; margin-bottom: 24px; }
-    .sidebar ul { list-style: none; background: #f5f5f5; padding: 16px; border-radius: 8px; }
-    .sidebar ul li { padding: 12px 8px; cursor: pointer; }
-    .sidebar ul li.active { background: #0051ba; color: #fff; border-radius: 4px; }
-    .content { flex: 3 1 600px; padding-left: 24px; }
+  /* Footer links hover */
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
 
-    /* Icon grid */
-    .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 24px; margin-bottom: 24px; }
-    .icon-item { text-align: center; }
-    .icon-item img { width: 48px; height: 48px; margin-bottom: 8px; }
-    .icon-item .label { font-weight: bold; font-size: 0.9rem; }
-    .icon-item .desc { font-size: 0.8rem; color: #666; }
-
-    /* Paragraph */
-    .content p { margin-bottom: 24px; }
-
-    /* Map section */
-    .map-section { text-align: center; margin-bottom: 24px; }
-    .map-section img { max-width: 100%; height: auto; border-radius: 8px; }
-    .legend { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 16px; }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; }
-    .legend-item img { width: 16px; height: 16px; }
-
-    /* Footer */
-    footer { background: #eaf0ff; padding: 32px 16px; }
-    .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: 0 auto; }
-    .footer-brand { flex: 1 1 200px; }
-    .footer-brand img { height: 60px; margin-bottom: 16px; }
-    .footer-brand p { font-size: 0.9rem; margin-bottom: 8px; }
-    .footer-links { flex: 2 1 400px; display: flex; flex-wrap: wrap; gap: 32px; }
-    .footer-links ul { list-style: none; font-size: 0.9rem; }
-    .footer-links ul li { margin-bottom: 8px; }
-
-    /* Responsive */
-    @media (min-width: 768px) {
-      .navbar nav { display: block; }
-      .navbar .menu-toggle { display: none; }
-    }
-  </style>
+  /* Responsive fix for map legend text and boxes */
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+</style>
 </head>
-<body>
+<body class="bg-white font-sans text-gray-800">
 
-  <!-- Header -->
-  <header>
-    <div class="container navbar">
-      <div class="logo"><img src="logo.png" alt="Logo" /></div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li class="active"><a href="#">Our Business</a></li>
-          <li><a href="#">Sustainability</a></li>
-          <li><a href="#">Investor</a></li>
-          <li><a href="#">Publication</a></li>
-          <li><a href="#">Career</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+  <!-- Header with logo and nav -->
+  <header class="border-b border-gray-200">
+    <div class="container mx-auto flex flex-wrap items-center justify-between py-4 px-6 max-w-7xl">
+      <a href="#" class="flex items-center text-sm font-semibold text-gray-800">
+        <!-- Logo simulating the flame -->
+        <svg class="w-10 h-10 mr-2" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+          <path fill="#0077c8" d="M50 130s40-56 40-96c0-22-18-34-40-34S10 21 10 54c0 40 40 76 40 76z"/>
+          <path fill="#ff6300" d="M50 96s16-26 16-46c0-12-9-19-16-19-7 0-16 10-16 22 0 20 16 43 16 43z"/>
+          <path fill="#c1c1c1" d="M50 130s15.63-22.1 15.63-38.5c0-15-15.63-24-15.63-24S34 77 34 93c0 18 16 37 16 37z"/>
+        </svg>
+        <span class="text-lg font-bold tracking-tight text-blue-700">OIL <span class="text-orange-500">& GAS</span></span>
+      </a>
+      
+      <nav class="hidden md:flex space-x-6 text-sm text-gray-600">
+        <a href="#" class="hover:text-blue-800">Home</a>
+        <a href="#" class="hover:text-blue-800">About Us</a>
+        <a href="#" class="nav-active">Our Business</a>
+        <a href="#" class="hover:text-blue-800">Our Sustainability</a>
+        <a href="#" class="hover:text-blue-800">Investor</a>
+        <a href="#" class="hover:text-blue-800">Publication</a>
+        <a href="#" class="hover:text-blue-800">Career</a>
+        <a href="#" class="hover:text-blue-800">Contact Us</a>
+        <span class="border-l border-gray-300 h-5"></span>
+        <a href="#" class="hover:text-blue-800 font-semibold">EN</a>
+        <a href="#" class="hover:text-blue-800">ID</a>
       </nav>
-      <div class="menu-toggle">☰</div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Our Business</h1>
+  <!-- Hero Banner -->
+  <section aria-label="Hero Our Business" class="relative w-full bg-gradient-to-r from-black/60 to-black/30">
+    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f79e7e25-f6b2-494f-b64d-00cf10703ae5.png" alt="Offshore oil rig platform with blue sky and calm ocean" 
+      class="w-full object-cover h-[320px] sm:h-[400px] md:h-[460px] lg:h-[540px]" />
+    <div class="absolute inset-0 flex items-center px-6 md:px-20">
+      <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-extrabold drop-shadow-md max-w-4xl leading-tight">Our Business</h1>
+    </div>
   </section>
 
-  <!-- Main -->
-  <div class="container main">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <ul>
-        <li class="active">Overview</li>
-        <li>Oil & Gas</li>
-        <li>Power</li>
-        <li>Copper & Gold Mining</li>
+  <!-- Main Content -->
+  <main class="container max-w-7xl mx-auto px-6 md:px-20 py-12 grid grid-cols-1 md:grid-cols-12 gap-8" role="main">
+
+    <!-- Sidebar Left -->
+    <nav aria-label="Business categories" class="md:col-span-3 bg-white shadow-md rounded-md">
+      <ul class="side-nav select-none text-gray-800 font-normal text-base">
+        <li class="bg-blue-800 text-white rounded-t-md px-5 py-3 font-semibold">Overview</li>
+        <li class="hover:bg-gray-50 px-5 py-3 border-t border-gray-200">Oil & Gas</li>
+        <li class="hover:bg-gray-50 px-5 py-3 border-t border-gray-200">Power</li>
+        <li class="hover:bg-gray-50 px-5 py-3 border-t border-gray-200 rounded-b-md">Copper & Gold Mining</li>
       </ul>
-    </aside>
+    </nav>
 
-    <!-- Content -->
-    <article class="content">
-      <h2>Overview of Our Business</h2>
+    <!-- Content Right -->
+    <section class="md:col-span-9 bg-white shadow-md rounded-md p-8">
+      <h2 class="text-blue-800 text-2xl font-bold mb-2 border-b border-blue-800 inline-block pb-1">Overview of Our Business</h2>
 
-      <div class="icon-grid">
-        <!-- Repeat icon-item -->
-        <div class="icon-item">
-          <img src="icon1.png" alt="Icon" />
-          <div class="label">Lorem</div>
-          <div class="desc">Lorem ipsum</div>
+      <!-- Grid icons -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-10 gap-y-6 mt-6">
+
+        <div class="icon-box flex flex-col items-center text-center text-blue-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6a1fad16-178f-4fe3-9b9a-ed3c6898cdd4.png" alt="Oil drilling platform on water icon in navy blue" class="mb-2" />
+          <span class="font-semibold">Lorem</span>
+          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
         </div>
-        <div class="icon-item">
-          <img src="icon2.png" alt="Icon" />
-          <div class="label">Lorem</div>
-          <div class="desc">Lorem ipsum</div>
+        <div class="icon-box flex flex-col items-center text-center text-blue-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ab7fbcce-544a-427d-afe1-257c0e2d3c12.png" alt="Laboratory flask with liquid icon in navy blue" class="mb-2" />
+          <span class="font-semibold">Lorem</span>
+          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
         </div>
-        <div class="icon-item"><img src="icon3.png" alt="Icon" /><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
-        <div class="icon-item"><img src="icon4.png" alt="Icon" /><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
-        <div class="icon-item"><img src="icon5.png" alt="Icon" /><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
-        <div class="icon-item"><img src="icon6.png" alt="Icon" /><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
-        <div class="icon-item"><img src="icon7.png" alt="Icon" /><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
-        <div class="icon-item"><img src="icon8.png" alt="Icon" /><div class="label">Lorem</div><div class="desc">Lorem ipsum</div></div>
+        <div class="icon-box flex flex-col items-center text-center text-blue-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9d11854c-5f1e-4dd6-b5f3-ea29f99b4884.png" alt="Electrical bolt icon in navy blue" class="mb-2" />
+          <span class="font-semibold">Lorem</span>
+          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
+        </div>
+        <div class="icon-box flex flex-col items-center text-center text-blue-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8b375267-69a3-40e7-9147-3b7048c56a89.png" alt="Speed gauge icon in navy blue with light blue bottom highlight" class="mb-2" />
+          <span class="font-semibold">Lorem</span>
+          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
+        </div>
+
+        <div class="icon-box flex flex-col items-center text-center text-blue-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/45ca645d-cc22-471b-804b-79f400f59c24.png" alt="Oil tanker truck icon in blue shades" class="mb-2" />
+          <span class="font-semibold">Lorem</span>
+          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
+        </div>
+        <div class="icon-box flex flex-col items-center text-center text-blue-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4b614007-38ae-4688-be95-fca04fcca31f.png" alt="Stacked barrels icon in dark navy blue" class="mb-2" />
+          <span class="font-semibold">Lorem</span>
+          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
+        </div>
+        <div class="icon-box flex flex-col items-center text-center text-blue-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0e755cc9-41f1-4004-a24d-e87ad1458546.png" alt="Three standing people icon in dark navy blue" class="mb-2" />
+          <span class="font-semibold">Lorem</span>
+          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
+        </div>
+        <div class="icon-box flex flex-col items-center text-center text-blue-800">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/72c9f370-36bc-4ea4-98c1-076ac35733b6.png" alt="Oil well pump and worker icon in navy blue" class="mb-2" />
+          <span class="font-semibold">Lorem</span>
+          <span class="text-sm font-light text-gray-700">Lorem ipsum</span>
+        </div>
       </div>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-        id est laborum.
+      <p class="text-gray-800 text-sm mt-8 leading-relaxed">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
 
-      <div class="map-section">
-        <img src="map-indonesia.png" alt="Map of Indonesia" />
-        <div class="legend">
-          <div class="legend-item"><img src="icon1.png" alt="" /> Lorem ipsum</div>
-          <div class="legend-item"><img src="icon2.png" alt="" /> Lorem ipsum</div>
-          <div class="legend-item"><img src="icon3.png" alt="" /> Lorem ipsum</div>
-          <div class="legend-item"><img src="icon4.png" alt="" /> Lorem ipsum</div>
+      <hr class="border-gray-300 my-10" />
+
+      <!-- Indonesia Map with legend -->
+      <figure aria-label="Map of Indonesia showing business locations" class="max-w-full overflow-x-auto">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7fe48353-f519-4a6a-989c-bc809ada6398.png" alt="Silhouette map of Indonesia in navy blue showing provinces and borders" class="mx-auto" />
+      </figure>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-gray-700">
+        <!-- Legend group 1 -->
+        <div>
+          <div class="legend-item text-blue-800 mb-1">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3d702247-3c8e-4669-a18b-74acb9d04dc1.png" alt="Light blue small square" />
+            <span>Lorem ipsum</span>
+          </div>
+          <div class="legend-item text-green-600 mb-1">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8976ccf8-ec99-4e26-973a-15cfbe0dbd1c.png" alt="Green small square" />
+            <span>Lorem ipsum</span>
+          </div>
+          <div class="legend-item text-red-600 mb-1">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a2ac800a-5ad5-425e-883b-b479b67d46ea.png" alt="Red small square" />
+            <span>Lorem ipsum</span>
+          </div>
         </div>
-        <p><a href="#">See All Maps &gt;</a></p>
+        <!-- Legend group 2 -->
+        <div>
+          <div class="legend-item text-blue-800 mb-1 flex items-center gap-2">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8051823a-3e83-4d3a-afce-edfd2b603596.png" alt="Blue square with white lightning icon" />
+            <span>Lorem ipsum</span>
+          </div>
+          <div class="legend-item text-yellow-400 mb-1">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a7a7ee21-4e94-4c83-a161-31fca18b7783.png" alt="Yellow small square" />
+            <span>Lorem ipsum</span>
+          </div>
+        </div>
+        <!-- Legend group 3 -->
+        <div>
+          <div class="legend-item text-blue-800 mb-1 flex items-center gap-2">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/99f161f2-546a-437c-ac78-ce8ec20104ab.png" alt="Blue square with oil tanker truck icon" />
+            <span>Lorem ipsum</span>
+          </div>
+          <div class="legend-item text-gray-800 mb-1">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4a45c209-0555-42d0-858b-2db89dc2e23f.png" alt="Black small square" />
+            <span>Lorem ipsum</span>
+          </div>
+          <div class="legend-item text-gray-600">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ce1ecca9-8370-4735-a34e-afa841509deb.png" alt="Gray small square" />
+            <span>Lorem ipsum</span>
+          </div>
+        </div>
       </div>
-    </article>
-  </div>
+
+      <div class="mt-4 text-blue-800 font-semibold cursor-pointer text-right hover:underline" tabindex="0" role="link" aria-label="See all maps link">
+        See All Maps >
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom image with Indonesia islands above footer -->
+  <section aria-label="Indonesia Islands Image" class="relative w-full mb-8">
+    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/96ab3acf-5774-4f87-b929-0ae45a92e780.png" 
+      alt="Silhouette of Indonesian islands blue color with subtle white background gradient" 
+      class="w-full object-cover h-[150px] sm:h-[200px] md:h-[240px]" onerror="this.style.display='none'" />
+  </section>
+
+  <!-- 3 horizontal info boxes under islands -->
+  <section class="container max-w-7xl mx-auto px-6 md:px-20 mb-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-800">
+
+    <div class="border border-gray-300 rounded-lg p-6 flex flex-col items-center bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a4a259fe-414a-4dbd-8f27-eaa6aa78a3b6.png" alt="Industry icon representing oil production in blue" class="mb-4" />
+      <h3 class="font-semibold text-lg mb-2 text-blue-800 text-center">Lorem Ipsum 1</h3>
+      <p class="text-center text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="border border-gray-300 rounded-lg p-6 flex flex-col items-center bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5d4dfcfc-3451-4232-9f06-e95eac7ee664.png" alt="Industry icon representing power supply in blue" class="mb-4" />
+      <h3 class="font-semibold text-lg mb-2 text-blue-800 text-center">Lorem Ipsum 2</h3>
+      <p class="text-center text-sm">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="border border-gray-300 rounded-lg p-6 flex flex-col items-center bg-white shadow-sm hover:shadow-md transition-shadow cursor-default">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2e101c54-af8b-42d1-80df-609b2ae9a91c.png" alt="Industry icon representing mining in blue" class="mb-4" />
+      <h3 class="font-semibold text-lg mb-2 text-blue-800 text-center">Lorem Ipsum 3</h3>
+      <p class="text-center text-sm">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    </div>
+
+  </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-content container">
-      <div class="footer-brand">
-        <img src="logo.png" alt="Company Logo" />
-        <p>(Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.</p>
-        <p>📞 +62 8123456789</p>
-        <p>✉️ info@example.com</p>
+  <footer class="bg-blue-100 text-gray-900 py-10 px-6 md:px-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+
+      <div class="md:col-span-3 flex flex-col items-start space-y-4">
+        <!-- Footer logo (same as header) -->
+        <div class="flex items-center space-x-2">
+          <svg class="w-10 h-10" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+            <path fill="#0077c8" d="M50 130s40-56 40-96c0-22-18-34-40-34S10 21 10 54c0 40 40 76 40 76z"/>
+            <path fill="#ff6300" d="M50 96s16-26 16-46c0-12-9-19-16-19-7 0-16 10-16 22 0 20 16 43 16 43z"/>
+            <path fill="#c1c1c1" d="M50 130s15.63-22.1 15.63-38.5c0-15-15.63-24-15.63-24S34 77 34 93c0 18 16 37 16 37z"/>
+          </svg>
+          <span class="text-lg font-semibold text-blue-800">OIL <span class="text-orange-500">& GAS</span></span>
+        </div>
+        <address class="not-italic text-sm"> 
+          <strong>Oil & Gas</strong><br />
+          (Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.
+        </address>
+        <div class="flex items-center space-x-3 text-sm text-gray-800">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true" role="img"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 ..."/></svg>
+          <span>+62</span>
+        </div>
+        <div class="flex items-center space-x-3 text-sm text-gray-800">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true" role="img"><path d="M4 4h16v16H4z"/><path d="M22 6H2"/></svg>
+          <span>Lorem ipsum dolor</span>
+        </div>
       </div>
-      <div class="footer-links">
-        <ul>
-          <li><strong>About</strong></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Our Business</a></li>
-          <li><a href="#">Our Sustainability</a></li>
-          <li><a href="#">Investor</a></li>
-          <li><a href="#">Publication</a></li>
-        </ul>
-        <ul>
-          <li><strong>Company</strong></li>
-          <li><a href="#">Career</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Supplier Site</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Whistleblower</a></li>
-        </ul>
-        <ul>
-          <li><strong>Powered by</strong></li>
-          <li><img src="nmsn-logo.png" alt="NMSN Logo" style="height:30px;"></li>
-        </ul>
+
+      <nav aria-label="Footer navigation 1" class="md:col-span-3 grid grid-cols-1 gap-2 text-blue-700 footer-links">
+        <a href="#" class="block hover:underline text-sm">About Us</a>
+        <a href="#" class="block hover:underline text-sm">Our Business</a>
+        <a href="#" class="block hover:underline text-sm">Our Sustainability</a>
+        <a href="#" class="block hover:underline text-sm">Investor</a>
+        <a href="#" class="block hover:underline text-sm">Publication</a>
+      </nav>
+
+      <nav aria-label="Footer navigation 2" class="md:col-span-3 grid grid-cols-1 gap-2 text-blue-700 footer-links">
+        <a href="#" class="block hover:underline text-sm">Career</a>
+        <a href="#" class="block hover:underline text-sm">Contact Us</a>
+        <a href="#" class="block hover:underline text-sm">Whistleblower</a>
+        <a href="#" class="block hover:underline text-sm">Supplier Site</a>
+        <a href="#" class="block hover:underline text-sm">Privacy Policy</a>
+      </nav>
+
+      <div class="md:col-span-3 flex flex-col items-start justify-center space-y-2 text-sm">
+        <p class="font-semibold text-gray-800">Powered by:</p>
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8e1a7a54-ba1c-454d-ac08-75044148a834.png" alt="NMSN logo in blue yellow and red stylized text" onerror="this.style.display='none'" />
       </div>
+
     </div>
   </footer>
 
-  <script>
-    // Toggle mobile menu
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    toggle.addEventListener('click', () => {
-      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-    });
-  </script>
+<script>
+  // No additional JS required for static responsiveness
+</script>
+
 </body>
 </html>
+```
