@@ -8,7 +8,6 @@ button:focus {
     outline: none;
 }
 
-```
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -358,7 +357,6 @@ button:focus {
       text-decoration: underline;
       color: #083172;
     }
-```
 
 /* Footer Styles */
 .footer-container {
