@@ -1,3 +1,13 @@
+    /* Custom Scrollbar for carousel dots */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Override Tailwind default buttons */
+button:focus {
+    outline: none;
+}
+
     /* Reset & Base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; }
