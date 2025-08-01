@@ -1,120 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oil & Gas - Home</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oil & Gas Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
 </head>
-<body class="font-sans">
+<body class="bg-white font-sans">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
+            <div class="flex items-center space-x-3">
+                <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
+                    <div class="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-400 to-red-500 text-white font-bold">
+                        O
+                    </div>
+                    <span>OIL & GAS</span>
+                </div>
+            </div>
+            <ul class="hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
+                <li><a href="active" class="text-blue-900 border-b-2 border-blue-700 pb-1">Home</a></li>
+                <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
+                <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
+                <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Investor</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Publication</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Career</a></li>
+                <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- HEADER -->
-<header class="flex justify-between items-center p-4 bg-white shadow-md fixed w-full top-0 z-50">
-  <div class="flex items-center space-x-2">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Oil_platform_icon.svg/1024px-Oil_platform_icon.svg.png" class="w-10 h-10" alt="Logo">
-    <span class="font-bold text-xl">OIL & GAS</span>
-  </div>
-  <nav class="hidden md:flex space-x-6">
-    <a href="index.html" class="text-blue-600 border-b-2 border-blue-600">Home</a>
-    <a href="about.html" class="hover:text-blue-600">About Us</a>
-    <a href="business.html" class="hover:text-blue-600">Our Business</a>
-    <a href="sustainability.html" class="hover:text-blue-600">Our Sustainability</a>
-    <a href="investor.html" class="hover:text-blue-600">Investor</a>
-    <a href="publication.html" class="hover:text-blue-600">Publication</a>
-    <a href="career.html" class="hover:text-blue-600">Career</a>
-    <a href="contact.html" class="hover:text-blue-600">Contact Us</a>
-  </nav>
-  <div class="md:hidden cursor-pointer" id="hamburger">☰</div>
-</header>
+    <!-- Main Content -->
+    <main class="pt-20 max-w-7xl mx-auto px-4 md:px-12 select-none">
+        <!-- Carousel Section -->
+        <section class="relative w-full overflow-hidden rounded-lg shadow-lg mt-4">
+            <div id="carousel" class="flex transition-transform duration-700 ease-in-out" style="width: 300%;">
+                <!-- Carousel Slides -->
+                <article class="relative w-full shrink-0">
+                    <img 
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f120ff6b-4f11-43e4-b4ea-16a93bfc5752.png" 
+                        alt="Large oil rig and pipeline at sunset" 
+                        class="w-full object-cover h-60 md:h-96"
+                        onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/add907f1-406f-4d26-83b2-bada57bbb05e.png';"
+                    />
+                    <div class="carousel-content">
+                        <span class="carousel-badge">OIL & GAS</span>
+                        <h1 class="carousel-title">Lorem Ipsum</h1>
+                        <p class="carousel-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.</p>
+                        <button class="carousel-button">Explore More</button>
+                    </div>
+                </article>
+                <!-- Repeat for other 2 slides -->
+                <article class="relative w-full shrink-0">
+                    <img 
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/17829c82-0a10-4881-856a-85fda8af15c9.png" 
+                        alt="Panoramic oil refinery complex" 
+                        class="w-full object-cover h-60 md:h-96"
+                    />
+                    <div class="carousel-content">
+                        <span class="carousel-badge">OIL & GAS</span>
+                        <h1 class="carousel-title">Lorem Ipsum</h1>
+                        <p class="carousel-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.</p>
+                        <button class="carousel-button">Explore More</button>
+                    </div>
+                </article>
+                <article class="relative w-full shrink-0">
+                    <img 
+                        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cb600f15-69c9-46a3-bff1-43f59f8a54ce.png" 
+                        alt="Offshore oil platform" 
+                        class="w-full object-cover h-60 md:h-96"
+                    />
+                    <div class="carousel-content">
+                        <span class="carousel-badge">OIL & GAS</span>
+                        <h1 class="carousel-title">Lorem Ipsum</h1>
+                        <p class="carousel-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.</p>
+                        <button class="carousel-button">Explore More</button>
+                    </div>
+                </article>
+            </div>
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <button aria-label="Slide 1" class="carousel-indicator active" data-slide="0"></button>
+                <button aria-label="Slide 2" class="carousel-indicator" data-slide="1"></button>
+                <button aria-label="Slide 3" class="carousel-indicator" data-slide="2"></button>
+            </div>
+        </section>
 
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="hidden flex-col space-y-2 p-4 bg-white shadow-md fixed w-full top-16 z-40 md:hidden">
-  <a href="index.html" class="text-blue-600">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="business.html">Our Business</a>
-  <a href="sustainability.html">Our Sustainability</a>
-  <a href="investor.html">Investor</a>
-  <a href="publication.html">Publication</a>
-  <a href="career.html">Career</a>
-  <a href="contact.html">Contact Us</a>
-</div>
+        <!-- Image Gallery Section -->
+        <section class="mt-10 flex flex-col md:flex-row justify-center md:justify-between gap-6">
+            <!-- Gallery Item 1 -->
+            <div class="gallery-item">
+                <img 
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f064a476-b2a9-4a32-a347-d812e6013407.png" 
+                    alt="Pipeline facility" 
+                    class="gallery-image"
+                    onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2eee208e-0a01-4900-aafa-38b5b118157e.png';"
+                />
+                <div class="gallery-overlay">
+                    <h3>Lorem Ipsum</h3>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img 
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1820931f-bede-4d25-bee8-b183148bb92e.png" 
+                    alt="Oil storage tanks" 
+                    class="gallery-image"
+                />
+                <div class="gallery-overlay">
+                    <h3>Lorem Ipsum</h3>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img 
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3effb604-1459-4857-9b23-672189973b2e.png" 
+                    alt="Industrial oil platform" 
+                    class="gallery-image"
+                />
+                <div class="gallery-overlay">
+                    <h3>Lorem Ipsum</h3>
+                </div>
+            </div>
+        </section>
 
-<!-- HERO -->
-<section class="pt-20">
-  <div class="relative w-full h-[500px]">
-    <img src="https://images.unsplash.com/photo-1581090700227-4c4d7d6fdfcb" 
-         class="w-full h-full object-cover" alt="Oil Rig">
-    <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold">OIL & GAS INDUSTRY</h1>
-      <p class="mt-4 text-lg">Energy that moves the world</p>
-    </div>
-  </div>
-</section>
+        <!-- Press Release Section -->
+        <section class="mt-14 max-w-4xl mx-auto">
+            <h2 class="section-title">Press Release</h2>
+            <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-<!-- CONTENT -->
-<main class="max-w-6xl mx-auto p-6 space-y-12">
+            <div class="press-grid">
+                <div class="press-card">
+                    <h3>20 October, 2023</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="press-card">
+                    <h3>15 October, 2023</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="press-card">
+                    <h3>10 October, 2023</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="view-all">View All ></div>
+        </section>
 
-  <!-- Cards Section -->
-  <section class="grid md:grid-cols-3 gap-6 text-center">
-    <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
-      <h3 class="font-bold mb-2">Exploration</h3>
-      <p>Discovering new oil & gas resources globally.</p>
-    </div>
-    <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
-      <h3 class="font-bold mb-2">Production</h3>
-      <p>Efficient production with world-class technology.</p>
-    </div>
-    <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
-      <h3 class="font-bold mb-2">Sustainability</h3>
-      <p>Commitment to green and sustainable energy.</p>
-    </div>
-  </section>
+        <!-- Stock & Publication Section -->
+        <section class="mt-14 max-w-7xl mx-auto px-2 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 select-text">
+            <!-- Stock Box -->
+            <article class="stock-card">
+                <h3>Stock</h3>
+                <p class="stock-date">27/07/25 | Trading 30 days</p>
+                <img 
+                    src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dfbd9c67-d7e0-45ae-b2ca-35ddc293c46c.png" 
+                    alt="Stock chart" 
+                    class="stock-image"
+                    onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2abfa5d3-f179-48cc-90fa-c0e84b7d46cb.png';"
+                />
+                <div class="grid grid-cols-3 gap-4 mt-6">
+                    <div class="stock-value-box">
+                        <div class="stock-value-label">Lorem Ipsum</div>
+                        <div class="stock-value-currency">(InR)</div>
+                        <div class="stock-value-number">1,200</div>
+                    </div>
+                    <div class="stock-value-box">
+                        <div class="stock-value-label">Lorem Ipsum</div>
+                        <div class="stock-value-currency">(InR)</div>
+                        <div class="stock-value-number">1,200</div>
+                    </div>
+                    <div class="stock-value-box">
+                        <div class="stock-value-label">Lorem Ipsum</div>
+                        <div class="stock-value-currency">(InR)</div>
+                        <div class="stock-value-number">1,200</div>
+                    </div>
+                </div>
+            </article>
 
-  <!-- Press Release -->
-  <section>
-    <h2 class="text-2xl font-bold mb-4">Latest Press Release</h2>
-    <ul class="space-y-2">
-      <li>Monday, 06/07/25 - Company Achieves Record Production</li>
-      <li>Tuesday, 06/14/25 - New Sustainable Energy Project Launched</li>
-      <li>Friday, 06/20/25 - Partnership with Global Oil Leaders</li>
-    </ul>
-  </section>
+            <!-- Publication List -->
+            <article class="publication-section">
+                <div class="publication-header">
+                    <h3>Publication</h3>
+                    <a href="#" class="view-all">View All ></a>
+                </div>
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        <div class="book-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="publication-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur.</p>
+                        </div>
+                    </li>
+                    <li class="publication-item">
+                        <div class="book-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="publication-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur.</p>
+                        </div>
+                    </li>
+                    <li class="publication-item">
+                        <div class="book-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="publication-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </li>
+                    <li class="publication-item">
+                        <div class="book-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="publication-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur.</p>
+                        </div>
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </main>
 
-</main>
+    <!-- Footer Section -->
+    <footer class="mt-16 bg-indigo-50 pt-12 pb-8 text-gray-800">
+        <div class="footer-container">
+            <!-- Branding -->
+            <div class="footer-brand">
+                <div class="brand-logo">O</div>
+                <span>OIL & GAS</span>
+                <p>(Lorem) lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="mailto:info@oilgas.com">example@email.com</a>
+                <p>+62 1234 5678 90</p>
+            </div>
 
-<!-- FOOTER -->
-<footer class="bg-gray-800 text-white mt-12">
-  <div class="max-w-6xl mx-auto p-6 grid md:grid-cols-3 gap-6">
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Oil_platform_icon.svg/1024px-Oil_platform_icon.svg.png" class="w-12 mb-2" alt="">
-      <p>Oil & Gas Corporation<br>123 Energy Street, Jakarta<br>📞 +62 123 456 789</p>
-    </div>
-    <div class="grid grid-cols-2 gap-4">
-      <ul class="space-y-1">
-        <li><a href="about.html" class="hover:underline">About Us</a></li>
-        <li><a href="business.html" class="hover:underline">Our Business</a></li>
-        <li><a href="sustainability.html" class="hover:underline">Our Sustainability</a></li>
-        <li><a href="investor.html" class="hover:underline">Investor</a></li>
-        <li><a href="publication.html" class="hover:underline">Publication</a></li>
-      </ul>
-      <ul class="space-y-1">
-        <li><a href="career.html" class="hover:underline">Career</a></li>
-        <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
-        <li><a href="#" class="hover:underline">Supplier Site</a></li>
-        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-      </ul>
-    </div>
-    <div class="flex items-end justify-end text-sm">Powered by NMS</div>
-  </div>
-</footer>
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <h4>About Us</h4>
+                <a href="#">Our Business</a>
+                <a href="#">Our Sustainability</a>
+                <a href="#">Investor</a>
+                <a href="#">Publication</a>
+            </div>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
+            <div class="footer-links">
+                <h4>Career</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">Whistleblower</a>
+                <a href="#">Supplier SBO</a>
+                <a href="#">Privacy Policy</a>
+            </div>
 
+            <!-- Powered by -->
+            <div class="footer-powered">
+                <span>Powered by</span>
+                <span>NMS</span>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
