@@ -1,0 +1,163 @@
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Container */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header */
+    header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .navbar .logo img { height: 40px; }
+    .navbar nav { display: none; }
+    .navbar nav ul { display: flex; gap: 24px; list-style: none; }
+    .navbar nav ul li { position: relative; font-weight: 500; }
+    .navbar nav ul li.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 3px; background: #0051ba;
+      border-radius: 2px;
+    }
+    .navbar .menu-toggle { cursor: pointer; display: block; font-size: 24px; }
+
+    /* Hero */
+    .hero {
+      background: url('https://source.unsplash.com/1600x900/?oil-rig,sea') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .hero h1 { font-size: 2.5rem; }
+
+    /* Main layout */
+    .main { display: flex; flex-wrap: wrap; margin-top: 32px; }
+    .sidebar { flex: 1 1 240px; margin-bottom: 24px; }
+    .sidebar ul { list-style: none; background: #f5f5f5; padding: 16px; border-radius: 8px; }
+    .sidebar ul li { padding: 12px 8px; cursor: pointer; font-weight: 500; }
+    .sidebar ul li.active { background: #0051ba; color: #fff; border-radius: 4px; }
+    .content { flex: 3 1 600px; padding-left: 24px; }
+
+    /* Icon grid using Material Icons */
+    .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 24px; margin-bottom: 24px; }
+    .icon-item { text-align: center; }
+    .icon-item .material-icons { font-size: 48px; color: #0051ba; margin-bottom: 8px; }
+    .icon-item .label { font-weight: bold; font-size: 0.9rem; }
+    .icon-item .desc { font-size: 0.8rem; color: #666; }
+
+    /* Paragraph */
+    .content p { margin-bottom: 24px; }
+
+    /* Map section with Google Maps embed */
+    .map-section { text-align: center; margin-bottom: 24px; }
+    .map-section iframe { width: 100%; height: 400px; border: none; border-radius: 8px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; }
+    .legend-item .material-icons { font-size: 16px; color: #0051ba; }
+
+/* Footer Styles */
+.footer-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(4, 1fr);
+        font-size: 0.875rem;
+    }
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.brand-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(to bottom right, #fbbf24, #ef4444);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-brand > span {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+.footer-brand p {
+    color: #4b5563;
+    line-height: 1.625;
+    max-width: 20rem;
+}
+
+.footer-brand a {
+    color: #1e40af;
+    font-weight: 600;
+}
+
+.footer-brand a:hover {
+    text-decoration: underline;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links h4 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1e3a8a;
+}
+
+.footer-links a {
+    color: #4b5563;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #1e40af;
+}
+
+.footer-powered {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.footer-powered > span:last-child {
+    margin-top: 0.25rem;
+    color: #1e40af;
+    font-weight: 700;
+}
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .navbar nav { display: block; }
+      .navbar .menu-toggle { display: none; }
+    }
