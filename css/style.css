@@ -358,7 +358,7 @@ button:focus {
     font-weight: 700;
 }
 
-        .hamburger {
+.hamburger {
             cursor: pointer;
             width: 24px;
             height: 24px;
@@ -367,7 +367,17 @@ button:focus {
             border: none;
             z-index: 10;
             transition: all 0.25s;
-            display: block;
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 767px) {
+            .hamburger {
+                display: block; /* Show on mobile */
+            }
+            
+            .desktop-nav {
+                display: none; /* Hide desktop nav on mobile */
+            }
         }
 
         .hamburger-top,
@@ -403,7 +413,6 @@ button:focus {
             transform: rotate(-45deg) translateY(6px) translateX(-6px);
         }
 
-        /* Mobile menu */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -416,6 +425,13 @@ button:focus {
             transition: all 0.4s ease-in-out;
             overflow-y: auto;
             padding-top: 80px;
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu {
+                display: block; /* Show container on mobile */
+            }
         }
 
         .mobile-menu.active {
@@ -435,39 +451,4 @@ button:focus {
 
         .overlay.active {
             display: block;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 767px) {
-            .carousel-content {
-                max-width: 100%;
-                padding: 1rem;
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
-            }
-            
-            .gallery-item {
-                margin-bottom: 1rem;
-            }
-            
-            .press-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stock-values {
-                grid-template-columns: 1fr;
-            }
-            
-            .publication-section {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .carousel-title {
-                font-size: 1.25rem;
-            }
-            
-            .gallery-image {
-                height: 10rem;
-            }
         }

@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-          // Mobile Menu Toggle
+        // Mobile Menu Toggle
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.querySelector('.mobile-menu');
         const overlay = document.getElementById('overlay');
@@ -158,16 +158,3 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.classList.remove('no-scroll');
             });
         });
-        
-        // Responsive adjustments for carousel
-        function adjustCarouselHeight() {
-            const carousel = document.getElementById('carousel');
-            if (window.innerWidth < 768) {
-                carousel.style.height = 'auto';
-            } else {
-                carousel.style.height = '';
-            }
-        }
-        
-        window.addEventListener('resize', adjustCarouselHeight);
-        adjustCarouselHeight();
