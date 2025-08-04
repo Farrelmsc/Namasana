@@ -143,8 +143,7 @@
       padding: 30px 0;
     }
 
-            /* Hamburger Menu Styles */
-        .hamburger {
+.hamburger {
             cursor: pointer;
             width: 24px;
             height: 24px;
@@ -153,16 +152,16 @@
             border: none;
             z-index: 10;
             transition: all 0.25s;
-            display: none;
+            display: none; /* Hidden by default */
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .hamburger {
-                display: block;
+                display: block; /* Show on mobile */
             }
             
             .desktop-nav {
-                display: none;
+                display: none; /* Hide desktop nav on mobile */
             }
         }
 
@@ -211,12 +210,12 @@
             transition: all 0.4s ease-in-out;
             overflow-y: auto;
             padding-top: 80px;
-            display: none;
+            display: none; /* Hidden by default */
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .mobile-menu {
-                display: block;
+                display: block; /* Show container on mobile */
             }
         }
 
@@ -237,40 +236,4 @@
 
         .overlay.active {
             display: block;
-        }
-
-        /* Responsive Layout Adjustments */
-        @media (max-width: 768px) {
-            main {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-                position: static;
-            }
-            
-            .content-panel {
-                padding: 20px;
-            }
-            
-            .icon-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .video-container {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16/9;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .icon-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
         }
