@@ -6,9 +6,381 @@
     <title>Oil & Gas Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/ourbussiness.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Hamburger Menu Styles */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            background: none;
+            border: none;
+            z-index: 10;
+            transition: all 0.25s;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #1e40af;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle {
+            display: none;
+        }
+
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            z-index: 5;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease-in-out;
+            overflow-y: auto;
+            padding-top: 80px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 4;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+            }
+            
+            .content-panel {
+                padding: 20px;
+            }
+            
+            .icon-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .video-container {
+                width: 100% !important;
+                height: auto !important;
+                aspect-ratio: 16/9;
+            }
+            
+            iframe {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .icon-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Existing CSS */
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .video-container {
+            width: 700px;
+            height: 360px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .footer-container {
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+            font-size: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                grid-template-columns: repeat(4, 1fr);
+                font-size: 0.875rem;
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .brand-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            background: linear-gradient(to bottom right, #fbbf24, #ef4444);
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-brand > span {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .footer-brand p {
+            color: #4b5563;
+            line-height: 1.625;
+            max-width: 20rem;
+        }
+
+        .footer-brand a {
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .footer-brand a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+
+        .footer-links a {
+            color: #4b5563;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1e40af;
+        }
+
+        .footer-powered {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .footer-powered > span:last-child {
+            margin-top: 0.25rem;
+            color: #1e40af;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .footer-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+            }
+            
+            .video-container {
+                height: 300px;
+            }
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .content-section {
+            padding: 30px 0;
+        }
+        
+        /* Our Business Page Specific */
+        main {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-right: 30px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .sidebar li.active {
+            background: #1d4ed8;
+            color: white;
+        }
+        
+        .sidebar li:not(.active):hover {
+            background: #e5e7eb;
+        }
+        
+        .content-panel {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .content-panel h2 {
+            font-size: 28px;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .icon-block {
+            text-align: center;
+            padding: 20px 15px;
+            border-radius: 10px;
+            background: #f9fafb;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .icon-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .icon-block svg {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+        }
+        
+        .icon-label {
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+        
+        .icon-subtext {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .description {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body class="bg-white font-sans">
     <!-- Header Section -->
@@ -23,10 +395,10 @@
                 </div>
             </div>
             
-            <!-- Desktop Navigation (Hanya ditampilkan di desktop) -->
+            <!-- Desktop Navigation -->
             <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
-                <li><a href="active" class="text-blue-900 border-b-2 border-blue-700 pb-1">Home</a></li>
-                <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
+                <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
+                <li><a href="about.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">About Us</a></li>
                 <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
                 <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
                 <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
@@ -35,7 +407,7 @@
                 <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
             
-            <!-- Hamburger Icon (Hanya ditampilkan di mobile) -->
+            <!-- Hamburger Icon -->
             <button id="hamburger-btn" class="hamburger focus:outline-none">
                 <span class="hamburger-top"></span>
                 <span class="hamburger-middle"></span>
@@ -44,11 +416,11 @@
         </nav>
     </header>
 
-    <!-- Mobile Menu (Hanya aktif di mobile) -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <ul class="space-y-4 p-6 text-gray-600 font-semibold">
-            <li><a href="active" class="block py-2 text-blue-900 border-b border-blue-700">Home</a></li>
-            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
+            <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
+            <li><a href="about.html" class="block py-2 text-blue-900 border-b border-blue-700">About Us</a></li>
             <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
             <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
             <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
@@ -60,6 +432,18 @@
     
     <div id="overlay" class="overlay"></div>
 
+    <!-- Hero Section -->
+    <section class="relative">
+        <img 
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
+          alt="Yellow offshore oil and gas platform structure standing in calm ocean under bright blue sky with white fluffy clouds" 
+          class="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
+          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
+        />
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center px-6 md:px-16">
+          <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-4xl border-b-4 border-white pb-2 leading-tight">About</h1>
+        </div>
+    </section>
 
     <main>
       <aside class="sidebar" role="navigation" aria-label="Business sidebar menu">
@@ -153,7 +537,8 @@
     </main>
     
     <!-- Video YouTube Section -->
-    <div class="video-container" style="position: relative; width: 778px; height: 400px; margin: 40px auto; opacity: 1;">      <iframe 
+    <div class="video-container" style="position: relative; width: 778px; height: 400px; margin: 40px auto; opacity: 1;">
+      <iframe 
         width="778" 
         height="400" 
         src="https://www.youtube.com/embed/VIDEO_ID" 
@@ -224,6 +609,107 @@
       </div>
 
     </div>
-    </footer>    
+  </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const overlay = document.getElementById('overlay');
+        
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+        
+        overlay.addEventListener('click', () => {
+            hamburgerBtn.classList.remove('open');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
+        
+        // Close menu when clicking links
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('open');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+
+        // Fungsi untuk menangani error gambar
+        function handleImageError(event) {
+            const imgElement = event.target;
+            imgElement.style.backgroundColor = '#e0e7ff';
+            imgElement.style.display = 'flex';
+            imgElement.style.alignItems = 'center';
+            imgElement.style.justifyContent = 'center';
+            
+            // Tambahkan pesan error jika diperlukan
+            const errorDiv = document.createElement('div');
+            errorDiv.textContent = 'Image failed to load';
+            errorDiv.style.color = '#4b5563';
+            errorDiv.style.fontSize = '0.875rem';
+            
+            imgElement.parentNode.replaceChild(errorDiv, imgElement);
+        }
+
+        // Terapkan event listener ke semua gambar
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', handleImageError);
+            });
+            
+            // Fungsi untuk sidebar sticky behavior
+            const sidebar = document.querySelector('nav[aria-label="About Us Navigation"]');
+            const mainContent = document.querySelector('main');
+            
+            function updateSidebarPosition() {
+                const scrollPosition = window.scrollY;
+                const mainOffsetTop = mainContent.offsetTop;
+                const mainHeight = mainContent.offsetHeight;
+                const sidebarHeight = sidebar.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                if (window.innerWidth >= 768) {
+                    if (scrollPosition > mainOffsetTop - 100) {
+                        if (scrollPosition + windowHeight > mainOffsetTop + mainHeight) {
+                            sidebar.style.position = 'absolute';
+                            sidebar.style.top = `${mainHeight - sidebarHeight}px`;
+                        } else {
+                            sidebar.style.position = 'sticky';
+                            sidebar.style.top = '100px';
+                        }
+                    } else {
+                        sidebar.style.position = 'relative';
+                        sidebar.style.top = 'auto';
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', updateSidebarPosition);
+            window.addEventListener('resize', updateSidebarPosition);
+            updateSidebarPosition();
+            
+            // Fungsi untuk video optimization
+            const video = document.querySelector('video');
+            if (video) {
+                // Preload metadata untuk performa lebih baik
+                video.preload = 'metadata';
+                
+                // Optimasi untuk mobile
+                if ('connection' in navigator) {
+                    if (navigator.connection.saveData || navigator.connection.effectiveType.includes('2g')) {
+                        video.preload = 'none';
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
