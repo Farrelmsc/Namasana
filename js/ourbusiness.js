@@ -40,6 +40,8 @@
             errorDiv.textContent = 'Image failed to load';
             errorDiv.style.color = '#4b5563';
             errorDiv.style.fontSize = '0.875rem';
+            errorDiv.style.padding = '10px';
+            errorDiv.style.textAlign = 'center';
             
             imgElement.parentNode.replaceChild(errorDiv, imgElement);
         }
