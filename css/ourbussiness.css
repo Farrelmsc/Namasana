@@ -108,7 +108,7 @@
             right: -100%;
             width: 100%;
             height: calc(100vh - 64px);
-            background: transparent;
+            background: white;
             z-index: 5;
             transition: all 0.4s ease-in-out;
             overflow-y: auto;
@@ -131,7 +131,7 @@
             font-weight: 600;
             color: #1e3a8a;
             border-radius: 6px;
-            background: transparent;
+            background: #f3f4f6;
         }
         
         .mobile-menu a:hover {
@@ -529,7 +529,6 @@
                 font-size: 14px;
                 font-weight: 600;
                 color: #4b5563;
-                background-color: transparent;
             }
             
             .desktop-nav a {
