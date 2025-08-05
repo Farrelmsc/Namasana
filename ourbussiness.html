@@ -6,408 +6,8 @@
     <title>Oil & Gas Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/ourbussiness.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <style>
-        /* Custom Scrollbar for carousel dots */
-        .carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Override Tailwind default buttons */
-        button:focus {
-            outline: none;
-        }
-
-        /* Hamburger Menu Styles */
-        .hamburger {
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
-            position: relative;
-            background: none;
-            border: none;
-            z-index: 10;
-            transition: all 0.25s;
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
-            .desktop-nav {
-                display: none;
-            }
-        }
-
-        .hamburger-top,
-        .hamburger-middle,
-        .hamburger-bottom {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 24px;
-            height: 2px;
-            background: #1e40af;
-            transform: rotate(0);
-            transition: all 0.5s;
-        }
-
-        .hamburger-middle {
-            transform: translateY(7px);
-        }
-
-        .hamburger-bottom {
-            transform: translateY(14px);
-        }
-
-        .open .hamburger-top {
-            transform: rotate(45deg) translateY(6px) translateX(6px);
-        }
-
-        .open .hamburger-middle {
-            display: none;
-        }
-
-        .open .hamburger-bottom {
-            transform: rotate(-45deg) translateY(6px) translateX(-6px);
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            height: 100vh;
-            background: white;
-            z-index: 5;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease-in-out;
-            overflow-y: auto;
-            padding-top: 80px;
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 4;
-            display: none;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
-        /* Responsive Layout Adjustments */
-        @media (max-width: 768px) {
-            main {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-                position: static;
-            }
-            
-            .content-panel {
-                padding: 20px;
-            }
-            
-            .icon-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .map-container {
-                width: 100% !important;
-                height: auto !important;
-            }
-            
-            .map-container img {
-                width: 100%;
-                height: auto;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .icon-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-
-        /* Existing CSS */
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 14px;
-            color: #212121;
-            background-color: #fff;
-            line-height: 1.5;
-        }
-        a {
-            text-decoration: none;
-            color: #0f3a91;
-            cursor: pointer;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul, ol {
-            padding-left: 0;
-            margin: 0;
-            list-style: none;
-        }
-
-        /* Scroll for smaller heights */
-        html, body, #app {
-            height: 100%;
-            min-height: 100vh;
-        }
-        #app {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* HEADER */
-        header {
-            width: 100%;
-            background-color: #fff;
-            box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            background-color: #000;
-            color: #fff;
-            user-select: none;
-        }
-
-        /* MAIN CONTENT SECTION */
-        main {
-            display: flex;
-            gap: 24px;
-            user-select: none;
-        }
-
-        /* LEFT SIDEBAR */
-        aside.sidebar {
-            background: #fff;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgb(0 0 0 / 0.07);
-            font-weight: 400;
-            font-size: 14px;
-            border-radius: 3px;
-            user-select: none;
-        }
-        aside.sidebar ul li {
-            padding: 12px 20px;
-            cursor: pointer;
-            color: #222;
-            border-left: 4px solid transparent;
-            transition: all 0.2s ease-in-out;
-        }
-        aside.sidebar ul li.active,
-        aside.sidebar ul li:hover {
-            background-color: #0f3a91;
-            border-left-color: #0f3a91;
-            color: white;
-            font-weight: 600;
-        }
-
-        /* RIGHT CONTENT PANEL */
-        section.content-panel {
-            flex-grow: 1;
-            background: #fafbfc;
-            border-radius: 4px;
-            box-shadow: 0 2px 6px rgb(0 0 0 / 0.06);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        section.content-panel > h2 {
-            font-weight: 700;
-            font-size: 20px;
-            color: #0f3a91;
-            border-bottom: 2px solid #0f3a91;
-            padding-bottom: 6px;
-            width: fit-content;
-            margin-bottom: 22px;
-            user-select: none;
-        }
-
-        /* ICON GRID */
-        .icon-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 26px 15px;
-            margin-bottom: 26px;
-        }
-        .icon-block {
-            text-align: center;
-            user-select: none;
-            cursor: default;
-        }
-        .icon-block svg {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 6px;
-            fill: #0f3a91;
-        }
-        .icon-block .icon-label {
-            font-weight: 700;
-            color: #0f3a91;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-        .icon-block .icon-subtext {
-            font-weight: 400;
-            font-size: 12px;
-            color: #212121;
-        }
-
-        /* PARAGRAPH TEXT */
-        section.content-panel > p.description {
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #212121;
-            margin-bottom: 28px;
-            user-select: text;
-        }
-        /* HORIZONTAL SEPARATOR */
-        .separator {
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 28px;
-        }
-
-        /* Footer Styles */
-        .footer-container {
-            max-width: 80rem;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 2rem;
-            font-size: 0.75rem;
-        }
-
-        @media (min-width: 768px) {
-            .footer-container {
-                grid-template-columns: repeat(4, 1fr);
-                font-size: 0.875rem;
-            }
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .brand-logo {
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 9999px;
-            background: linear-gradient(to bottom right, #fbbf24, #ef4444);
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-brand > span {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #1e3a8a;
-        }
-
-        .footer-brand p {
-            color: #4b5563;
-            line-height: 1.625;
-            max-width: 20rem;
-        }
-
-        .footer-brand a {
-            color: #1e40af;
-            font-weight: 600;
-        }
-
-        .footer-brand a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .footer-links h4 {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #1e3a8a;
-        }
-
-        .footer-links a {
-            color: #4b5563;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #1e40af;
-        }
-
-        .footer-powered {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #4b5563;
-        }
-
-        .footer-powered > span:last-child {
-            margin-top: 0.25rem;
-            color: #1e40af;
-            font-weight: 700;
-        }
-    </style>
 </head>
 <body class="bg-white font-sans">
     <!-- Header Section -->
@@ -421,9 +21,7 @@
                     <span>OIL & GAS</span>
                 </div>
             </div>
-            
-            <!-- Desktop Navigation -->
-            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
+            <ul class="hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
                 <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
                 <li><a href="ourbussiness.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">Our Business</a></li>
@@ -433,44 +31,20 @@
                 <li><a href="#" class="hover:text-blue-900 transition">Career</a></li>
                 <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
-            
-            <!-- Hamburger Icon -->
-            <button id="hamburger-btn" class="hamburger focus:outline-none">
-                <span class="hamburger-top"></span>
-                <span class="hamburger-middle"></span>
-                <span class="hamburger-bottom"></span>
-            </button>
         </nav>
     </header>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <ul class="space-y-4 p-6 text-gray-600 font-semibold">
-            <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
-            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
-            <li><a href="ourbussiness.html" class="block py-2 text-blue-900 border-b border-blue-700">Our Business</a></li>
-            <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
-            <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Career</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
-        </ul>
+  <!-- Hero Section -->
+  <section class="relative">
+    <img 
+      src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
+      alt="Yellow offshore oil and gas platform structure standing in calm ocean under bright blue sky with white fluffy clouds" 
+      class="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
+      onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center px-6 md:px-16">
+      <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-4xl border-b-4 border-white pb-2 leading-tight">Our Bussiness</h1>
     </div>
-    
-    <div id="overlay" class="overlay"></div>
-
-    <!-- Hero Section -->
-    <section class="relative">
-        <img 
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
-          alt="Yellow offshore oil and gas platform structure standing in calm ocean under bright blue sky with white fluffy clouds" 
-          class="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
-          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
-        />
-        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center px-6 md:px-16">
-          <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-4xl border-b-4 border-white pb-2 leading-tight">Our Bussiness</h1>
-        </div>
-    </section>
+  </section>
 
     <main>
       <aside class="sidebar" role="navigation" aria-label="Business sidebar menu">
@@ -564,38 +138,40 @@
     </main>
     
     <!-- Indonesia Map Section -->
-    <div class="map-container" style="position: relative; width: 778px; height: 400px; margin: 5px auto; opacity: 1;">
+    <div style="position: relative; width: 778px; height: 400px; margin: 5px auto; opacity: 1;">
       <img 
         width="778" 
         height="400" 
         src="img/map.png" 
-        alt="Indonesia Map"
       />
     </div>
 
-    <!-- Map Legend -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-      <div class="p-3 border-b border-gray-200">
-        <p class="font-medium text-blue-800">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
+        
+        <!-- Map Legend -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+          <div class="p-3 border-b border-gray-200">
+            <p class="font-medium text-blue-800">Lorem ipsum</p>
+            <p class="text-gray-600">Lorem ipsum</p>
+            <p class="text-gray-600">Lorem ipsum</p>
+          </div>
+          <div class="p-3 border-b border-gray-200">
+            <p class="font-medium text-blue-800">Lorem ipsum</p>
+            <p class="text-gray-600">Lorem ipsum</p>
+          </div>
+          <div class="p-3 border-b border-gray-200">
+            <p class="font-medium text-blue-800">Lorem ipsum</p>
+            <p class="text-gray-600">Lorem ipsum</p>
+            <p class="text-gray-600">Lorem ipsum</p>
+          </div>
+        </div>
+        
+        <!-- See All Maps Button -->
+        <div class="text-center mt-8">
+          <a href="#" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors">
+            See All Maps >
+          </a>
+        </div>
       </div>
-      <div class="p-3 border-b border-gray-200">
-        <p class="font-medium text-blue-800">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-      </div>
-      <div class="p-3 border-b border-gray-200">
-        <p class="font-medium text-blue-800">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-      </div>
-    </div>
-    
-    <!-- See All Maps Button -->
-    <div class="text-center mt-8">
-      <a href="#" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors">
-        See All Maps >
-      </a>
     </div>
     
   <!-- Footer -->
@@ -659,61 +235,5 @@
 
     </div>
   </footer>
-    
-    <script>
-        // Mobile Menu Toggle
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const overlay = document.getElementById('overlay');
-        
-        hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('open');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
-        });
-        
-        overlay.addEventListener('click', () => {
-            hamburgerBtn.classList.remove('open');
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-        });
-        
-        // Close menu when clicking links
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburgerBtn.classList.remove('open');
-                mobileMenu.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-        });
-
-        // Fungsi untuk menangani error gambar
-        function handleImageError(event) {
-            const imgElement = event.target;
-            imgElement.style.backgroundColor = '#e0e7ff';
-            imgElement.style.display = 'flex';
-            imgElement.style.alignItems = 'center';
-            imgElement.style.justifyContent = 'center';
-            
-            // Tambahkan pesan error jika diperlukan
-            const errorDiv = document.createElement('div');
-            errorDiv.textContent = 'Image failed to load';
-            errorDiv.style.color = '#4b5563';
-            errorDiv.style.fontSize = '0.875rem';
-            
-            imgElement.parentNode.replaceChild(errorDiv, imgElement);
-        }
-
-        // Terapkan event listener ke semua gambar
-        document.addEventListener('DOMContentLoaded', () => {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('error', handleImageError);
-            });
-        });
-    </script>
 </body>
 </html>
