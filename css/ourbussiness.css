@@ -148,6 +148,86 @@
             }
         }
 
+        /* Peta & Legenda */
+        .map-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .map-container {
+            width: 100%;
+            max-width: 778px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .map-legend {
+            max-width: 778px;
+            margin: 20px auto 0;
+        }
+        
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .legend-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .legend-item {
+            padding: 12px;
+            border-left: 3px solid #1d4ed8;
+        }
+        
+        .legend-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        
+        .legend-desc {
+            color: #4b5563;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .btn-see-all {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        
+        .btn-see-all:hover {
+            background: #1e40af;
+        }
+
         /* Existing CSS */
         body {
             margin: 0;
@@ -206,99 +286,102 @@
         main {
             display: flex;
             gap: 24px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
             user-select: none;
         }
 
         /* LEFT SIDEBAR */
         aside.sidebar {
-            background: #fff;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgb(0 0 0 / 0.07);
-            font-weight: 400;
-            font-size: 14px;
-            border-radius: 3px;
-            user-select: none;
+            width: 250px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-right: 30px;
         }
-        aside.sidebar ul li {
-            padding: 12px 20px;
+        
+        aside.sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        aside.sidebar li {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            color: #222;
-            border-left: 4px solid transparent;
-            transition: all 0.2s ease-in-out;
+            transition: background 0.3s;
         }
-        aside.sidebar ul li.active,
-        aside.sidebar ul li:hover {
-            background-color: #0f3a91;
-            border-left-color: #0f3a91;
+        
+        aside.sidebar li.active {
+            background: #1d4ed8;
             color: white;
-            font-weight: 600;
+        }
+        
+        aside.sidebar li:not(.active):hover {
+            background: #e5e7eb;
         }
 
         /* RIGHT CONTENT PANEL */
         section.content-panel {
-            flex-grow: 1;
-            background: #fafbfc;
-            border-radius: 4px;
-            box-shadow: 0 2px 6px rgb(0 0 0 / 0.06);
+            flex: 1;
+            background: white;
+            border-radius: 8px;
             padding: 30px;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         section.content-panel > h2 {
-            font-weight: 700;
-            font-size: 20px;
-            color: #0f3a91;
-            border-bottom: 2px solid #0f3a91;
-            padding-bottom: 6px;
-            width: fit-content;
-            margin-bottom: 22px;
-            user-select: none;
+            font-size: 28px;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
         }
 
         /* ICON GRID */
         .icon-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 26px 15px;
-            margin-bottom: 26px;
+            gap: 25px;
+            margin-bottom: 40px;
         }
+        
         .icon-block {
             text-align: center;
-            user-select: none;
-            cursor: default;
+            padding: 20px 15px;
+            border-radius: 10px;
+            background: #f9fafb;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+        
+        .icon-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
         .icon-block svg {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 6px;
-            fill: #0f3a91;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
         }
-        .icon-block .icon-label {
-            font-weight: 700;
-            color: #0f3a91;
+        
+        .icon-label {
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+        
+        .icon-subtext {
             font-size: 14px;
-            margin-bottom: 4px;
+            color: #6b7280;
         }
-        .icon-block .icon-subtext {
-            font-weight: 400;
-            font-size: 12px;
-            color: #212121;
-        }
-
-        /* PARAGRAPH TEXT */
-        section.content-panel > p.description {
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #212121;
-            margin-bottom: 28px;
-            user-select: text;
-        }
-        /* HORIZONTAL SEPARATOR */
-        .separator {
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 28px;
+        
+        .description {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 16px;
         }
 
         /* Footer Styles */
