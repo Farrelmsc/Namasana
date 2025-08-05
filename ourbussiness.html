@@ -6,6 +6,7 @@
     <title>Oil & Gas Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/ourbussiness.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
         /* Custom Scrollbar for carousel dots */
@@ -158,6 +159,86 @@
             }
         }
 
+        /* Peta & Legenda */
+        .map-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .map-container {
+            width: 100%;
+            max-width: 778px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .map-legend {
+            max-width: 778px;
+            margin: 20px auto 0;
+        }
+        
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .legend-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .legend-item {
+            padding: 12px;
+            border-left: 3px solid #1d4ed8;
+        }
+        
+        .legend-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        
+        .legend-desc {
+            color: #4b5563;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .btn-see-all {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        
+        .btn-see-all:hover {
+            background: #1e40af;
+        }
+
         /* Existing CSS */
         body {
             margin: 0;
@@ -216,99 +297,102 @@
         main {
             display: flex;
             gap: 24px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
             user-select: none;
         }
 
         /* LEFT SIDEBAR */
         aside.sidebar {
-            background: #fff;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgb(0 0 0 / 0.07);
-            font-weight: 400;
-            font-size: 14px;
-            border-radius: 3px;
-            user-select: none;
+            width: 250px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-right: 30px;
         }
-        aside.sidebar ul li {
-            padding: 12px 20px;
+        
+        aside.sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        aside.sidebar li {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            color: #222;
-            border-left: 4px solid transparent;
-            transition: all 0.2s ease-in-out;
+            transition: background 0.3s;
         }
-        aside.sidebar ul li.active,
-        aside.sidebar ul li:hover {
-            background-color: #0f3a91;
-            border-left-color: #0f3a91;
+        
+        aside.sidebar li.active {
+            background: #1d4ed8;
             color: white;
-            font-weight: 600;
+        }
+        
+        aside.sidebar li:not(.active):hover {
+            background: #e5e7eb;
         }
 
         /* RIGHT CONTENT PANEL */
         section.content-panel {
-            flex-grow: 1;
-            background: #fafbfc;
-            border-radius: 4px;
-            box-shadow: 0 2px 6px rgb(0 0 0 / 0.06);
+            flex: 1;
+            background: white;
+            border-radius: 8px;
             padding: 30px;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         section.content-panel > h2 {
-            font-weight: 700;
-            font-size: 20px;
-            color: #0f3a91;
-            border-bottom: 2px solid #0f3a91;
-            padding-bottom: 6px;
-            width: fit-content;
-            margin-bottom: 22px;
-            user-select: none;
+            font-size: 28px;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
         }
 
         /* ICON GRID */
         .icon-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 26px 15px;
-            margin-bottom: 26px;
+            gap: 25px;
+            margin-bottom: 40px;
         }
+        
         .icon-block {
             text-align: center;
-            user-select: none;
-            cursor: default;
+            padding: 20px 15px;
+            border-radius: 10px;
+            background: #f9fafb;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+        
+        .icon-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
         .icon-block svg {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 6px;
-            fill: #0f3a91;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
         }
-        .icon-block .icon-label {
-            font-weight: 700;
-            color: #0f3a91;
+        
+        .icon-label {
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+        
+        .icon-subtext {
             font-size: 14px;
-            margin-bottom: 4px;
+            color: #6b7280;
         }
-        .icon-block .icon-subtext {
-            font-weight: 400;
-            font-size: 12px;
-            color: #212121;
-        }
-
-        /* PARAGRAPH TEXT */
-        section.content-panel > p.description {
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #212121;
-            margin-bottom: 28px;
-            user-select: text;
-        }
-        /* HORIZONTAL SEPARATOR */
-        .separator {
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 28px;
+        
+        .description {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 16px;
         }
 
         /* Footer Styles */
@@ -335,19 +419,6 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
-        }
-
-        .brand-logo {
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 9999px;
-            background: linear-gradient(to bottom right, #fbbf24, #ef4444);
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .footer-brand > span {
@@ -415,9 +486,13 @@
         <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
             <div class="flex items-center space-x-3">
                 <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
-                    <div class="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-400 to-red-500 text-white font-bold">
-                        O
-                    </div>
+                    <!-- Logo Header Diubah -->
+                    <img 
+                        src="img/oilngaslogo.png" 
+                        alt="Oil & Gas Logo"
+                        class="w-7 h-7 rounded-full object-cover"
+                        onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                    />
                     <span>OIL & GAS</span>
                 </div>
             </div>
@@ -563,102 +638,102 @@
       </section>
     </main>
     
-    <!-- Indonesia Map Section -->
-    <div class="map-container" style="position: relative; width: 778px; height: 400px; margin: 5px auto; opacity: 1;">
-      <img 
-        width="778" 
-        height="400" 
-        src="img/map.png" 
-        alt="Indonesia Map"
-      />
-    </div>
-
-    <!-- Map Legend -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-      <div class="p-3 border-b border-gray-200">
-        <p class="font-medium text-blue-800">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-      </div>
-      <div class="p-3 border-b border-gray-200">
-        <p class="font-medium text-blue-800">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-      </div>
-      <div class="p-3 border-b border-gray-200">
-        <p class="font-medium text-blue-800">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-        <p class="text-gray-600">Lorem ipsum</p>
-      </div>
+    <!-- Indonesia Map Section - Dioptimalkan -->
+    <div class="map-section">
+        <div class="map-container">
+            <img 
+                src="img/map.png" 
+                alt="Indonesia Map"
+                onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=Map+Placeholder';"
+            />
+        </div>
+        
+        <div class="map-legend">
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-title">Lorem ipsum</div>
+                    <div class="legend-desc">Lorem ipsum</div>
+                    <div class="legend-desc">Lorem ipsum</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-title">Lorem ipsum</div>
+                    <div class="legend-desc">Lorem ipsum</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-title">Lorem ipsum</div>
+                    <div class="legend-desc">Lorem ipsum</div>
+                    <div class="legend-desc">Lorem ipsum</div>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <a href="#" class="btn-see-all">See All Maps ></a>
+            </div>
+        </div>
     </div>
     
-    <!-- See All Maps Button -->
-    <div class="text-center mt-8">
-      <a href="#" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors">
-        See All Maps >
-      </a>
-    </div>
-    
-  <!-- Footer -->
-  <footer class="bg-blue-100 mt-16">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
-      
-      <!-- Footer left with logo and contact -->
-      <div class="md:col-span-4 space-y-4">
-        <img 
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9ee687d7-d234-439d-9a4f-c7b4268f9ae9.png" 
-          alt="Oil and Gas company logo, abstract flame in blue, orange and gray colors with words Oil & Gas in blue and orange below and tagline Your Slogan Here below" 
-          class="w-28 h-28 object-contain"
-          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
-        />
-        <div class="text-sm text-gray-900">
-          <strong>Oil & Gas</strong><br />
-          (Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.
-        </div>
-        <div class="flex items-center space-x-2 text-gray-800 text-sm">
-          <span aria-hidden="true" class="inline-block w-5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14a2 2 0 0 0 2 2h14"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10M7 14h4"></path></svg>
-          </span>
-          <span>+62</span>
-        </div>
-        <div class="flex items-center space-x-2 text-gray-800 text-sm">
-          <span aria-hidden="true" class="inline-block w-5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12 H8"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 16v2a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2-2v-2"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10"></path></svg>
-          </span>
-          <span>Lorem ipsum dolor</span>
-        </div>
-      </div>
+    <!-- Footer -->
+    <footer class="bg-blue-100 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
+            
+            <!-- Footer left with logo and contact -->
+            <div class="md:col-span-4 space-y-4">
+                <!-- Logo Footer Diubah -->
+                <img 
+                    src="img/oilngaslogo.png" 
+                    alt="Oil and Gas company logo"
+                    class="w-28 h-28 object-contain"
+                    onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                />
+                <div class="text-sm text-gray-900">
+                    <strong>Oil & Gas</strong><br />
+                    (Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.
+                </div>
+                <div class="flex items-center space-x-2 text-gray-800 text-sm">
+                    <span aria-hidden="true" class="inline-block w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14a2 2 0 0 0 2 2h14"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10M7 14h4"></path></svg>
+                    </span>
+                    <span>+62</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-800 text-sm">
+                    <span aria-hidden="true" class="inline-block w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12 H8"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 16v2a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2-2v-2"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10"></path></svg>
+                    </span>
+                    <span>Lorem ipsum dolor</span>
+                </div>
+            </div>
 
-      <!-- Footer middle with navigation links -->
-      <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
-        <div class="flex flex-col space-y-3">
-          <a href="#" class="hover:underline focus:underline focus:outline-none">About Us</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Our Business</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Investor</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Publication</a>
-        </div>
-        <div class="flex flex-col space-y-3">
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Career</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Contact Us</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Whistleblower</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Supplier Site</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Privacy Policy</a>
-        </div>
-      </nav>
+            <!-- Footer middle with navigation links -->
+            <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">About Us</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Our Business</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Investor</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Publication</a>
+                </div>
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Career</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Contact Us</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Whistleblower</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Supplier Site</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Privacy Policy</a>
+                </div>
+            </nav>
 
-      <!-- Footer right powered by -->
-      <div class="md:col-span-3 flex flex-col items-center md:items-end">
-        <span class="text-sm mb-2">Powered by:</span>
-        <img 
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c688afa-d093-4e07-b803-5615f3599ae9.png" 
-          alt="NMSN logo with blue letters and yellow swoosh design on white background" 
-          class="w-40 object-contain"
-          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
-        />
-      </div>
-
-    </div>
-  </footer>
+            <!-- Footer right powered by -->
+            <div class="md:col-span-3 flex flex-col items-center md:items-end">
+                <span class="text-sm mb-2">Powered by:</span>
+                <!-- Logo Powered By Diubah -->
+                <img 
+                    src="img/nmsnlogo.png" 
+                    alt="NMSN logo"
+                    class="w-40 object-contain"
+                    onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
+                />
+            </div>
+        </div>
+    </footer>
     
     <script>
         // Mobile Menu Toggle
