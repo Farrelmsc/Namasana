@@ -102,35 +102,157 @@
       padding: 0.6rem 1rem;
     }
   }
+  .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            background: none;
+            border: none;
+            z-index: 10;
+            transition: all 0.25s;
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 767px) {
+            .hamburger {
+                display: block; /* Show on mobile */
+            }
+            
+            .desktop-nav {
+                display: none; /* Hide desktop nav on mobile */
+            }
+        }
+
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #1e40af;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle {
+            display: none;
+        }
+
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            z-index: 5;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease-in-out;
+            overflow-y: auto;
+            padding-top: 80px;
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu {
+                display: block; /* Show container on mobile */
+            }
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 4;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
 </style>
 </head>
-<body class="flex flex-col min-h-screen">
-
-<!-- Navbar -->
+<body>
 <body class="bg-white font-sans">
     <!-- Header Section -->
     <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
         <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
             <div class="flex items-center space-x-3">
                 <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
-                    <div class="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-400 to-red-500 text-white font-bold">
-                        O
-                    </div>
+                    <!-- Logo Header Diubah -->
+                    <img 
+                        src="img/oilngaslogo.png" 
+                        alt="Oil & Gas Logo"
+                        class="w-7 h-7 rounded-full object-cover"
+                        onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                    />
                     <span>OIL & GAS</span>
                 </div>
             </div>
-            <ul class="hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
-                <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
+            
+            <!-- Desktop Navigation (Hanya ditampilkan di desktop) -->
+            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
+                <li><a href="active" class="text-blue-900 border-b-2 border-blue-700 pb-1">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
                 <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
-                <li><a href="sustainbility.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">Our Sustainability</a></li>
+                <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
                 <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
                 <li><a href="#" class="hover:text-blue-900 transition">Publication</a></li>
                 <li><a href="#" class="hover:text-blue-900 transition">Career</a></li>
                 <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
+            
+            <!-- Hamburger Icon (Hanya ditampilkan di mobile) -->
+            <button id="hamburger-btn" class="hamburger focus:outline-none">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
         </nav>
     </header>
+
+    <!-- Mobile Menu (Hanya aktif di mobile) -->
+    <div class="mobile-menu">
+        <ul class="space-y-4 p-6 text-gray-600 font-semibold">
+            <li><a href="active" class="block py-2 text-blue-900 border-b border-blue-700">Home</a></li>
+            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
+            <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
+            <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
+            <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
+            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
+            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Career</a></li>
+            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <div id="overlay" class="overlay"></div>
 
   <!-- Hero Section -->
   <section class="relative">
@@ -347,8 +469,8 @@
           onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
         />
       </div>
-
     </div>
   </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
