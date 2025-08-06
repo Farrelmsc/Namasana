@@ -77,8 +77,7 @@
             object-fit: contain;
         }
         
-        /* Hamburger Menu Styles */
-        .hamburger {
+.hamburger {
             cursor: pointer;
             width: 24px;
             height: 24px;
@@ -87,16 +86,16 @@
             border: none;
             z-index: 10;
             transition: all 0.25s;
-            display: none;
+            display: none; /* Hidden by default */
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .hamburger {
-                display: block;
+                display: block; /* Show on mobile */
             }
             
             .desktop-nav {
-                display: none;
+                display: none; /* Hide desktop nav on mobile */
             }
         }
 
@@ -145,12 +144,12 @@
             transition: all 0.4s ease-in-out;
             overflow-y: auto;
             padding-top: 80px;
-            display: none;
+            display: none; /* Hidden by default */
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .mobile-menu {
-                display: block;
+                display: block; /* Show container on mobile */
             }
         }
 
