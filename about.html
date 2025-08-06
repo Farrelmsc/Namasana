@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
-.hamburger {
+        /* Hamburger Menu Styles */
+        .hamburger {
             cursor: pointer;
             width: 24px;
             height: 24px;
@@ -17,16 +18,16 @@
             border: none;
             z-index: 10;
             transition: all 0.25s;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             .hamburger {
-                display: block; /* Show on mobile */
+                display: block;
             }
             
             .desktop-nav {
-                display: none; /* Hide desktop nav on mobile */
+                display: none;
             }
         }
 
@@ -75,12 +76,12 @@
             transition: all 0.4s ease-in-out;
             overflow-y: auto;
             padding-top: 80px;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             .mobile-menu {
-                display: block; /* Show container on mobile */
+                display: block;
             }
         }
 
@@ -102,6 +103,7 @@
         .overlay.active {
             display: block;
         }
+
         /* Responsive Layout Adjustments */
         @media (max-width: 768px) {
             main {
