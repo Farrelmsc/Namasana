@@ -179,26 +179,26 @@
         
         /* ==================== MAP SECTION OPTIMIZATIONS ==================== */
         .map-section {
-            width: 100%;
+            width: 50%;
             padding: 0 16px;
             margin: 20px 0 30px;
         }
         
         .map-container {
-            width: 100%;
+            width: 50%;
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .map-container img {
-            width: 100%;
+            width: 50%;
             height: auto;
             display: block;
         }
         
         .map-legend {
-            width: 100%;
+            width: 50%;
             margin-top: 16px;
         }
         
