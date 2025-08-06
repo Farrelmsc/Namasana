@@ -6,1013 +6,6 @@
     <title>Oil & Gas Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* ==================== HEADER STYLES ==================== */
-        .hamburger {
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
-            position: relative;
-            background: none;
-            border: none;
-            z-index: 10;
-            transition: all 0.25s;
-            display: none;
-        }
-
-        @media (max-width: 767px) {
-            .hamburger {
-                display: block;
-            }
-            
-            .desktop-nav {
-                display: none;
-            }
-        }
-
-        .hamburger-top,
-        .hamburger-middle,
-        .hamburger-bottom {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 24px;
-            height: 2px;
-            background: #1e40af;
-            transform: rotate(0);
-            transition: all 0.5s;
-        }
-
-        .hamburger-middle {
-            transform: translateY(7px);
-        }
-
-        .hamburger-bottom {
-            transform: translateY(14px);
-        }
-
-        .open .hamburger-top {
-            transform: rotate(45deg) translateY(6px) translateX(6px);
-        }
-
-        .open .hamburger-middle {
-            display: none;
-        }
-
-        .open .hamburger-bottom {
-            transform: rotate(-45deg) translateY(6px) translateX(-6px);
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            height: 100vh;
-            background: white;
-            z-index: 5;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease-in-out;
-            overflow-y: auto;
-            padding-top: 80px;
-            display: none;
-        }
-
-        @media (max-width: 767px) {
-            .mobile-menu {
-                display: block;
-            }
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 4;
-            display: none;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
-        /* ==================== HERO SECTION - PERBAIKAN JARAK ==================== */
-        .hero-container {
-            position: relative;
-            width: 100%;
-            height: 180px; /* Diperkecil dari 200px */
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-        }
-        
-        .hero-title {
-            color: white;
-            font-size: 24px;
-            font-weight: 700;
-            max-width: 100%;
-            padding-bottom: 8px;
-            border-bottom: 3px solid white;
-            margin-top: -10px; /* Penyesuaian jarak atas */
-        }
-        
-        /* ==================== MAIN CONTENT OPTIMIZATIONS ==================== */
-        main {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            margin: 20px 0;
-            padding: 0 16px;
-        }
-        
-        .sidebar {
-            width: 100%;
-            background: #f3f4f6;
-            border-radius: 8px;
-            padding: 16px;
-        }
-        
-        .sidebar ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .sidebar li {
-            padding: 10px 14px;
-            border-radius: 6px;
-            background: #e5e7eb;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            flex: 1;
-            min-width: 140px;
-            text-align: center;
-        }
-        
-        .sidebar li.active {
-            background: #1d4ed8;
-            color: white;
-        }
-        
-        .sidebar li:not(.active):hover {
-            background: #d1d5db;
-        }
-        
-        .content-panel {
-            width: 100%;
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .content-panel > h2 {
-            font-size: 22px;
-            color: #1e3a8a;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        
-        /* Icon Grid Optimization */
-        .icon-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 30px;
-        }
-        
-        .icon-block {
-            text-align: center;
-            padding: 16px;
-            border-radius: 8px;
-            background: #f9fafb;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .icon-block:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-        }
-        
-        .icon-block svg {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 10px;
-        }
-        
-        .icon-label {
-            font-weight: 600;
-            color: #1e3a8a;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-        
-        .icon-subtext {
-            font-size: 12px;
-            color: #6b7280;
-        }
-        
-        .description {
-            color: #4b5563;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-        
-        /* ==================== MAP SECTION OPTIMIZATIONS ==================== */
-        .map-section {
-            width: 100%;
-            padding: 0 16px;
-            margin: 20px 0 30px;
-        }
-        
-        .map-container {
-            width: 100%;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .map-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .map-legend {
-            width: 100%;
-            margin-top: 16px;
-        }
-        
-        .legend-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            background: #f8fafc;
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        
-        .legend-item {
-            padding: 12px;
-            border-left: 3px solid #1d4ed8;
-        }
-        
-        .legend-title {
-            font-weight: 600;
-            color: #1e40af;
-            margin-bottom: 4px;
-            font-size: 14px;
-        }
-        
-        .legend-desc {
-            color: #4b5563;
-            font-size: 12px;
-            line-height: 1.4;
-        }
-        
-        .btn-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .btn-see-all {
-            display: inline-block;
-            background: #1d4ed8;
-            color: white;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 6px;
-            transition: background 0.3s;
-            font-size: 14px;
-        }
-        
-        .btn-see-all:hover {
-            background: #1e40af;
-        }
-        
-        /* ==================== FOOTER OPTIMIZATIONS ==================== */
-        footer {
-            background: #dbeafe;
-            padding: 30px 16px 20px;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .footer-logo {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-        }
-        
-        .footer-brand-text {
-            font-size: 14px;
-            color: #1e293b;
-            line-height: 1.5;
-        }
-        
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #334155;
-        }
-        
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-        
-        .link-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .link-group h4 {
-            font-weight: 600;
-            color: #1e3a8a;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-        
-        .link-group a {
-            font-size: 14px;
-            color: #475569;
-            transition: color 0.2s;
-        }
-        
-        .link-group a:hover {
-            color: #1e40af;
-            text-decoration: underline;
-        }
-        
-        .footer-powered {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-            margin-top: 20px;
-        }
-        
-        .powered-text {
-            font-size: 14px;
-            font-weight: 600;
-            color: #475569;
-        }
-        
-        .powered-logo {
-            width: 120px;
-            height: auto;
-            object-fit: contain;
-        }
-        
-        /* ==================== MEDIA QUERIES ==================== */
-        @media (min-width: 480px) {
-            .hero-container {
-                height: 200px; /* Diperkecil dari 250px */
-            }
-            
-            .hero-title {
-                font-size: 28px;
-            }
-            
-            .icon-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 640px) {
-            .hero-container {
-                height: 220px; /* Diperkecil dari 300px */
-            }
-            
-            .hero-title {
-                font-size: 32px;
-            }
-            
-            .icon-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .legend-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1.5fr 1fr;
-            }
-            
-            .footer-links {
-                grid-column: span 2;
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .footer-powered {
-                grid-column: span 2;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .header-container {
-                padding: 0 24px;
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-            
-            .hamburger {
-                display: none;
-            }
-            
-            .desktop-nav {
-                display: flex;
-                gap: 24px;
-                font-size: 14px;
-                font-weight: 600;
-                color: #4b5563;
-            }
-            
-            .desktop-nav a {
-                transition: color 0.2s;
-            }
-            
-            .desktop-nav a:hover {
-                color: #1e40af;
-            }
-            
-            .mobile-menu {
-                display: none;
-            }
-            
-            .hero-container {
-                height: 240px; /* Diperkecil dari 350px */
-            }
-            
-            main {
-                flex-direction: row;
-                max-width: 1200px;
-                margin: 40px auto;
-                padding: 0 24px;
-                gap: 30px;
-            }
-            
-            .sidebar {
-                width: 250px;
-                padding: 20px;
-            }
-            
-            .sidebar ul {
-                flex-direction: column;
-                flex-wrap: nowrap;
-                gap: 8px;
-            }
-            
-            .content-panel {
-                flex: 1;
-                padding: 30px;
-            }
-            
-            .icon-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 20px;
-            }
-            
-            .map-section {
-                max-width: 1200px;
-                margin: 40px auto;
-                padding: 0 24px;
-            }
-            
-            .legend-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            footer {
-                padding: 40px 24px 30px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 40px;
-            }
-            
-            .footer-links {
-                grid-column: unset;
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-powered {
-                grid-column: unset;
-                flex-direction: column;
-                align-items: flex-end;
-                justify-content: flex-end;
-                margin-top: 0;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .hero-container {
-                height: 260px; /* Diperkecil dari 400px */
-            }
-            
-            .hero-title {
-                font-size: 36px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1.5fr repeat(2, 1fr) auto;
-            }
-            
-            .footer-links {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1280px) {
-            .hero-container {
-                height: 300px; /* Diperkecil dari 500px */
-            }
-            
-            .hero-title {
-                font-size: 42px;
-            }
-        }
-
-        /* Footer Styles */
-        .footer-container {
-            max-width: 80rem;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 2rem;
-            font-size: 0.75rem;
-        }
-
-        @media (min-width: 768px) {
-            .footer-container {
-                grid-template-columns: repeat(4, 1fr);
-                font-size: 0.875rem;
-            }
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .brand-logo {
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 9999px;
-            background: linear-gradient(to bottom right, #fbbf24, #ef4444);
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-brand > span {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #1e3a8a;
-        }
-
-        .footer-brand p {
-            color: #4b5563;
-            line-height: 1.625;
-            max-width: 20rem;
-        }
-
-        .footer-brand a {
-            color: #1e40af;
-            font-weight: 600;
-        }
-
-        .footer-brand a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .footer-links h4 {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #1e3a8a;
-        }
-
-        .footer-links a {
-            color: #4b5563;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #1e40af;
-        }
-
-        .footer-powered {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #4b5563;
-        }
-
-        .footer-powered > span:last-child {
-            margin-top: 0.25rem;
-            color: #1e40af;
-            font-weight: 700;
-        }
-    </style>
-</head>
-<body class="bg-white font-sans">
-    <!-- Header Section -->
-    <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-        <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
-            <div class="flex items-center space-x-3">
-                <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
-                    <div class="w-7 h-7 rounded-full bg-gradient-to-br from-yellow-400 to-red-500 flex items-center justify-center">
-                        <span class="text-white font-bold">O&G</span>
-                    </div>
-                    <span>OIL & GAS</span>
-                </div>
-            </div>
-            
-            <!-- Desktop Navigation -->
-            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
-                <li><a href="active" class="text-blue-900 border-b-2 border-blue-700 pb-1">Home</a></li>
-                <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
-                <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
-                <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
-                <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Publication</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Career</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
-            </ul>
-            
-            <!-- Hamburger Icon -->
-            <button id="hamburger-btn" class="hamburger focus:outline-none">
-                <span class="hamburger-top"></span>
-                <span class="hamburger-middle"></span>
-                <span class="hamburger-bottom"></span>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <ul class="space-y-4 p-6 text-gray-600 font-semibold">
-            <li><a href="active" class="block py-2 text-blue-900 border-b border-blue-700">Home</a></li>
-            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
-            <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
-            <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
-            <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Career</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
-        </ul>
-    </div>
-    
-    <div id="overlay" class="overlay"></div>
-
-    <!-- Hero Section - Jarak Diperpendek -->
-    <section class="hero-container">
-        <img 
-          src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-          alt="Offshore oil and gas platform" 
-          class="hero-image"
-        />
-        <div class="hero-overlay">
-          <h1 class="hero-title">Our Business</h1>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main>
-      <aside class="sidebar">
-        <ul>
-          <li class="active">Overview</li>
-          <li>Oil &amp; Gas</li>
-          <li>Power</li>
-          <li>Copper &amp; Gold Mining</li>
-        </ul>
-      </aside>
-
-      <section class="content-panel">
-        <h2>Overview of Our Business</h2>
-        <div class="icon-grid">
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64" >
-              <path fill="#0f3a91" d="M10 33h44v6H10z"/>
-              <path fill="#61d6ff" d="M12 33l6-10 10 10 10-14 8 14 4-12v14H12z"/>
-            </svg>
-            <div class="icon-label">Exploration</div>
-            <div class="icon-subtext">Finding new reserves</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64">
-              <rect fill="#0f3a91" x="20" y="20" width="24" height="24" rx="8" />
-              <circle fill="#61d6ff" cx="32" cy="32" r="10" />
-              <line x1="32" y1="22" x2="32" y2="42" stroke="#0f3a91" stroke-width="2"/>
-            </svg>
-            <div class="icon-label">Production</div>
-            <div class="icon-subtext">Extracting resources</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64">
-              <polygon fill="#0f3a91" points="32 14 48 40 16 40" />
-              <path fill="#61d6ff" d="M26,40h12v6H26z" />
-            </svg>
-            <div class="icon-label">Refining</div>
-            <div class="icon-subtext">Processing raw materials</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64" >
-              <circle cx="32" cy="32" r="18" fill="#0f3a91" />
-              <path fill="#61d6ff" d="M32 20a12 12 0 0110 18l-10 10-10-10a12 12 0 0110-18z" />
-              <circle cx="32" cy="30" r="6" fill="#0f3a91" />
-            </svg>
-            <div class="icon-label">Distribution</div>
-            <div class="icon-subtext">Global supply chain</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64">
-              <rect fill="#0f3a91" x="12" y="28" width="40" height="14" rx="6" />
-              <circle fill="#61d6ff" cx="20" cy="40" r="8" />
-              <circle fill="#61d6ff" cx="44" cy="40" r="8" />
-            </svg>
-            <div class="icon-label">Logistics</div>
-            <div class="icon-subtext">Transport solutions</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64">
-              <ellipse cx="28" cy="40" rx="12" ry="16" fill="#0f3a91"/>
-              <ellipse cx="40" cy="40" rx="12" ry="16" fill="#61d6ff"/>
-              <rect x="24" y="38" width="16" height="12" fill="#0f3a91" />
-            </svg>
-            <div class="icon-label">Research</div>
-            <div class="icon-subtext">Innovation & development</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64">
-              <path fill="#0f3a91" d="M20 26h24l-8 22H28z" />
-              <circle fill="#61d6ff" cx="32" cy="40" r="8" />
-              <path fill="#0f3a91" d="M38 25l-8-10-8 10z" />
-            </svg>
-            <div class="icon-label">Sustainability</div>
-            <div class="icon-subtext">Environmental commitment</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64">
-              <path fill="#0f3a91" d="M52 42l-8-8V30l12-4v8z" />
-              <circle fill="#61d6ff" cx="44" cy="36" r="12" />
-              <path fill="#0f3a91" d="M44 20l1 5-5 4 5 3-1 5-11-10z" />
-            </svg>
-            <div class="icon-label">Safety</div>
-            <div class="icon-subtext">Operational excellence</div>
-          </div>
-        </div>
-
-        <p class="description">
-          Oil & Gas is a global leader in the energy sector with over 50 years of experience in exploration, production, refining, and distribution. Our integrated approach allows us to deliver reliable energy solutions while maintaining the highest standards of safety and environmental responsibility. We operate in more than 30 countries with a diverse portfolio of assets and a commitment to innovation and sustainable growth.
-        </p>
-        <p class="description mt-4">
-          Our business model focuses on long-term value creation through strategic investments in both conventional and renewable energy sources. We are dedicated to meeting the world's growing energy demands while reducing our carbon footprint and contributing to the communities where we operate.
-        </p>
-      </section>
-    </main>
-    
-    <!-- Indonesia Map Section -->
-    <div class="map-section">
-        <div class="map-container">
-            <img 
-                src="https://images.unsplash.com/photo-1622450745929-3aae8b8b8a1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-                alt="Indonesia Map"
-            />
-        </div>
-        
-        <div class="map-legend">
-            <div class="legend-grid">
-                <div class="legend-item">
-                    <div class="legend-title">Exploration Sites</div>
-                    <div class="legend-desc">Active exploration locations</div>
-                    <div class="legend-desc">15 sites across Indonesia</div>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-title">Production Facilities</div>
-                    <div class="legend-desc">8 major production centers</div>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-title">Refineries</div>
-                    <div class="legend-desc">3 state-of-the-art facilities</div>
-                    <div class="legend-desc">Processing capacity: 500K bpd</div>
-                </div>
-            </div>
-            
-            <div class="btn-container">
-                <a href="#" class="btn-see-all">See All Maps ></a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-red-500 flex items-center justify-center mb-4">
-                    <span class="text-white font-bold text-xl">O&G</span>
-                </div>
-                <p class="footer-brand-text">
-                    <strong>Oil & Gas</strong><br />
-                    Jl. Energy No. 123, Jakarta 12950<br />
-                    Indonesia
-                </p>
-                <div class="footer-contact">
-                    <div class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                        </svg>
-                        <span>+62 21 1234 5678</span>
-                    </div>
-                    <div class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                        </svg>
-                        <span>info@oilandgascompany.com</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <div class="link-group">
-                    <h4>Company</h4>
-                    <a href="about.html">About Us</a>
-                    <a href="ourbussiness.html">Our Business</a>
-                    <a href="sustainbility.html">Our Sustainability</a>
-                    <a href="investor.html">Investor</a>
-                    <a href="#">Publication</a>
-                </div>
-                <div class="link-group">
-                    <h4>Resources</h4>
-                    <a href="#">Career</a>
-                    <a href="#">Contact Us</a>
-                    <a href="#">Whistleblower</a>
-                    <a href="#">Supplier Site</a>
-                    <a href="#">Privacy Policy</a>
-                </div>
-            </div>
-            
-            <div class="footer-powered">
-                <span class="powered-text">Powered by:</span>
-                <div class="bg-gray-800 text-white px-4 py-2 rounded font-bold mt-2">
-                    NMSN ENERGY
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const overlay = document.getElementById('overlay');
-        
-        hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('open');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.classList.toggle('overflow-hidden');
-        });
-        
-        overlay.addEventListener('click', () => {
-            hamburgerBtn.classList.remove('open');
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('overflow-hidden');
-        });
-        
-        // Close mobile menu when clicking on links
-        const mobileLinks = document.querySelectorAll('.mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburgerBtn.classList.remove('open');
-                mobileMenu.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.classList.remove('overflow-hidden');
-            });
-        });
-    </script>
-</body>
-</html>
-Perubahan Utama yang Saya Lakukan
-Perbaikan tinggi headline:
-
-Mengurangi tinggi hero section pada semua breakpoint:
-
-Mobile: dari 200px menjadi 180px
-
-Tablet: dari 250px menjadi 200px
-
-Desktop kecil: dari 300px menjadi 220px
-
-Desktop sedang: dari 350px menjadi 240px
-
-Desktop besar: dari 400px menjadi 260px
-
-Desktop ekstra besar: dari 500px menjadi 300px
-
-Penyesuaian margin atas:
-
-Menambahkan margin-top: -10px pada hero-title untuk memperpendek jarak antara atas headline dengan tepi atas gambar
-
-Perbaikan teks:
-
-Mengganti "Our Bussiness" menjadi "Our Business" yang benar
-
-Perbaikan gambar placeholder:
-
-Mengganti URL gambar yang tidak valid dengan gambar placeholder yang sesuai
-
-Menambahkan placeholder untuk logo perusahaan
-
-Perbaikan konten:
-
-Menambahkan konten yang lebih informatif pada icon blocks
-
-Memperbaiki teks deskripsi dengan konten yang relevan
-
-Perubahan ini membuat headline pada tab "Our Business" lebih pendek dan serasi dengan tab "About" seperti yang diminta.
-
-our bussiness
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Oil & Gas Landing Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
         .hamburger {
@@ -1592,6 +585,270 @@ our bussiness
                 font-size: 42px;
             }
         }
+        
+        /* ==================== CUSTOM STYLES FROM PROVIDED CSS ==================== */
+        /* Custom Scrollbar for carousel dots */
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Override Tailwind default buttons */
+        button:focus {
+            outline: none;
+        }
+
+        /* Carousel Content */
+        .carousel-content {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent, transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            gap: 0.75rem;
+            color: white;
+            max-width: 45%;
+        }
+
+        .carousel-badge {
+            text-transform: uppercase;
+            color: #fbbf24;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+
+        .carousel-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1.25;
+            max-width: 28rem;
+        }
+
+        .carousel-description {
+            font-size: 0.75rem;
+            max-width: 28rem;
+        }
+
+        .carousel-button {
+            width: 7rem;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            background-color: #fbbf24;
+            color: black;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-button:hover {
+            background-color: #f59e0b;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .carousel-indicator {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+            background-color: #d1d5db;
+            cursor: pointer;
+        }
+
+        .carousel-indicator:hover {
+            background-color: #fde68a;
+        }
+
+        .carousel-indicator.active {
+            background-color: #fbbf24;
+        }
+
+        /* Gallery Items */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 15rem;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 1rem;
+        }
+
+        .gallery-overlay h3 {
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        /* Press Section */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: black;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #4b5563;
+            max-width: 36rem;
+            font-size: 0.875rem;
+            margin-bottom: 3rem;
+        }
+
+        .press-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .press-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .press-card {
+            border: 1px solid #e5e7eb;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            background-color: white;
+        }
+
+        .press-card h3 {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+
+        .press-card p {
+            color: #4b5563;
+            font-size: 0.75rem;
+        }
+
+        .view-all {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #1d4ed8;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* Stock Card */
+        .stock-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 28rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stock-card h3 {
+            font-size: 1.125rem;
+            font-weight: 800;
+            color: black;
+            margin-bottom: 0.5rem;
+        }
+
+        .stock-date {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .stock-image {
+            border-radius: 0.375rem;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .stock-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+            font-weight: 700;
+            color: #4b5563;
+            margin-top: 1rem;
+        }
+
+        /* Publication Section */
+        .publication-section {
+            grid-column: span 2;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .publication-section h3 {
+            font-size: 1.125rem;
+            font-weight: 800;
+            color: black;
+            margin-bottom: 1rem;
+        }
+
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .publication-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        .publication-item:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .publication-item p {
+            color: #4b5563;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
 
         /* Footer Styles */
         .footer-container {
@@ -1693,59 +950,55 @@ our bussiness
 </head>
 <body>
     <!-- Header Section - Optimized for Mobile -->
-<body class="bg-white font-sans">
-    <!-- Header Section -->
-    <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-        <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
-            <div class="flex items-center space-x-3">
-                <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
-                    <!-- Logo Header Diubah -->
-                    <img 
-                        src="img/oilngaslogo.png" 
-                        alt="Oil & Gas Logo"
-                        class="w-7 h-7 rounded-full object-cover"
-                        onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
-                    />
-                    <span>OIL & GAS</span>
-                </div>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img 
+                    src="img/oilngaslogo" 
+                    alt="Oil & Gas Logo"
+                    class="logo-img"
+                    onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                />
+                <span>OIL & GAS</span>
             </div>
             
-            <!-- Desktop Navigation (Hanya ditampilkan di desktop) -->
-            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
-                <li><a href="active" class="text-blue-900 border-b-2 border-blue-700 pb-1">Home</a></li>
-                <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
-                <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
-                <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
-                <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Publication</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Career</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
+            <!-- Desktop Navigation -->
+            <ul class="desktop-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="ourbussiness.html" class="text-blue-700 border-b-2 border-blue-700 pb-1">Our Business</a></li>
+                <li><a href="sustainbility.html">Our Sustainability</a></li>
+                <li><a href="investor.html">Investor</a></li>
+                <li><a href="#">Publication</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Contact Us</a></li>
             </ul>
             
-            <!-- Hamburger Icon (Hanya ditampilkan di mobile) -->
+            <!-- Hamburger Icon -->
             <button id="hamburger-btn" class="hamburger focus:outline-none">
                 <span class="hamburger-top"></span>
                 <span class="hamburger-middle"></span>
                 <span class="hamburger-bottom"></span>
             </button>
-        </nav>
+        </div>
     </header>
 
-    <!-- Mobile Menu (Hanya aktif di mobile) -->
+    <!-- Mobile Menu - FULL SCREEN -->
     <div class="mobile-menu">
-        <ul class="space-y-4 p-6 text-gray-600 font-semibold">
-            <li><a href="active" class="block py-2 text-blue-900 border-b border-blue-700">Home</a></li>
-            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
-            <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
-            <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
-            <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Career</a></li>
-            <li><a href="#" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
+        <div class="close-menu" id="close-menu-btn">
+            <span class="close-icon">×</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="ourbussiness.html" class="active">Our Business</a></li>
+            <li><a href="sustainbility.html">Our Sustainability</a></li>
+            <li><a href="investor.html">Investor</a></li>
+            <li><a href="#">Publication</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Contact Us</a></li>
         </ul>
     </div>
-    
-    <div id="overlay" class="overlay"></div>
 
     <!-- Hero Section - Optimized for Mobile -->
     <section class="hero-container">
@@ -1756,7 +1009,7 @@ our bussiness
           onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
         />
         <div class="hero-overlay">
-          <h1 class="hero-title">Our Bussiness</h1>
+          <h1 class="hero-title">Our Business</h1>
         </div>
     </section>
 
