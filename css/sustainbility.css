@@ -1,0 +1,190 @@
+  /* Custom styles to exactly match the requested design */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+  }
+  /* Navigation active underline */
+  nav a.active::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    height: 3px;
+    width: 55%;
+    background-color: #1d4ed8; /* blue-700 */
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+  /* Left menu area link active style */
+  .left-menu a.active {
+    background-color: #1d4ed8;
+    color: white;
+    font-weight: 600;
+    box-shadow: inset 0 0 5px rgb(255 255 255/0.6);
+  }
+  /* Left menu links styling */
+  .left-menu a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: #111827;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-left: 4px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  .left-menu a:hover:not(.active) {
+    background-color: #e0e7ff; /* blue-100 */
+    border-left-color: #1d4ed8; /* blue-700 */
+  }
+  /* Underline for section headers */
+  .section-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #1e40af; /* blue-800 */
+    border-bottom: 2px solid #1d4ed8;
+    display: inline-block;
+    padding-bottom: 3px;
+  }
+  /* Box shadows for card container */
+  .card-shadow {
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+  }
+  /* Custom icons */
+  .icon-bg {
+    border-radius: .5rem;
+    padding: .5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Button style like the bottom blue button with icon */
+  .btn-primary {
+    background-color: #1d4ed8;
+    color: white;
+    font-weight: 600;
+    padding: .5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    border-radius: .375rem;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: #2563eb;
+  }
+  /* Footer link hover */
+  footer a:hover {
+    text-decoration: underline;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    nav {
+      font-size: 0.875rem;
+    }
+    .section-title {
+      font-size: 1.3rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .left-menu {
+      flex-shrink: 0;
+    }
+    .left-menu a {
+      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+    }
+  }
+  .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            background: none;
+            border: none;
+            z-index: 10;
+            transition: all 0.25s;
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 767px) {
+            .hamburger {
+                display: block; /* Show on mobile */
+            }
+            
+            .desktop-nav {
+                display: none; /* Hide desktop nav on mobile */
+            }
+        }
+
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #1e40af;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle {
+            display: none;
+        }
+
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            z-index: 5;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease-in-out;
+            overflow-y: auto;
+            padding-top: 80px;
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu {
+                display: block; /* Show container on mobile */
+            }
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 4;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }

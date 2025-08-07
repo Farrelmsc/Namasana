@@ -1,0 +1,104 @@
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(37, 99, 235, 0.5);
+      border-radius: 3px;
+    }
+    .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            background: none;
+            border: none;
+            z-index: 10;
+            transition: all 0.25s;
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 767px) {
+            .hamburger {
+                display: block; /* Show on mobile */
+            }
+            
+            .desktop-nav {
+                display: none; /* Hide desktop nav on mobile */
+            }
+        }
+
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #1e40af;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle {
+            display: none;
+        }
+
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            z-index: 5;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease-in-out;
+            overflow-y: auto;
+            padding-top: 80px;
+            display: none; /* Hidden by default */
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu {
+                display: block; /* Show container on mobile */
+            }
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 4;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
