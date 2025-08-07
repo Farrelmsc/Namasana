@@ -1,3 +1,8 @@
+        body {
+            font-family: Poppins, sans-serif; 
+        }
+
+
         .mobile-menu {
             position: fixed;
             top: 0;
