@@ -259,6 +259,10 @@ button:focus {
     transition: box-shadow 0.3s;
 }
 
+.book-icon {
+    background: transparent;
+}
+
 .publication-item:hover {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
