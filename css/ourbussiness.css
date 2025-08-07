@@ -2,7 +2,6 @@
             font-family: Poppins, sans-serif; 
         }
 
-
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -526,102 +525,63 @@
             }
         }
         
-        /* Footer Styles */
-        .footer-container {
-            max-width: 80rem;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 2rem;
-            font-size: 0.75rem;
-        }
+.footer-brand > span {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1e3a8a;
+}
 
-        @media (min-width: 768px) {
-            .footer-container {
-                grid-template-columns: repeat(4, 1fr);
-                font-size: 0.875rem;
-            }
-        }
+.footer-brand p {
+    color: #4b5563;
+    line-height: 1.625;
+    max-width: 20rem;
+}
 
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
+.footer-brand a {
+    color: #1e40af;
+    font-weight: 600;
+}
 
-        .brand-logo {
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 9999px;
-            background: linear-gradient(to bottom right, #fbbf24, #ef4444);
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.footer-brand a:hover {
+    text-decoration: underline;
+}
 
-        .footer-brand > span {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #1e3a8a;
-        }
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
-        .footer-brand p {
-            color: #4b5563;
-            line-height: 1.625;
-            max-width: 20rem;
-        }
+.footer-links h4 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1e3a8a;
+}
 
-        .footer-brand a {
-            color: #1e40af;
-            font-weight: 600;
-        }
+.footer-links a {
+    color: #4b5563;
+    transition: color 0.3s;
+}
 
-        .footer-brand a:hover {
-            text-decoration: underline;
-        }
+.footer-links a:hover {
+    color: #1e40af;
+}
 
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+.footer-powered {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #4b5563;
+}
 
-        .footer-links h4 {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #1e3a8a;
-        }
-
-        .footer-links a {
-            color: #4b5563;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #1e40af;
-        }
-
-        .footer-powered {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #4b5563;
-        }
-
-        .footer-powered > span:last-child {
-            margin-top: 0.25rem;
-            color: #1e40af;
-            font-weight: 700;
-        }
+.footer-powered > span:last-child {
+    margin-top: 0.25rem;
+    color: #1e40af;
+    font-weight: 700;
+}
 
 .hamburger {
             cursor: pointer;
@@ -717,49 +677,3 @@
         .overlay.active {
             display: block;
         }
-        
-        .downarea {
-            margin-top: 3rem;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 2rem;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .downarea img {
-            width: 50%;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .textarea {
-            width: 50%;
-        }
-        
-        @media (max-width: 768px) {
-            .downarea {
-                flex-direction: column;
-            }
-            
-            .downarea img,
-            .textarea {
-                width: 100%;
-            }
-        }
-
-        .btn-see-map {
-            font-size: 14px;
-            color: white;
-            background-color: #1e40af;
-            border: none;
-            border-radius: 4px;
-            padding: 6px 14px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-see-map:hover {
-            background-color: #374ac9;
-        }
-

@@ -214,66 +214,68 @@
     </div>
     
     <!-- Footer - Optimized for Mobile -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
+  <!-- Footer -->
+    <footer class="bg-blue-100 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
+            
+            <!-- Footer left with logo and contact -->
+            <div class="md:col-span-4 space-y-4">
+                <!-- Logo Footer Diubah -->
                 <img 
                     src="img/oilngaslogo.png" 
                     alt="Oil and Gas company logo"
-                    class="footer-logo"
+                    class="w-28 h-28 object-contain"
                     onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
                 />
-                <p class="footer-brand-text">
+                <div class="text-sm text-gray-900">
                     <strong>Oil & Gas</strong><br />
                     (Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.
-                </p>
-                <div class="footer-contact">
-                    <div class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                        </svg>
-                        <span>+62 123 456 7890</span>
-                    </div>
-                    <div class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                        </svg>
-                        <span>info@oilandgascompany.com</span>
-                    </div>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-800 text-sm">
+                    <span aria-hidden="true" class="inline-block w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14a2 2 0 0 0 2 2h14"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10M7 14h4"></path></svg>
+                    </span>
+                    <span>+62</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-800 text-sm">
+                    <span aria-hidden="true" class="inline-block w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12 H8"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 16v2a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2-2v-2"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10"></path></svg>
+                    </span>
+                    <span>Lorem ipsum dolor</span>
                 </div>
             </div>
-            
-            <div class="footer-links">
-                <div class="link-group">
-                    <h4>Company</h4>
-                    <a href="about.html">About Us</a>
-                    <a href="ourbussiness.html">Our Business</a>
-                    <a href="sustainbility.html">Our Sustainability</a>
-                    <a href="investor.html">Investor</a>
-                    <a href="#">Publication</a>
+
+            <!-- Footer middle with navigation links -->
+            <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">About Us</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Our Business</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Investor</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Publication</a>
                 </div>
-                <div class="link-group">
-                    <h4>Resources</h4>
-                    <a href="#">Career</a>
-                    <a href="#">Contact Us</a>
-                    <a href="#">Whistleblower</a>
-                    <a href="#">Supplier Site</a>
-                    <a href="#">Privacy Policy</a>
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Career</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Contact Us</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Whistleblower</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Supplier Site</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Privacy Policy</a>
                 </div>
-            </div>
-            
-            <div class="footer-powered">
-                <span class="powered-text">Powered by:</span>
+            </nav>
+
+            <!-- Footer right powered by -->
+            <div class="md:col-span-3 flex flex-col items-center md:items-end">
+                <span class="text-sm mb-2">Powered by:</span>
+                <!-- Logo Powered By Diubah -->
                 <img 
                     src="img/nmsnlogo.png" 
                     alt="NMSN logo"
-                    class="powered-logo"
+                    class="w-40 object-contain"
                     onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
                 />
             </div>
         </div>
-    </footer>
-    <script src="js/ourbusiness.js"></script>
-
+    </footer>    
+    <script src="js/script.js"></script>
 </body>
 </html>
