@@ -171,7 +171,7 @@
       color: #0f366a;
     }
 
-    .container {
+    .downarea {
       display: flex;
       align-items: center;
       max-width: 900px;
@@ -179,7 +179,7 @@
       gap: 20px;
     }
 
-    .container img {
+    .downarea img {
       width: 480px;
       height: auto;
       border-radius: 4px;
@@ -187,11 +187,11 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .content {
+    .textarea {
       max-width: 300px;
     }
 
-    .content h2 {
+    .textarea h2 {
       font-size: 1.4rem;
       margin-bottom: 12px;
     }
