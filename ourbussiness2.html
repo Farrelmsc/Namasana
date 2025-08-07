@@ -10,6 +10,118 @@
     <link rel="stylesheet" href="css/ourbussiness.css">
 </head>
 <body>
+    <style>
+  /* Main content styles */
+  .main-content {
+    flex: 1;
+    padding: 0 30px;
+  }
+
+  /* Heading */
+  .main-content h2 {
+    color: #1e3a8a; /* blue */
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .divider {
+    border: none;
+    height: 1px;
+    background: #94a3b8; /* light gray blue */
+    margin: 0.2rem 0 1.6rem 0;
+  }
+
+  /* Icons container */
+  .icons-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 1.4rem;
+  }
+
+  /* Each icon box */
+  .icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+  }
+  .icon-box svg {
+    height: 40px;
+    width: 40px;
+    fill: #1e40af;
+    margin-bottom: 0.5rem;
+  }
+  .icon-title {
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 0.2rem;
+    font-size: 14px;
+    text-align: center;
+  }
+  .icon-desc {
+    font-size: 13px;
+    color: #64748b;
+    text-align: center;
+  }
+
+  /* Paragraph text */
+  .description {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  /* Horizontal line for separation */
+  .content-divider {
+    border: none;
+    border-top: 1px solid #cbd5e1;
+    margin: 2rem 0;
+  }
+
+  /* Image and CTA block */
+  .explore-section {
+    display: flex;
+    align-items: center;
+  }
+  .explore-image {
+    width: 300px;
+    height: 180px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  }
+  .explore-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .explore-text {
+    margin-left: 18px;
+  }
+  .explore-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0 0 8px 0;
+  }
+  .btn-see-map {
+    font-size: 14px;
+    color: white;
+    background-color: #1e40af;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-see-map:hover {
+    background-color: #374ac9;
+  }
+    </style>
 <body class="bg-white font-sans">
     <!-- Header Section -->
     <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
@@ -96,48 +208,51 @@
         </ul>
       </aside>
 
-      <section class="content-panel">
-        <h2>Overview of Our Business</h2>
-        <div class="icon-grid">
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64" >
-              <path fill="#0f3a91" d="M10 33h44v6H10z"/>
-              <path fill="#61d6ff" d="M12 33l6-10 10 10 10-14 8 14 4-12v14H12z"/>
-            </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64">
-              <rect fill="#0f3a91" x="20" y="20" width="24" height="24" rx="8" />
-              <circle fill="#61d6ff" cx="32" cy="32" r="10" />
-              <line x1="32" y1="22" x2="32" y2="42" stroke="#0f3a91" stroke-width="2"/>
-            </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64">
-              <polygon fill="#0f3a91" points="32 14 48 40 16 40" />
-              <path fill="#61d6ff" d="M26,40h12v6H26z" />
-            </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
-          </div>
-          <div class="icon-block">
-            <svg viewBox="0 0 64 64" >
-              <circle cx="32" cy="32" r="18" fill="#0f3a91" />
-              <path fill="#61d6ff" d="M32 20a12 12 0 0110 18l-10 10-10-10a12 12 0 0110-18z" />
-              <circle cx="32" cy="30" r="6" fill="#0f3a91" />
-            </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
-          </div>
-        <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </section>
-    </main>
+  <section class="main-content" aria-labelledby="oilgas-heading">
+    <h2 id="oilgas-heading">Oil & Gas</h2>
+    <hr class="divider" />
+
+    <div class="icons-row" role="list">
+      <div class="icon-box" role="listitem" aria-label="Ship icon">
+        <svg aria-hidden="true" viewBox="0 0 64 64" >
+          <path d="M32 4L28 12H18v6l-10 8v8h48v-8l-10-8v-6h-10l-4-8zM14 34h8v14h-8zM42 34h8v14h-8zM20 52h24v4H20z" />
+          <path d="M28 18h8v6h-8z" />
+        </svg>
+        <div class="icon-title">Lorem</div>
+        <div class="icon-desc">Lorem ipsum</div>
+      </div>
+
+      <div class="icon-box" role="listitem" aria-label="Flask icon">
+        <svg aria-hidden="true" viewBox="0 0 64 64">
+          <path d="M42 6h-6v6H28V6h-6v6l-6 20v8h32v-8l-6-20v-6zm-10 18a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM22 44h20v6H22z" />
+        </svg>
+        <div class="icon-title">Lorem</div>
+        <div class="icon-desc">Lorem ipsum</div>
+      </div>
+
+      <div class="icon-box" role="listitem" aria-label="Electricity bolt icon">
+        <svg aria-hidden="true" viewBox="0 0 64 64">
+          <path d="M28 2L12 34h14v26l16-32H34l10-26z" />
+        </svg>
+        <div class="icon-title">Lorem</div>
+        <div class="icon-desc">Lorem ipsum</div>
+      </div>
+
+      <div class="icon-box" role="listitem" aria-label="Speedometer icon">
+        <svg aria-hidden="true" viewBox="0 0 64 64">
+          <circle cx="32" cy="34" r="20" fill="none" stroke="#1e40af" stroke-width="4"/>
+          <path d="M32 34L48 14" stroke="#1e40af" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="32" cy="34" r="5" fill="#1e40af"/>
+        </svg>
+        <div class="icon-title">Lorem</div>
+        <div class="icon-desc">Lorem ipsum</div>
+      </div>
+    </div>
+
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <hr class="content-divider" />
 
     <div class="explore-section">
       <div class="explore-image" role="img" aria-label="Yellow offshore oil rig platform in calm blue ocean under clear sky">
@@ -149,6 +264,8 @@
         <button class="btn-see-map" type="button">See Map</button>
       </div>
     </div>
+  </section>
+</div>
 
     <!-- Footer - Optimized for Mobile -->
     <footer>
