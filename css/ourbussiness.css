@@ -1,6 +1,10 @@
-        body {
-            font-family: Poppins, sans-serif; 
-        }
+* {
+    font-family: Poppins, sans-serif; 
+}
+
+body {
+    font-family: Poppins, sans-serif; 
+}
 
         .mobile-menu {
             position: fixed;
