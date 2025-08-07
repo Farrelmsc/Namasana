@@ -712,114 +712,33 @@
         .overlay.active {
             display: block;
         }
-
-  /* Main content styles Our Bussiness2*/
-  .main-content1 {
-    flex: 1;
-    padding: 0 30px;
-  }
-
-  /* Heading */
-  .main-content1 h2 {
-    color: #1e3a8a; /* blue */
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-  }
-  .divider {
-    border: none;
-    height: 1px;
-    background: #94a3b8; /* light gray blue */
-    margin: 0.2rem 0 1.6rem 0;
-  }
-
-  /* Icons container */
-  .icons-row1 {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 1.4rem;
-  }
-
-  /* Each icon box */
-  .icon-box1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 80px;
-  }
-  .icon-box1 svg {
-    height: 40px;
-    width: 40px;
-    fill: #1e40af;
-    margin-bottom: 0.5rem;
-  }
-  .icon-title1 {
-    font-weight: 600;
-    color: #1e40af;
-    margin-bottom: 0.2rem;
-    font-size: 14px;
-    text-align: center;
-  }
-  .icon-desc1 {
-    font-size: 13px;
-    color: #64748b;
-    text-align: center;
-  }
-
-  /* Paragraph text */
-  .description1 {
-    font-size: 14px;
-    color: #475569;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    max-width: 600px;
-  }
-
-  /* Horizontal line for separation */
-  .content-divider {
-    border: none;
-    border-top: 1px solid #cbd5e1;
-    margin: 2rem 0;
-  }
-
-  /* Image and CTA block */
-  .explore-section {
-    display: flex;
-    align-items: center;
-  }
-  .explore-image {
-    width: 300px;
-    height: 180px;
-    flex-shrink: 0;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-  }
-  .explore-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .explore-text {
-    margin-left: 18px;
-  }
-  .explore-text h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #1e40af;
-    margin: 0 0 8px 0;
-  }
-  .btn-see-map {
-    font-size: 14px;
-    color: white;
-    background-color: #1e40af;
-    border: none;
-    border-radius: 4px;
-    padding: 6px 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .btn-see-map:hover {
-    background-color: #374ac9;
-  }
+        
+        .downarea {
+            margin-top: 3rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .downarea img {
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .textarea {
+            width: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .downarea {
+                flex-direction: column;
+            }
+            
+            .downarea img,
+            .textarea {
+                width: 100%;
+            }
+        }
