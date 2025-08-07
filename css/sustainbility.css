@@ -193,15 +193,6 @@ body {
         }
 
         /*ethnics*/
-        
-    .container {
-      display: flex;
-      max-width: 960px;
-      margin: 40px auto;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: #243b64;
-      background: #fff;
-    }
 
     /* Side Nav */
     .side-nav {
