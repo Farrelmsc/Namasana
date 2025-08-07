@@ -1,5 +1,10 @@
-        /* ==================== OPTIMASI UTAMA UNTUK ANDROID ==================== */
-        
+* {
+    font-family: Poppins, sans-serif; 
+}
+
+body {
+    font-family: Poppins, sans-serif; 
+}
         /* Perbaikan viewport dan overflow */
         body {
             overflow-x: hidden;
