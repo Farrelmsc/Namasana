@@ -713,69 +713,45 @@
             display: block;
         }
 
-        /* Explore*/
-        .icon-block {
-            transition: transform 0.3s ease;
-        }
-        
-        .icon-block:hover {
-            transform: translateY(-5px);
-        }
-        
-        .description {
-            line-height: 1.8;
-            margin-top: 2rem;
-            font-size: 1.1rem;
-            color: #333;
-        }
-        
-        .downarea {
-            margin-top: 3rem;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 2rem;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .downarea img {
-            width: 50%;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .textarea {
-            width: 50%;
-        }
-        
-        .content-panel h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #0f3a91;
-            border-bottom: 2px solid #61d6ff;
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-        
-        .icon-label {
-            font-weight: 700;
-            margin-top: 0.5rem;
-            color: #0f3a91;
-        }
-        
-        .icon-subtext {
-            color: #4a5568;
-            font-size: 0.9rem;
-            margin-top: 0.25rem;
-        }
-        
-        @media (max-width: 768px) {
-            .downarea {
-                flex-direction: column;
-            }
-            
-            .downarea img,
-            .textarea {
-                width: 100%;
-            }
-        }
+  /* Image and CTA block */
+  .explore-section {
+    display: flex;
+    align-items: center;
+  }
+  .explore-image {
+    width: 300px;
+    height: 180px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  }
+  .explore-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .explore-text {
+    margin-left: 18px;
+  }
+  .explore-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0 0 8px 0;
+  }
+  .btn-see-map {
+    font-size: 14px;
+    color: white;
+    background-color: #1e40af;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-see-map:hover {
+    background-color: #374ac9;
+  }
