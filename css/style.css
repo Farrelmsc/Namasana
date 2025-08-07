@@ -180,7 +180,6 @@ button:focus {
     font-size: 0.875rem;
     color: #1d4ed8;
     font-weight: 500;
-    cursor: pointer;
 }
 
 .view-all:hover {
