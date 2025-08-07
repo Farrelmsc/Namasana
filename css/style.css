@@ -1,3 +1,7 @@
+body {
+    font-family: Poppins, sans-serif; 
+}
+
 /* Custom Scrollbar for carousel dots */
 .carousel::-webkit-scrollbar {
     display: none;
