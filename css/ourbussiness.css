@@ -721,6 +721,7 @@
       background: #fff;
       color: #0f366a;
     }
+
     .container {
       display: flex;
       align-items: center;
@@ -728,6 +729,7 @@
       margin: auto;
       gap: 20px;
     }
+
     .container img {
       width: 480px;
       height: auto;
@@ -735,13 +737,16 @@
       object-fit: cover;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     .content {
       max-width: 300px;
     }
+
     .content h2 {
       font-size: 1.4rem;
       margin-bottom: 12px;
     }
+
     .btn {
       display: inline-block;
       padding: 10px 22px;
@@ -755,11 +760,13 @@
       font-size: 1rem;
       user-select: none;
     }
+
     .btn:hover,
     .btn:focus {
       background-color: #1a356b;
       outline: none;
     }
+    
     @media (max-width: 640px) {
       .container {
         flex-direction: column;
