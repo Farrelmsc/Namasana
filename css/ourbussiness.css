@@ -713,6 +713,74 @@
             display: block;
         }
 
+  /* Main content styles Our Bussiness2*/
+  .main-content1 {
+    flex: 1;
+    padding: 0 30px;
+  }
+
+  /* Heading */
+  .main-content1 h2 {
+    color: #1e3a8a; /* blue */
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .divider {
+    border: none;
+    height: 1px;
+    background: #94a3b8; /* light gray blue */
+    margin: 0.2rem 0 1.6rem 0;
+  }
+
+  /* Icons container */
+  .icons-row1 {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 1.4rem;
+  }
+
+  /* Each icon box */
+  .icon-box1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+  }
+  .icon-box1 svg {
+    height: 40px;
+    width: 40px;
+    fill: #1e40af;
+    margin-bottom: 0.5rem;
+  }
+  .icon-title1 {
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 0.2rem;
+    font-size: 14px;
+    text-align: center;
+  }
+  .icon-desc1 {
+    font-size: 13px;
+    color: #64748b;
+    text-align: center;
+  }
+
+  /* Paragraph text */
+  .description1 {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  /* Horizontal line for separation */
+  .content-divider {
+    border: none;
+    border-top: 1px solid #cbd5e1;
+    margin: 2rem 0;
+  }
+
   /* Image and CTA block */
   .explore-section {
     display: flex;
