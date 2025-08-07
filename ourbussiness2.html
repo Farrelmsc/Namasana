@@ -10,6 +10,67 @@
     <link rel="stylesheet" href="css/ourbussiness.css">
 </head>
 <body>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #fff;
+      color: #0f366a;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      max-width: 900px;
+      margin: auto;
+      gap: 20px;
+    }
+    .container img {
+      width: 480px;
+      height: auto;
+      border-radius: 4px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .content {
+      max-width: 300px;
+    }
+    .content h2 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      background-color: #254b96;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .btn:hover,
+    .btn:focus {
+      background-color: #1a356b;
+      outline: none;
+    }
+    @media (max-width: 640px) {
+      .container {
+        flex-direction: column;
+        max-width: 320px;
+      }
+      .container img {
+        width: 100%;
+        max-width: 320px;
+      }
+      .content {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+    </style>
 <body class="bg-white font-sans">
     <!-- Header Section -->
     <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
@@ -139,22 +200,19 @@
       </section>
     </main>
 
-        <section class="downarea" aria-label="Oil and Gas Operational Areas">
-          <img 
-            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
-            alt="World map showing our oil and gas operational areas across different continents"
-            loading="lazy"
-            onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png';"
-          />
-          <div class="textarea">
-            <h2>Explore Our Oil &amp; Gas Areas</h2>
-            <a href="#" class="btn" role="button" aria-label="View interactive map of our operations">See Map</a>
-          </div>
-        </section>
-      </section>
-    </main>
+  <section class="container1" aria-label="Oil and Gas Area">
+    <img 
+      src="https://placehold.co/480x320?text=Oil+Rig+Platform+Under+Blue+Sky" 
+      alt="Large offshore oil rig platform with yellow structures surrounded by ocean and a boat nearby under bright blue sky with clouds"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='https://placehold.co/480x320?text=Image+Unavailable';"
+    />
+    <div class="content1">
+      <h2>Explore Our Oil &amp; Gas Area</h2>
+      <a href="#" class="btn" role="button">See Map</a>
+    </div>
+  </section>
 
-    </main>
     <!-- Footer - Optimized for Mobile -->
     <footer>
         <div class="footer-grid">
