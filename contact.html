@@ -1,250 +1,417 @@
-```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Section</title>
-  <style>
-    /* Reset & basics */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      color: #0e2f6d;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    /* Layout - container using flex */
-    .container {
-      display: flex;
-      max-width: 960px;
-      margin: 2rem auto;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
-      min-height: 560px;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    /* Left side - blue vertical sidebar with Contact Us button */
-    .sidebar {
-      background-color: #0e2f6d;
-      width: 160px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    .contact-button {
-      background-color: #0e2f6d;
-      border: none;
-      padding: 12px 24px;
-      color: #fff;
-      font-weight: 700;
-      cursor: pointer;
-      outline: none;
-      border-radius: 0;
-      font-size: 14px;
-      box-shadow: none;
-      width: 100%;
-      text-align: center;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-    .contact-button:hover,
-    .contact-button:focus {
-      background-color: #08305a;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oil & Gas Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif; 
+        }
 
-    /* Right side - content */
-    .content {
-      flex: 1;
-      padding: 3rem 3rem 3rem 2rem;
-      color: #0e2f6d;
-    }
-    /* Head Office & Branch Offices Titles with bottom border line */
-    .section-title {
-      font-weight: 600;
-      font-size: 20px;
-      margin-bottom: 0.5rem;
-      padding-bottom: 0.25rem;
-      border-bottom: 1.5px solid #0e2f6d;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fafafa;
+            color: #0e2f6d;
+        }
 
-    /* Subtitles (like PT Oil & Gas or Oil & Gas) - bold smaller */
-    .sub-title {
-      font-weight: 700;
-      font-size: 12px;
-      margin-top: 1.5rem;
-      margin-bottom: 0.25rem;
-      color: #000;
-    }
-    /* The smaller groups of offices - group container */
-    .branch-group {
-      display: flex;
-      gap: 3rem;
-      margin-top: 0.5rem;
-      flex-wrap: wrap;
-    }
-    /* Individual office block in branch group */
-    .office-block {
-      flex: 1 1 180px;
-      max-width: 220px;
-    }
-    /* Office name bold 12px */
-    .office-name {
-      font-weight: 700;
-      font-size: 12px;
-      margin-bottom: 0.25rem;
-    }
-    /* Office description text */
-    .office-desc {
-      font-weight: 400;
-      font-size: 12px;
-      color: #000;
-      margin-bottom: 0.8rem;
-    }
+        .card-shadow {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            background: none;
+            border: none;
+            z-index: 10;
+            transition: all 0.25s;
+            display: none;
+        }
 
-    /* Contact Us paragraph text */
-    .contact-us-text {
-      font-size: 12px;
-      font-weight: 400;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      max-width: 460px;
-      color: #000;
-      line-height: 1.3;
-    }
+        @media (max-width: 767px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+        }
 
-    /* Form styles */
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1rem;
-      max-width: 560px;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-      border: 1px solid #ccc;
-      border-radius: 0;
-      padding: 0.5rem 0.75rem;
-      font-size: 12px;
-      font-weight: 400;
-      color: #000;
-      outline-offset: 2px;
-      width: 100%;
-      min-height: 34px;
-      resize: vertical;
-      transition: border-color 0.2s ease;
-      font-family: inherit;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="tel"]:focus,
-    textarea:focus {
-      border-color: #0e2f6d;
-    }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #1e40af;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
 
-    /* Inputs in pairs side by side on desktop */
-    .input-half {
-      flex: 1 1 48%;
-      max-width: 48%;
-    }
-    /* Message area full width */
-    .message-input {
-      flex: 1 1 100%;
-      max-width: 100%;
-      min-height: 76px;
-    }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
 
-    /* Submit button style */
-    button[type="submit"] {
-      background-color: #0e2f6d;
-      border: none;
-      color: white;
-      font-weight: 700;
-      font-size: 12px;
-      padding: 0.5rem 1.5rem;
-      cursor: pointer;
-      border-radius: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      user-select: none;
-      transition: background-color 0.3s ease;
-      margin-top: 1rem;
-      width: 100px;
-    }
-    button[type="submit"]:hover,
-    button[type="submit"]:focus {
-      background-color: #08305a;
-    }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
 
-    /* Responsive */
-    @media (max-width: 720px) {
-      .container {
-        flex-direction: column;
-        max-width: 90vw;
-        margin: 1.5rem auto;
-      }
-      .sidebar {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        justify-content: flex-start;
-      }
-      .contact-button {
-        width: auto;
-        padding: 10px 18px;
-      }
-      .content {
-        padding: 2rem 1.5rem 2rem 1.5rem;
-      }
-      .branch-group {
-        flex-direction: column;
-        gap: 1.25rem;
-      }
-      .office-block {
-        max-width: 100%;
-        flex: 1 1 100%;
-      }
-      form {
-        gap: 0.5rem 0;
-      }
-      .input-half,
-      .message-input {
-        max-width: 100%;
-        flex: 1 1 100%;
-      }
-      button[type="submit"] {
-        width: 100%;
-        font-size: 14px;
-      }
-    }
-  </style>
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle {
+            display: none;
+        }
+
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            z-index: 5;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease-in-out;
+            overflow-y: auto;
+            padding-top: 80px;
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu {
+                display: block;
+            }
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 4;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Custom styles for contact page */
+        .contact-container {
+            display: flex;
+            max-width: 960px;
+            margin: 2rem auto;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+            min-height: 560px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .contact-sidebar {
+            background-color: #0e2f6d;
+            width: 160px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 3rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        .contact-button {
+            background-color: #0e2f6d;
+            border: 1px solid white;
+            padding: 12px 24px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            border-radius: 0;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-button:hover,
+        .contact-button:focus {
+            background-color: #08305a;
+        }
+
+        .contact-content {
+            flex: 1;
+            padding: 3rem 3rem 3rem 2rem;
+            color: #0e2f6d;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1.5px solid #0e2f6d;
+        }
+
+        .sub-title {
+            font-weight: 700;
+            font-size: 12px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.25rem;
+            color: #000;
+        }
+        
+        .branch-group {
+            display: flex;
+            gap: 3rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .office-block {
+            flex: 1 1 180px;
+            max-width: 220px;
+        }
+        
+        .office-name {
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 0.25rem;
+        }
+        
+        .office-desc {
+            font-weight: 400;
+            font-size: 12px;
+            color: #000;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-us-text {
+            font-size: 12px;
+            font-weight: 400;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            max-width: 460px;
+            color: #000;
+            line-height: 1.3;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1rem;
+            max-width: 560px;
+        }
+        
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form input[type="tel"],
+        .contact-form textarea {
+            border: 1px solid #ccc;
+            border-radius: 0;
+            padding: 0.5rem 0.75rem;
+            font-size: 12px;
+            font-weight: 400;
+            color: #000;
+            outline-offset: 2px;
+            width: 100%;
+            min-height: 34px;
+            resize: vertical;
+            transition: border-color 0.2s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form input[type="tel"]:focus,
+        .contact-form textarea:focus {
+            border-color: #0e2f6d;
+        }
+
+        .input-half {
+            flex: 1 1 48%;
+            max-width: 48%;
+        }
+        
+        .message-input {
+            flex: 1 1 100%;
+            max-width: 100%;
+            min-height: 76px;
+        }
+
+        .submit-button {
+            background-color: #0e2f6d;
+            border: none;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+            width: 100px;
+        }
+        
+        .submit-button:hover,
+        .submit-button:focus {
+            background-color: #08305a;
+        }
+
+        @media (max-width: 720px) {
+            .contact-container {
+                flex-direction: column;
+                max-width: 90vw;
+                margin: 1.5rem auto;
+            }
+            
+            .contact-sidebar {
+                width: 100%;
+                padding: 1rem 1.5rem;
+                justify-content: flex-start;
+            }
+            
+            .contact-button {
+                width: auto;
+                padding: 10px 18px;
+            }
+            
+            .contact-content {
+                padding: 2rem 1.5rem 2rem 1.5rem;
+            }
+            
+            .branch-group {
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+            
+            .office-block {
+                max-width: 100%;
+                flex: 1 1 100%;
+            }
+            
+            .contact-form {
+                gap: 0.5rem 0;
+            }
+            
+            .input-half,
+            .message-input {
+                max-width: 100%;
+                flex: 1 1 100%;
+            }
+            
+            .submit-button {
+                width: 100%;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container" role="region" aria-label="Contact and office information section">
-    <aside class="sidebar" aria-label="Contact button sidebar">
-      <button class="contact-button" type="button" aria-label="Contact Us button">Contact US</button>
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
+            <div class="flex items-center space-x-3">
+                <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
+                    <img 
+                        src="img/oilngaslogo.png" 
+                        alt="Oil & Gas Logo"
+                        class="w-7 h-7 rounded-full object-cover"
+                        onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                    />
+                    <span>OIL & GAS</span>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation (Hanya ditampilkan di desktop) -->
+            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 text-sm">
+                <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
+                <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
+                <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
+                <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
+                <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
+                <li><a href="publication.html" class="hover:text-blue-900 transition">Publication</a></li>
+                <li><a href="career.html" class="hover:text-blue-900 transition">Career</a></li>
+                <li><a href="contact.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">Contact Us</a></li>
+            </ul>
+            
+            <!-- Hamburger Icon (Hanya ditampilkan di mobile) -->
+            <button id="hamburger-btn" class="hamburger focus:outline-none">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu (Hanya aktif di mobile) -->
+    <div class="mobile-menu">
+        <ul class="space-y-4 p-6 text-gray-600">
+            <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
+            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
+            <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
+            <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
+            <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
+            <li><a href="publication.html" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
+            <li><a href="career.html" class="block py-2 hover:text-blue-900 transition">Career</a></li>
+            <li><a href="contact.html" class="block py-2 text-blue-900 border-b border-blue-700">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <div id="overlay" class="overlay"></div>
+
+  <!-- Hero Section -->
+  <section class="relative">
+    <img 
+      src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
+      alt="Yellow offshore oil and gas platform structure standing in calm ocean under bright blue sky with white fluffy clouds" 
+      class="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
+      onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center px-6 md:px-16">
+      <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-4xl border-b-4 border-white pb-2 leading-tight">Contact Us</h1>
+    </div>
+  </section>
+
+
+<!-- Main content area -->
+<main class="max-w-7xl mx-auto px-4 md:px-8 py-12">
+  <div class="contact-container bg-white">
+    <aside class="contact-sidebar">
+      <button class="contact-button" type="button">Contact US</button>
     </aside>
 
-    <main class="content">
-      <section aria-labelledby="head-office-title">
-        <h1 id="head-office-title" class="section-title">Head Office</h1>
+    <div class="contact-content">
+      <section>
+        <h1 class="section-title">Head Office</h1>
         <div class="sub-title">PT Oil &amp; Gas</div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
       </section>
 
-      <section aria-labelledby="branch-offices-title" style="margin-top:2rem;">
-        <h2 id="branch-offices-title" class="section-title">Branch Offices</h2>
-
+      <section style="margin-top:2rem;">
+        <h2 class="section-title">Branch Offices</h2>
         <div class="sub-title">Oil &amp; Gas</div>
 
         <div class="branch-group">
@@ -262,7 +429,6 @@
           </div>
         </div>
 
-        <!-- Repeated block from example in screenshot -->
         <div class="branch-group" style="margin-top:0.75rem;">
           <div class="office-block">
             <div class="office-name">Oil &amp; Gas Japan</div>
@@ -271,21 +437,110 @@
         </div>
       </section>
 
-      <section aria-labelledby="contact-us-title" style="margin-top:3rem;">
-        <h2 id="contact-us-title" class="section-title">Contact Us</h2>
+      <section style="margin-top:3rem;">
+        <h2 class="section-title">Contact Us</h2>
         <p class="contact-us-text">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
         </p>
-        <form action="#" method="post" novalidate aria-label="Contact form">
-          <input type="text" id="name" class="" name="name" placeholder="Your name" required aria-required="true" />
-          <input type="email" id="email" class="input-half" name="email" placeholder="Email address" required aria-required="true" />
+        <form class="contact-form" action="#" method="post">
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+          <input type="email" id="email" class="input-half" name="email" placeholder="Email address" required />
           <input type="tel" id="phone" class="input-half" name="phone" placeholder="Phone Number" />
-          <textarea id="message" class="message-input" name="message" placeholder="Message" rows="4" required aria-required="true"></textarea>
-          <button type="submit" aria-label="Submit contact form">SUBMIT</button>
+          <textarea id="message" class="message-input" name="message" placeholder="Message" rows="4" required></textarea>
+          <button type="submit" class="submit-button">SUBMIT</button>
         </form>
       </section>
-    </main>
+    </div>
   </div>
+</main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-100 mt-16">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
+      
+      <!-- Footer left with logo and contact -->
+      <div class="md:col-span-4 space-y-4">
+        <img 
+          src="img/oilngaslogo.png" 
+          alt="Oil and Gas company logo, abstract flame in blue, orange and gray colors with words Oil & Gas in blue and orange below and tagline Your Slogan Here below" 
+          class="w-28 h-28 object-contain"
+          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+        />
+        <div class="text-sm text-gray-900">
+          <strong>Oil & Gas</strong><br />
+          (Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.
+        </div>
+        <div class="flex items-center space-x-2 text-gray-800 text-sm">
+          <span aria-hidden="true" class="inline-block w-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14a2 2 0 0 0 2 2h14"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10M7 14h4"></path></svg>
+          </span>
+          <span>+62</span>
+        </div>
+        <div class="flex items-center space-x-2 text-gray-800 text-sm">
+          <span aria-hidden="true" class="inline-block w-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12 H8"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 16v2a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2-2v-2"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10"></path></svg>
+          </span>
+          <span>Lorem ipsum dolor</span>
+        </div>
+      </div>
+
+      <!-- Footer middle with navigation links -->
+      <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
+        <div class="flex flex-col space-y-3">
+            <a href="about.html" class="hover:underline focus:underline focus:outline-none">About Us</a>
+            <a href="ourbussiness.html" class="hover:underline focus:underline focus:outline-none">Our Business</a>
+            <a href="sustainbility.html" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
+            <a href="investor.html" class="hover:underline focus:underline focus:outline-none">Investor</a>
+            <a href="publication.html" class="hover:underline focus:underline focus:outline-none">Publication</a>
+        </div>
+        <div class="flex flex-col space-y-3">
+          <a href="#" class="hover:underline focus:underline focus:outline-none">Career</a>
+          <a href="#" class="hover:underline focus:underline focus:outline-none">Contact Us</a>
+          <a href="#" class="hover:underline focus:underline focus:outline-none">Whistleblower</a>
+          <a href="#" class="hover:underline focus:underline focus:outline-none">Supplier Site</a>
+          <a href="#" class="hover:underline focus:underline focus:outline-none">Privacy Policy</a>
+        </div>
+      </nav>
+
+      <!-- Footer right powered by -->
+      <div class="md:col-span-3 flex flex-col items-center md:items-end">
+        <span class="text-sm mb-2">Powered by:</span>
+        <img 
+          src="img/nmsnlogo.png" 
+          alt="NMSN logo with blue letters and yellow swoosh design on white background" 
+          class="w-40 object-contain"
+          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
+        />
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Hamburger menu functionality
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const overlay = document.getElementById('overlay');
+
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('open');
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburgerBtn.classList.remove('open');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    });
+  </script>
 </body>
 </html>
-```
