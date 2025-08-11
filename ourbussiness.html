@@ -8,17 +8,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/ourbussiness.css">
+    <style>
+        /* PERBAIKAN HEADLINE */
+        .content-panel > h2 {
+            font-weight: 400 !important; /* Menghilangkan bold */
+            margin-bottom: 12px !important; /* Mengurangi spacing */
+            padding-bottom: 8px !important; /* Mengurangi padding bawah */
+        }
+        
+        .legend-title {
+            font-weight: 400 !important; /* Menghilangkan bold pada legend */
+            margin-bottom: 2px !important; /* Mengurangi spacing */
+        }
+        
+        /* Perbaikan tambahan untuk konsistensi */
+        .sidebar li {
+            font-weight: 400; /* Menghilangkan bold pada menu sidebar */
+        }
+    </style>
 </head>
-<body>
-<body class="bg-white font-sans">
 <body class="bg-white font-sans">
     <!-- Header Section -->
     <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
         <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
             <div class="flex items-center space-x-3">
                 <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
-                    <!-- Logo Header Diubah -->
                     <img 
                         src="img/oilngaslogo.png" 
                         alt="Oil & Gas Logo"
@@ -29,7 +43,7 @@
                 </div>
             </div>
             
-            <!-- Desktop Navigation (Hanya ditampilkan di desktop) -->
+            <!-- Desktop Navigation -->
             <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 text-sm">
                 <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
@@ -41,7 +55,7 @@
                 <li><a href="contact.html" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
             
-            <!-- Hamburger Icon (Hanya ditampilkan di mobile) -->
+            <!-- Hamburger Icon -->
             <button id="hamburger-btn" class="hamburger focus:outline-none">
                 <span class="hamburger-top"></span>
                 <span class="hamburger-middle"></span>
@@ -50,7 +64,7 @@
         </nav>
     </header>
 
-    <!-- Mobile Menu (Hanya aktif di mobile) -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <ul class="space-y-4 p-6 text-gray-600">
             <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
@@ -66,7 +80,7 @@
     
     <div id="overlay" class="overlay"></div>
 
-    <!-- Hero Section - Optimized for Mobile -->
+    <!-- Hero Section -->
     <section class="hero-container">
         <img 
           src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
@@ -79,7 +93,7 @@
         </div>
     </section>
 
-    <!-- Main Content - Optimized for Mobile -->
+    <!-- Main Content -->
    <main>
       <aside class="sidebar" role="navigation" aria-label="Business sidebar menu">
         <ul>
@@ -106,8 +120,8 @@
               <path fill="#0f3a91" d="M10 33h44v6H10z"/>
               <path fill="#61d6ff" d="M12 33l6-10 10 10 10-14 8 14 4-12v14H12z"/>
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
+            <div class="icon-label">Exploration</div>
+            <div class="icon-subtext">Discovering new energy reserves</div>
           </div>
           <div class="icon-block">
             <svg viewBox="0 0 64 64">
@@ -115,16 +129,16 @@
               <circle fill="#61d6ff" cx="32" cy="32" r="10" />
               <line x1="32" y1="22" x2="32" y2="42" stroke="#0f3a91" stroke-width="2"/>
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
+            <div class="icon-label">Production</div>
+            <div class="icon-subtext">Efficient resource extraction</div>
           </div>
           <div class="icon-block">
             <svg viewBox="0 0 64 64">
               <polygon fill="#0f3a91" points="32 14 48 40 16 40" />
               <path fill="#61d6ff" d="M26,40h12v6H26z" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
+            <div class="icon-label">Refining</div>
+            <div class="icon-subtext">Processing crude oil</div>
           </div>
           <div class="icon-block">
             <svg viewBox="0 0 64 64" >
@@ -132,8 +146,8 @@
               <path fill="#61d6ff" d="M32 20a12 12 0 0110 18l-10 10-10-10a12 12 0 0110-18z" />
               <circle cx="32" cy="30" r="6" fill="#0f3a91" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
+            <div class="icon-label">Distribution</div>
+            <div class="icon-subtext">Global energy delivery</div>
           </div>
           <div class="icon-block">
             <svg viewBox="0 0 64 64">
@@ -141,8 +155,8 @@
               <circle fill="#61d6ff" cx="20" cy="40" r="8" />
               <circle fill="#61d6ff" cx="44" cy="40" r="8" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
+            <div class="icon-label">Logistics</div>
+            <div class="icon-subtext">Transportation solutions</div>
           </div>
           <div class="icon-block">
             <svg viewBox="0 0 64 64">
@@ -150,8 +164,8 @@
               <ellipse cx="40" cy="40" rx="12" ry="16" fill="#61d6ff"/>
               <rect x="24" y="38" width="16" height="12" fill="#0f3a91" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
+            <div class="icon-label">Research</div>
+            <div class="icon-subtext">Innovation and development</div>
           </div>
           <div class="icon-block">
             <svg viewBox="0 0 64 64">
@@ -159,8 +173,8 @@
               <circle fill="#61d6ff" cx="32" cy="40" r="8" />
               <path fill="#0f3a91" d="M38 25l-8-10-8 10z" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
+            <div class="icon-label">Technology</div>
+            <div class="icon-subtext">Advanced solutions</div>
           </div>
           <div class="icon-block">
             <svg viewBox="0 0 64 64">
@@ -168,23 +182,29 @@
               <circle fill="#61d6ff" cx="44" cy="36" r="12" />
               <path fill="#0f3a91" d="M44 20l1 5-5 4 5 3-1 5-11-10z" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext">Lorem ipsum</div>
+            <div class="icon-label">Renewables</div>
+            <div class="icon-subtext">Sustainable energy</div>
           </div>
         </div>
 
         <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          As a global leader in the energy sector, we operate across the entire value chain - from exploration to distribution. 
+          With over 50 years of industry experience, we've developed advanced technologies and sustainable practices to responsibly 
+          develop energy resources that power economies and communities worldwide.
+          <br><br>
+          Our operations span across 15 countries with 32 active production fields and 4 major refineries. We maintain a diverse 
+          portfolio of both conventional and unconventional resources, leveraging cutting-edge techniques to maximize efficiency 
+          while minimizing environmental impact.
         </p>
       </section>
     </main>
     
-    <!-- Indonesia Map Section - Optimized for Mobile -->
+    <!-- Indonesia Map Section -->
     <div class="map-section">
         <div class="map-container">
             <img 
                 src="img/map.png" 
-                alt="Indonesia Map"
+                alt="Indonesia Map showing our operational areas"
                 width="798"
                 height="309"
                 onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=Map+Placeholder';"
@@ -194,18 +214,18 @@
         <div class="map-legend">
             <div class="legend-grid">
                 <div class="legend-item">
-                    <div class="legend-title">Lorem ipsum</div>
-                    <div class="legend-desc">Lorem ipsum</div>
-                    <div class="legend-desc">Lorem ipsum</div>
+                    <div class="legend-title">Exploration Sites</div>
+                    <div class="legend-desc">Active exploration areas</div>
+                    <div class="legend-desc">5 locations nationwide</div>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-title">Lorem ipsum</div>
-                    <div class="legend-desc">Lorem ipsum</div>
+                    <div class="legend-title">Production Fields</div>
+                    <div class="legend-desc">32 active production sites</div>
                 </div>
                 <div class="legend-item">
-                    <div class="legend-title">Lorem ipsum</div>
-                    <div class="legend-desc">Lorem ipsum</div>
-                    <div class="legend-desc">Lorem ipsum</div>
+                    <div class="legend-title">Refineries</div>
+                    <div class="legend-desc">4 major processing facilities</div>
+                    <div class="legend-desc">Capacity: 500K bpd</div>
                 </div>
             </div>
             
@@ -215,13 +235,10 @@
         </div>
     </div>
     
-  <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-blue-100 mt-16">
         <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
-            
-            <!-- Footer left with logo and contact -->
             <div class="md:col-span-4 space-y-4">
-                <!-- Logo Footer Diubah -->
                 <img 
                     src="img/oilngaslogo.png" 
                     alt="Oil and Gas company logo"
@@ -229,24 +246,23 @@
                     onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
                 />
                 <div class="text-sm text-gray-900">
-                    <strong>Oil & Gas</strong><br />
-                    (Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.
+                    <strong>Global Energy Group</strong><br />
+                    123 Energy Boulevard, Houston, TX 77001
                 </div>
                 <div class="flex items-center space-x-2 text-gray-800 text-sm">
                     <span aria-hidden="true" class="inline-block w-5">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14a2 2 0 0 0 2 2h14"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10M7 14h4"></path></svg>
                     </span>
-                    <span>+62</span>
+                    <span>+1 (800) 123-4567</span>
                 </div>
                 <div class="flex items-center space-x-2 text-gray-800 text-sm">
                     <span aria-hidden="true" class="inline-block w-5">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12 H8"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 16v2a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2-2v-2"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10"></path></svg>
                     </span>
-                    <span>Lorem ipsum dolor</span>
+                    <span>info@globalenergygroup.com</span>
                 </div>
             </div>
 
-            <!-- Footer middle with navigation links -->
             <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
                 <div class="flex flex-col space-y-3">
                     <a href="about.html" class="hover:underline focus:underline focus:outline-none">About Us</a>
@@ -264,10 +280,8 @@
                 </div>
             </nav>
 
-            <!-- Footer right powered by -->
             <div class="md:col-span-3 flex flex-col items-center md:items-end">
                 <span class="text-sm mb-2">Powered by:</span>
-                <!-- Logo Powered By Diubah -->
                 <img 
                     src="img/nmsnlogo.png" 
                     alt="NMSN logo"
