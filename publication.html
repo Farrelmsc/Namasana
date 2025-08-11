@@ -123,6 +123,94 @@
     .overlay.active {
       display: block;
     }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+    }
+    .main-content h2 {
+      font-weight: 600;
+      font-size: 20px;
+      color: #214589;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #214589;
+      padding-bottom: 6px;
+      width: fit-content;
+    }
+
+    /* Annual Reports Grid */
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 32px;
+      margin-top: 30px;
+    }
+    
+    .report-item {
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+      color: #214589;
+      cursor: default;
+    }
+
+    .report-image-container {
+      overflow: hidden;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+      height: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .report-image-container img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+    .report-image-container:hover img {
+      transform: scale(1.05);
+    }
+
+    .report-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .report-label a {
+      color: #214589;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .report-label a:hover {
+      text-decoration: underline;
+    }
+
+    /* Icon from SVG as link download symbol */
+    .download-icon {
+      width: 16px;
+      height: 16px;
+      fill: #214589;
+      stroke-width: 1.2px;
+      stroke: #214589;
+      transition: fill 0.3s, stroke 0.3s;
+      flex-shrink: 0;
+    }
+    .report-label a:hover .download-icon {
+      fill: #14336a;
+      stroke: #14336a;
+    }
   </style>
 </head>
 <body>
@@ -209,146 +297,94 @@
       </nav>
     </aside>
     
-    <!-- Main Investor content -->
-    <section class="md:col-span-9 space-y-10">
-      
-      <article>
-        <h2 class="text-2xl font-semibold text-blue-800 border-b border-blue-500 pb-1 mb-6">Investor</h2>
-        
-        <!-- Annual Reports Section -->
-        <div class="space-y-10">
-          <!-- First Row of Annual Reports -->
-          <div class="flex flex-col md:flex-row gap-6">
-            <!-- Report 2020 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2020</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Comprehensive financial and operational review</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
-            </div>
-            
-            <!-- Report 2024 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2024</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Strategic initiatives and performance metrics</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
-            </div>
-            
-            <!-- Report 2025 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2025</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Future outlook and growth projections</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
-            </div>
+    <main class="main-content" role="main" aria-labelledby="annual-reports-title">
+      <h2 id="annual-reports-title">Annual Reports</h2>
+      <section class="reports-grid" aria-label="List of annual reports">
+        <article class="report-item" tabindex="0">
+          <div class="report-image-container">
+            <img src="https://placehold.co/300x140?text=Annual+Report+2023+Image" alt="Construction site on a mountain landscape with heavy machinery and pine trees in the background, showing preparation for annual report 2023" onerror="this.onerror=null;this.src='https://placehold.co/300x140?text=Image+Not+Available';" />
           </div>
-          
-          <!-- Second Row of Annual Reports -->
-          <div class="flex flex-col md:flex-row gap-6">
-            <!-- Report 2021 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2021</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Market analysis and recovery strategy</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
-            </div>
-            
-            <!-- Report 2022 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2022</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Expansion milestones and achievements</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
-            </div>
-            
-            <!-- Report 2023 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2023</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Technology integration and innovation</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
-            </div>
+          <div class="report-label">
+            <a href="#" download>
+              Annual Report 2023
+              <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
-        </div>
-      </article>
-      
-      <!-- Press Release Section -->
-      <article aria-label="Press Release Section" class="space-y-4">
-        <h3 class="text-xl font-semibold text-gray-900">Press Release</h3>
-        
-        <ul class="space-y-4">
-          <!-- Press release item 1 -->
-          <li class="flex flex-col sm:flex-row items-start sm:items-center bg-white rounded-md shadow-md p-4 gap-2 sm:gap-4">
-            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-md text-blue-700">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M9 16h6M11 20h2M12 8v4M15 12h-6M5 16h14l-2 4H7l-2-4z"></path></svg>
-            </div>
-            <a href="#" class="font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400">2025-07-15</a>
-            <p class="flex-grow text-gray-800 text-sm leading-snug">Oil & Gas announces record profits for Q2 2025</p>
-            <a href="#" aria-label="Download press release dated 2025-07-15" class="text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400" tabindex="0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                <polyline stroke-linecap="round" stroke-linejoin="round" points="8 12 12 16 16 12"></polyline>
-                <line stroke-linecap="round" stroke-linejoin="round" x1="12" y1="16" x2="12" y2="4"></line>
+        </article>
+
+        <article class="report-item" tabindex="0">
+          <div class="report-image-container">
+            <img src="https://placehold.co/300x140?text=Annual+Report+2024+Image" alt="Aerial top-down view of a blue waterfall in a green forest, with a river cutting through the landscape, representing annual report 2024" onerror="this.onerror=null;this.src='https://placehold.co/300x140?text=Image+Not+Available';" />
+          </div>
+          <div class="report-label">
+            <a href="#" download>
+              Annual Report 2024
+              <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-          </li>
+          </div>
+        </article>
 
-          <!-- Press release item 2 -->
-          <li class="flex flex-col sm:flex-row items-start sm:items-center bg-white rounded-md shadow-md p-4 gap-2 sm:gap-4">
-            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-md text-blue-700">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M9 16h6M11 20h2M12 8v4M15 12h-6M5 16h14l-2 4H7l-2-4z"></path></svg>
-            </div>
-            <a href="#" class="font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400">2025-07-10</a>
-            <p class="flex-grow text-gray-800 text-sm leading-snug">New offshore drilling project approved in South China Sea</p>
-            <a href="#" aria-label="Download press release dated 2025-07-10" class="text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400" tabindex="0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                <polyline stroke-linecap="round" stroke-linejoin="round" points="8 12 12 16 16 12"></polyline>
-                <line stroke-linecap="round" stroke-linejoin="round" x1="12" y1="16" x2="12" y2="4"></line>
+        <article class="report-item" tabindex="0">
+          <div class="report-image-container">
+            <img src="https://placehold.co/300x140?text=Annual+Report+2025+Image" alt="Farmland and a farm road extending into the horizon with green fields, symbolizing annual report 2025" onerror="this.onerror=null;this.src='https://placehold.co/300x140?text=Image+Not+Available';" />
+          </div>
+          <div class="report-label">
+            <a href="#" download>
+              Annual Report 2025
+              <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-          </li>
+          </div>
+        </article>
 
-          <!-- Press release item 3 -->
-          <li class="flex flex-col sm:flex-row items-start sm:items-center bg-white rounded-md shadow-md p-4 gap-2 sm:gap-4">
-            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-md text-blue-700">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M9 16h6M11 20h2M12 8v4M15 12h-6M5 16h14l-2 4H7l-2-4z"></path></svg>
-            </div>
-            <a href="#" class="font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400">2025-07-05</a>
-            <p class="flex-grow text-gray-800 text-sm leading-snug">Company receives sustainability award for environmental initiatives</p>
-            <a href="#" aria-label="Download press release dated 2025-07-05" class="text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400" tabindex="0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                <polyline stroke-linecap="round" stroke-linejoin="round" points="8 12 12 16 16 12"></polyline>
-                <line stroke-linecap="round" stroke-linejoin="round" x1="12" y1="16" x2="12" y2="4"></line>
+        <article class="report-item" tabindex="0">
+          <div class="report-image-container">
+            <img src="https://placehold.co/300x140?text=Annual+Report+2021+Image" alt="Construction site on a mountain landscape with heavy machinery and pine trees in the background, showing preparation for annual report 2021" onerror="this.onerror=null;this.src='https://placehold.co/300x140?text=Image+Not+Available';" />
+          </div>
+          <div class="report-label">
+            <a href="#" download>
+              Annual Report 2021
+              <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-          </li>
-        </ul>
-      </article>
+          </div>
+        </article>
 
-    </section>
-  </main>
+        <article class="report-item" tabindex="0">
+          <div class="report-image-container">
+            <img src="https://placehold.co/300x140?text=Annual+Report+2022+Image" alt="Aerial top-down view of a blue waterfall in a green forest, with a river cutting through the landscape, representing annual report 2022" onerror="this.onerror=null;this.src='https://placehold.co/300x140?text=Image+Not+Available';" />
+          </div>
+          <div class="report-label">
+            <a href="#" download>
+              Annual Report 2022
+              <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
 
+        <article class="report-item" tabindex="0">
+          <div class="report-image-container">
+            <img src="https://placehold.co/300x140?text=Annual+Report+2023+Image" alt="Farmland and a farm road extending into the horizon with green fields, symbolizing annual report 2023" onerror="this.onerror=null;this.src='https://placehold.co/300x140?text=Image+Not+Available';" />
+          </div>
+          <div class="report-label">
+            <a href="#" download>
+              Annual Report 2023
+              <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </section>
+    </main>
   <!-- Footer -->
   <footer class="bg-blue-100 mt-16">
     <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
