@@ -766,7 +766,7 @@
       background-color: #1a356b;
       outline: none;
     }
-    
+
     @media (max-width: 640px) {
       .container {
         flex-direction: column;
