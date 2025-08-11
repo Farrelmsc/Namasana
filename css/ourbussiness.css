@@ -104,15 +104,6 @@ body {
         }
         
         .sidebar li {
-            padding: 10px 14px;
-            border-radius: 6px;
-            background: #e5e7eb;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            flex: 1;
-            min-width: 140px;
-            text-align: center;
             font-weight: 400; /* Menghilangkan bold pada menu sidebar */
 
         }
@@ -135,11 +126,6 @@ body {
         }
         
         .content-panel > h2 {
-            font-size: 22px;
-            color: #1e3a8a;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e5e7eb;
             font-weight: 400 !important; /* Menghilangkan bold */
             margin-bottom: 12px !important; /* Mengurangi spacing */
             padding-bottom: 8px !important; /* Mengurangi padding bawah */
@@ -231,10 +217,8 @@ body {
         }
         
         .legend-title {
-            font-weight: 600;
-            color: #1e40af;
-            margin-bottom: 4px;
-            font-size: 14px;
+            font-weight: 400 !important; /* Menghilangkan bold pada legend */
+            margin-bottom: 2px !important; /* Mengurangi spacing */
         }
         
         .legend-desc {
