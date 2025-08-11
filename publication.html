@@ -6,16 +6,15 @@
   <title>Investor - Oil & Gas</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/investor.css">
   <style>
-    /* Styles remain unchanged */
     * {
-      font-family: Poppins, sans-serif; 
+      font-family: 'Poppins', sans-serif; 
     }
 
     body {
-      font-family: Poppins, sans-serif; 
+      font-family: 'Poppins', sans-serif; 
     }
 
     ::-webkit-scrollbar {
@@ -123,6 +122,53 @@
     .overlay.active {
       display: block;
     }
+    
+    /* Custom styles for annual reports */
+    .report-item {
+      transition: all 0.3s ease;
+    }
+    
+    .report-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .report-image-container {
+      overflow: hidden;
+      border-radius: 8px;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .report-image-container img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    
+    .report-image-container:hover img {
+      transform: scale(1.05);
+    }
+    
+    .download-icon {
+      width: 18px;
+      height: 18px;
+      fill: #214589;
+      stroke: #214589;
+      stroke-width: 1.5;
+      transition: all 0.3s ease;
+    }
+    
+    .report-label a:hover .download-icon {
+      fill: #14336a;
+      stroke: #14336a;
+      transform: translateY(2px);
+    }
   </style>
 </head>
 <body>
@@ -141,7 +187,7 @@
             </div>
             
             <!-- Desktop Navigation -->
-            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 text-sm">
+            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
                 <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
                 <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
@@ -163,13 +209,13 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <ul class="space-y-4 p-6 text-gray-600">
+        <ul class="space-y-4 p-6 text-gray-600 font-semibold">
             <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
             <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
             <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
             <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
-            <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
-            <li><a href="publication.html" class="block py-2 text-blue-900 border-b border-blue-700">Publication</a></li>
+            <li><a href="investor.html" class="block py-2 text-blue-900 border-b border-blue-700">Investor</a></li>
+            <li><a href="publication.html" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
             <li><a href="#" class="block py-2 hover:text-blue-900 transition">Career</a></li>
             <li><a href="#" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
         </ul>
@@ -210,142 +256,138 @@
     </aside>
     
     <!-- Main Investor content -->
-    <section class="md:col-span-9 space-y-10">
-      
-      <article>
-        <h2 class="text-2xl font-semibold text-blue-800 border-b border-blue-500 pb-1 mb-6">Investor</h2>
+    <section class="md:col-span-9">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-semibold text-blue-800 border-b border-blue-500 pb-2 mb-6">Annual Reports</h2>
         
-        <!-- Annual Reports Section -->
-        <div class="space-y-10">
-          <!-- First Row of Annual Reports -->
-          <div class="flex flex-col md:flex-row gap-6">
-            <!-- Report 2020 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2020</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Comprehensive financial and operational review</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- Report 2020 -->
+          <article class="report-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+            <div class="report-image-container">
+              <img 
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/89f53193-2398-43ef-af37-ebd3c05137d3.png" 
+                alt="Construction site on a mountain landscape with heavy machinery and pine trees in the background"
+                onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d05b0211-bb5c-4fab-9103-fd6f63bd51da.png';" 
+              />
             </div>
-            
-            <!-- Report 2024 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2024</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Strategic initiatives and performance metrics</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
+            <div class="p-4">
+              <div class="report-label">
+                <a href="#" download class="text-blue-700 font-medium flex items-center justify-between">
+                  <span>Annual Report 2020</span>
+                  <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
             </div>
-            
-            <!-- Report 2025 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2025</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Future outlook and growth projections</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
-            </div>
-          </div>
+          </article>
           
-          <!-- Second Row of Annual Reports -->
-          <div class="flex flex-col md:flex-row gap-6">
-            <!-- Report 2021 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2021</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Market analysis and recovery strategy</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
+          <!-- Report 2021 -->
+          <article class="report-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+            <div class="report-image-container">
+              <img 
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f80515f4-c6dc-4005-ad39-8c1c4b949841.png" 
+                alt="Construction site on a mountain landscape with heavy machinery and pine trees in the background"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x300?text=Image+Not+Available';" 
+              />
             </div>
-            
-            <!-- Report 2022 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2022</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Expansion milestones and achievements</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
+            <div class="p-4">
+              <div class="report-label">
+                <a href="#" download class="text-blue-700 font-medium flex items-center justify-between">
+                  <span>Annual Report 2021</span>
+                  <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
             </div>
-            
-            <!-- Report 2023 -->
-            <div class="bg-white rounded-md shadow-md p-6 flex-1 flex flex-col items-center text-center">
-              <h3 class="text-xl font-bold text-blue-900 mb-2">Annual Report</h3>
-              <span class="text-2xl font-bold text-blue-700 mb-3">2023</span>
-              <span class="text-2xl mb-4">▲</span>
-              <p class="text-gray-700 mb-4">Technology integration and innovation</p>
-              <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full">
-                View Report
-              </button>
+          </article>
+          
+          <!-- Report 2022 -->
+          <article class="report-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+            <div class="report-image-container">
+              <img 
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b496d2e-f029-4fc5-9edd-1dd0731631b7.png" 
+                alt="Aerial top-down view of a blue waterfall in a green forest"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x300?text=Image+Not+Available';" 
+              />
             </div>
-          </div>
+            <div class="p-4">
+              <div class="report-label">
+                <a href="#" download class="text-blue-700 font-medium flex items-center justify-between">
+                  <span>Annual Report 2022</span>
+                  <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Report 2023 -->
+          <article class="report-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+            <div class="report-image-container">
+              <img 
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c3503d8e-4718-4eae-a63d-e11d11f54c27.png" 
+                alt="Farmland and a farm road extending into the horizon with green fields"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x300?text=Image+Not+Available';" 
+              />
+            </div>
+            <div class="p-4">
+              <div class="report-label">
+                <a href="#" download class="text-blue-700 font-medium flex items-center justify-between">
+                  <span>Annual Report 2023</span>
+                  <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Report 2024 -->
+          <article class="report-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+            <div class="report-image-container">
+              <img 
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f463d310-fa38-4ce9-9346-a013b54577ab.png" 
+                alt="Aerial top-down view of a blue waterfall in a green forest"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x300?text=Image+Not+Available';" 
+              />
+            </div>
+            <div class="p-4">
+              <div class="report-label">
+                <a href="#" download class="text-blue-700 font-medium flex items-center justify-between">
+                  <span>Annual Report 2024</span>
+                  <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Report 2025 -->
+          <article class="report-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+            <div class="report-image-container">
+              <img 
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5bd0d9b3-03c9-4941-830a-eec363380655.png" 
+                alt="Farmland and a farm road extending into the horizon with green fields"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x300?text=Image+Not+Available';" 
+              />
+            </div>
+            <div class="p-4">
+              <div class="report-label">
+                <a href="#" download class="text-blue-700 font-medium flex items-center justify-between">
+                  <span>Annual Report 2025</span>
+                  <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 16v-8m0 0l-4 4m4-4l4 4M4 20h16" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
-      
-      <!-- Press Release Section -->
-      <article aria-label="Press Release Section" class="space-y-4">
-        <h3 class="text-xl font-semibold text-gray-900">Press Release</h3>
-        
-        <ul class="space-y-4">
-          <!-- Press release item 1 -->
-          <li class="flex flex-col sm:flex-row items-start sm:items-center bg-white rounded-md shadow-md p-4 gap-2 sm:gap-4">
-            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-md text-blue-700">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M9 16h6M11 20h2M12 8v4M15 12h-6M5 16h14l-2 4H7l-2-4z"></path></svg>
-            </div>
-            <a href="#" class="font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400">2025-07-15</a>
-            <p class="flex-grow text-gray-800 text-sm leading-snug">Oil & Gas announces record profits for Q2 2025</p>
-            <a href="#" aria-label="Download press release dated 2025-07-15" class="text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400" tabindex="0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                <polyline stroke-linecap="round" stroke-linejoin="round" points="8 12 12 16 16 12"></polyline>
-                <line stroke-linecap="round" stroke-linejoin="round" x1="12" y1="16" x2="12" y2="4"></line>
-              </svg>
-            </a>
-          </li>
-
-          <!-- Press release item 2 -->
-          <li class="flex flex-col sm:flex-row items-start sm:items-center bg-white rounded-md shadow-md p-4 gap-2 sm:gap-4">
-            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-md text-blue-700">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M9 16h6M11 20h2M12 8v4M15 12h-6M5 16h14l-2 4H7l-2-4z"></path></svg>
-            </div>
-            <a href="#" class="font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400">2025-07-10</a>
-            <p class="flex-grow text-gray-800 text-sm leading-snug">New offshore drilling project approved in South China Sea</p>
-            <a href="#" aria-label="Download press release dated 2025-07-10" class="text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400" tabindex="0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                <polyline stroke-linecap="round" stroke-linejoin="round" points="8 12 12 16 16 12"></polyline>
-                <line stroke-linecap="round" stroke-linejoin="round" x1="12" y1="16" x2="12" y2="4"></line>
-              </svg>
-            </a>
-          </li>
-
-          <!-- Press release item 3 -->
-          <li class="flex flex-col sm:flex-row items-start sm:items-center bg-white rounded-md shadow-md p-4 gap-2 sm:gap-4">
-            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-md text-blue-700">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M9 16h6M11 20h2M12 8v4M15 12h-6M5 16h14l-2 4H7l-2-4z"></path></svg>
-            </div>
-            <a href="#" class="font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400">2025-07-05</a>
-            <p class="flex-grow text-gray-800 text-sm leading-snug">Company receives sustainability award for environmental initiatives</p>
-            <a href="#" aria-label="Download press release dated 2025-07-05" class="text-blue-700 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400" tabindex="0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24" >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                <polyline stroke-linecap="round" stroke-linejoin="round" points="8 12 12 16 16 12"></polyline>
-                <line stroke-linecap="round" stroke-linejoin="round" x1="12" y1="16" x2="12" y2="4"></line>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </article>
-
+      </div>
     </section>
   </main>
 
@@ -410,6 +452,33 @@
 
     </div>
   </footer>
-    <script src="js/script.js"></script>
+  
+  <script>
+    // Hamburger menu functionality
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const overlay = document.getElementById('overlay');
+
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('open');
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburgerBtn.classList.remove('open');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    });
+  </script>
 </body>
 </html>
