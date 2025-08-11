@@ -1,8 +1,11 @@
-  /* Custom styles to exactly match the requested design */
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8fafc;
-  }
+* {
+    font-family: Poppins, sans-serif; 
+}
+
+body {
+    font-family: Poppins, sans-serif; 
+}
+
   /* Navigation active underline */
   nav a.active::after {
     content: "";
@@ -188,3 +191,149 @@
         .overlay.active {
             display: block;
         }
+
+        /*ethnics*/
+        
+    .container {
+      display: flex;
+      max-width: 960px;
+      margin: 40px auto;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #243b64;
+      background: #fff;
+    }
+
+    /* Side Nav */
+    .side-nav {
+      border: 1px solid #d9dbe9;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      box-sizing: border-box;
+      user-select: none;
+    }
+    .side-nav-item {
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color: #243b64;
+      cursor: pointer;
+      border-left: 4px solid transparent;
+      transition: background-color 0.3s ease, border-left-color 0.3s ease, color 0.3s ease;
+    }
+    .side-nav-item:hover:not(.active) {
+      background-color: #f4f7ff;
+    }
+    .side-nav-item.active {
+      background-color: #243b64;
+      color: #fff;
+      border-left-color: #fff;
+    }
+
+    /* Content area */
+    .content {
+      padding-left: 48px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Content main heading */
+    .content h2 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 28px;
+      color: #243b64;
+      margin-bottom: 8px;
+    }
+
+    /* Horizontal line under heading with partial width */
+    .content hr.title-underline {
+      border: none;
+      border-bottom: 2px solid #4c78a6;
+      width: 140px;
+      margin: 0 0 24px 0;
+    }
+
+    /* Paragraph text content */
+    .content p {
+      color: #495464;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      margin: 0 0 20px 0;
+      max-width: 720px;
+    }
+    
+    /* Link text style used for the policy and association links */
+    .content a.policy-link {
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 21px;
+      color: #1855b5;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 4px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .content a.policy-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Committee subheading */
+    .content h3 {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 8px;
+      color: #243b64;
+    }
+
+    .content hr.subheading-underline {
+      border: none;
+      border-bottom: 2px solid #4c78a6;
+      width: 140px;
+      margin: 0 0 24px 0;
+    }
+
+    /* Accordion container for committee list */
+    .accordion {
+      max-width: 560px;
+      border: none;
+    }
+
+    /* Each accordion item container */
+    .accordion-item {
+      border: 1px solid #d9dbe9;
+      border-radius: 3px;
+      background: #f8f9fc;
+      margin-bottom: 16px;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color: #243b64;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-item:hover {
+      background: #e8ecf8;
+    }
+
+    /* The downward arrow on the right side */
+    .accordion-item::after {
+      content: "\u25BC"; /* Downward triangle */
+      font-size: 14px;
+      color: #243b64;
+      transition: transform 0.3s ease;
+    }
+
+    /* If expanded, arrow rotates upwards */
+    .accordion-item.active::after {
+      transform: rotate(180deg);
+    }
