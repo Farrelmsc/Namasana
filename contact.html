@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Oil & Gas Contact</title>
+    <title>Oil & Gas Career</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -117,55 +117,44 @@
             display: block;
         }
         
-        /* Custom styles for contact page */
-        .contact-container {
+        /* Custom styles for sidebar menu */
+        .sidebar-menu {
             display: flex;
-            max-width: 960px;
-            margin: 2rem auto;
-            box-shadow: 0 0 5px rgba(0,0,0,0.05);
-            min-height: 560px;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            overflow: hidden;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.07);
         }
         
-        .contact-sidebar {
-            background-color: #0e2f6d;
-            width: 160px;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding-top: 3rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
+        .active-item {
+            background-color: #245292;
+            color: white;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 4px 4px 0 0;
         }
         
-        .contact-button {
-            background-color: #0e2f6d;
-            border: 1px solid white;
-            padding: 12px 24px;
-            color: #fff;
-            font-weight: 700;
+        .sidebar-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 12px 0;
+        }
+        
+        .sidebar-menu ul li {
+            padding: 10px 20px;
             cursor: pointer;
-            outline: none;
-            border-radius: 0;
-            font-size: 14px;
-            width: 100%;
-            text-align: center;
-            transition: background-color 0.3s ease;
+            color: #333;
+            transition: all 0.3s;
         }
         
-        .contact-button:hover,
-        .contact-button:focus {
-            background-color: #08305a;
-        }
-
-        .contact-content {
-            flex: 1;
-            padding: 3rem 3rem 3rem 2rem;
-            color: #0e2f6d;
+        .sidebar-menu ul li:hover {
+            color: #245292;
+            background: #f5faff;
         }
         
-        .section-title {
+        /* Custom styles for contact content */
+        .contact-section-title {
             font-weight: 600;
             font-size: 20px;
             margin-bottom: 0.5rem;
@@ -173,7 +162,7 @@
             border-bottom: 1.5px solid #0e2f6d;
         }
 
-        .sub-title {
+        .contact-sub-title {
             font-weight: 700;
             font-size: 12px;
             margin-top: 1.5rem;
@@ -181,25 +170,25 @@
             color: #000;
         }
         
-        .branch-group {
+        .contact-branch-group {
             display: flex;
             gap: 3rem;
             margin-top: 0.5rem;
             flex-wrap: wrap;
         }
         
-        .office-block {
+        .contact-office-block {
             flex: 1 1 180px;
             max-width: 220px;
         }
         
-        .office-name {
+        .contact-office-name {
             font-weight: 700;
             font-size: 12px;
             margin-bottom: 0.25rem;
         }
         
-        .office-desc {
+        .contact-office-desc {
             font-weight: 400;
             font-size: 12px;
             color: #000;
@@ -281,33 +270,12 @@
         }
 
         @media (max-width: 720px) {
-            .contact-container {
-                flex-direction: column;
-                max-width: 90vw;
-                margin: 1.5rem auto;
-            }
-            
-            .contact-sidebar {
-                width: 100%;
-                padding: 1rem 1.5rem;
-                justify-content: flex-start;
-            }
-            
-            .contact-button {
-                width: auto;
-                padding: 10px 18px;
-            }
-            
-            .contact-content {
-                padding: 2rem 1.5rem 2rem 1.5rem;
-            }
-            
-            .branch-group {
+            .contact-branch-group {
                 flex-direction: column;
                 gap: 1.25rem;
             }
             
-            .office-block {
+            .contact-office-block {
                 max-width: 100%;
                 flex: 1 1 100%;
             }
@@ -353,8 +321,8 @@
                 <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
                 <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
                 <li><a href="publication.html" class="hover:text-blue-900 transition">Publication</a></li>
-                <li><a href="career.html" class="hover:text-blue-900 transition">Career</a></li>
-                <li><a href="contact.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">Contact Us</a></li>
+                <li><a href="career.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">Career</a></li>
+                <li><a href="contact.html" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
             
             <!-- Hamburger Icon (Hanya ditampilkan di mobile) -->
@@ -375,8 +343,8 @@
             <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
             <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
             <li><a href="publication.html" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
-            <li><a href="career.html" class="block py-2 hover:text-blue-900 transition">Career</a></li>
-            <li><a href="contact.html" class="block py-2 text-blue-900 border-b border-blue-700">Contact Us</a></li>
+            <li><a href="career.html" class="block py-2 text-blue-900 border-b border-blue-700">Career</a></li>
+            <li><a href="contact.html" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
         </ul>
     </div>
     
@@ -391,67 +359,72 @@
       onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
     />
     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center px-6 md:px-16">
-      <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-4xl border-b-4 border-white pb-2 leading-tight">Contact Us</h1>
+      <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-4xl border-b-4 border-white pb-2 leading-tight">Career</h1>
     </div>
   </section>
 
 
 <!-- Main content area -->
-<main class="max-w-7xl mx-auto px-4 md:px-8 py-12">
-  <div class="contact-container bg-white">
-    <aside class="contact-sidebar">
-      <button class="contact-button" type="button">Contact US</button>
-    </aside>
+<main class="max-w-7xl mx-auto px-4 md:px-8 py-12 flex flex-col lg:flex-row gap-8">
 
-    <div class="contact-content">
-      <section>
-        <h1 class="section-title">Head Office</h1>
-        <div class="sub-title">PT Oil &amp; Gas</div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-      </section>
-
-      <section style="margin-top:2rem;">
-        <h2 class="section-title">Branch Offices</h2>
-        <div class="sub-title">Oil &amp; Gas</div>
-
-        <div class="branch-group">
-          <div class="office-block">
-            <div class="office-name">Oil &amp; Gas Japan</div>
-            <p class="office-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-          </div>
-          <div class="office-block">
-            <div class="office-name">Oil &amp; Gas Global</div>
-            <p class="office-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-          </div>
-          <div class="office-block">
-            <div class="office-name">Oil &amp; Gas Monaco</div>
-            <p class="office-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-          </div>
-        </div>
-
-        <div class="branch-group" style="margin-top:0.75rem;">
-          <div class="office-block">
-            <div class="office-name">Oil &amp; Gas Japan</div>
-            <p class="office-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-          </div>
-        </div>
-      </section>
-
-      <section style="margin-top:3rem;">
-        <h2 class="section-title">Contact Us</h2>
-        <p class="contact-us-text">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-        </p>
-        <form class="contact-form" action="#" method="post">
-          <input type="text" id="name" name="name" placeholder="Your name" required />
-          <input type="email" id="email" class="input-half" name="email" placeholder="Email address" required />
-          <input type="tel" id="phone" class="input-half" name="phone" placeholder="Phone Number" />
-          <textarea id="message" class="message-input" name="message" placeholder="Message" rows="4" required></textarea>
-          <button type="submit" class="submit-button">SUBMIT</button>
-        </form>
-      </section>
+  <!-- Sidebar left menu -->
+  <aside class="flex-shrink-0 w-full lg:max-w-xs">
+    <div class="sidebar-menu">
+      <div class="active-item">Working at Oil & Gas</div>
+      <ul>
+        <li>Join Us</li>
+        <li>Fraud Disclaimer</li>
+      </ul>
     </div>
-  </div>
+  </aside>
+
+  <!-- Main content -->
+  <section class="flex-grow bg-white rounded-md card-shadow p-6">
+    <h1 class="contact-section-title">Head Office</h1>
+    <div class="contact-sub-title">PT Oil &amp; Gas</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+    
+    <div style="margin-top:2rem;">
+      <h2 class="contact-section-title">Branch Offices</h2>
+      <div class="contact-sub-title">Oil &amp; Gas</div>
+
+      <div class="contact-branch-group">
+        <div class="contact-office-block">
+          <div class="contact-office-name">Oil &amp; Gas Japan</div>
+          <p class="contact-office-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+        </div>
+        <div class="contact-office-block">
+          <div class="contact-office-name">Oil &amp; Gas Global</div>
+          <p class="contact-office-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+        </div>
+        <div class="contact-office-block">
+          <div class="contact-office-name">Oil &amp; Gas Monaco</div>
+          <p class="contact-office-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+        </div>
+      </div>
+
+      <div class="contact-branch-group" style="margin-top:0.75rem;">
+        <div class="contact-office-block">
+          <div class="contact-office-name">Oil &amp; Gas Japan</div>
+          <p class="contact-office-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="margin-top:3rem;">
+      <h2 class="contact-section-title">Contact Us</h2>
+      <p class="contact-us-text">
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      </p>
+      <form class="contact-form" action="#" method="post">
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <input type="email" id="email" class="input-half" name="email" placeholder="Email address" required />
+        <input type="tel" id="phone" class="input-half" name="phone" placeholder="Phone Number" />
+        <textarea id="message" class="message-input" name="message" placeholder="Message" rows="4" required></textarea>
+        <button type="submit" class="submit-button">SUBMIT</button>
+      </form>
+    </div>
+  </section>
 </main>
 
   <!-- Footer -->
