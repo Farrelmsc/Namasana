@@ -6,42 +6,6 @@ body {
     font-family: Poppins, sans-serif; 
 }
 
-        .downarea {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        @media (min-width: 768px) {
-            .downarea {
-                flex-direction: row;
-                align-items: center;
-            }
-            
-            .downarea img {
-                width: 60%;
-                order: 2; /* Memindahkan gambar ke posisi kanan */
-                margin-left: auto; /* Memastikan gambar di sebelah kanan */
-            }
-            
-            .textarea {
-                order: 1; /* Memindahkan teks ke posisi kiri */
-                width: 35%;
-            }
-        }
-
-        .textarea h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #1d4ed8;
-        }
-
-        .btn-container {
-            text-align: left; /* Tombol sejajar kiri */
-            margin-top: 15px;
-        }
-
         /* PERBAIKAN UNTUK DESKTOP NAVIGATION */
         .desktop-nav {
             gap: 16px;
