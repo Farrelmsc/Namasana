@@ -255,10 +255,25 @@ button:focus {
     border-radius: 0.375rem;
     padding: 1rem;
     transition: box-shadow 0.3s;
+    position: relative;
+    overflow: hidden; /* Menyembunyikan overflow dari pseudo-element */
 }
 
 .book-icon {
     background-color: transparent;
+    pointer-events: none; /* Mencegah event mouse pada icon */
+}
+
+.publication-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    background-color: transparent;
+    z-index: -1;
+    transition: background-color 0.3s;
 }
 
 .publication-item:hover {
