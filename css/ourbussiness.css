@@ -6,6 +6,20 @@ body {
     font-family: Poppins, sans-serif; 
 }
 
+        /* PERBAIKAN UNTUK DESKTOP NAVIGATION */
+        .desktop-nav {
+            gap: 16px;
+            font-weight: 400;
+        }
+        .desktop-nav a.text-blue-900 {
+            font-weight: 400;
+            padding-bottom: 2px;
+            border-bottom-width: 1px;
+        }
+        .desktop-nav a:hover {
+            font-weight: 400;
+        }
+
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -192,13 +206,13 @@ body {
         
         /* ==================== MAP SECTION OPTIMIZATIONS ==================== */
         .map-section {
-            width: 100%;
+            width: 80%;
             padding: 0 16px;
             margin: 20px 0 30px;
         }
         
         .map-container {
-            width: 100%;
+            width: 80%;
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -211,7 +225,7 @@ body {
         }
         
         .map-legend {
-            width: 100%;
+            width: 80%;
             margin-top: 16px;
         }
         
@@ -328,9 +342,9 @@ body {
             
             .desktop-nav {
                 display: flex;
-                gap: 24px;
+                gap: 16px;
                 font-size: 14px;
-                font-weight: 600;
+                font-weight: 400;
                 color: #4b5563;
             }
             
