@@ -264,6 +264,15 @@ button:focus {
     pointer-events: none; /* Mencegah event mouse pada icon */
 }
 
+.book-icon i {
+    color: #4b5563; /* Warna default */
+    transition: color 0.3s;
+}
+
+.publication-item:hover .book-icon i {
+    color: #fbbf24; /* Warna saat hover */
+}
+
 .publication-item::before {
     content: "";
     position: absolute;
@@ -284,6 +293,11 @@ button:focus {
     color: #39434d;
     font-size: 0.875rem;
     font-weight: 500;
+}
+
+.publication-item:active::before,
+.publication-item:focus::before {
+    background-color: transparent !important; /* Pastikan tetap transparan saat aktif */
 }
 
 /* Footer Styles */
