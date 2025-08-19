@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Oil & Gas Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/ourbussiness.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body class="bg-white font-sans">
     <!-- Header Section -->
@@ -15,225 +16,264 @@
         <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
             <div class="flex items-center space-x-3">
                 <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
-                    <div class="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-400 to-red-500 text-white font-bold">
-                        O
-                    </div>
+                    <img 
+                        src="img/oilngaslogo.png" 
+                        alt="Oil & Gas Logo"
+                        class="w-7 h-7 rounded-full object-cover"
+                        onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                    />
                     <span>OIL & GAS</span>
                 </div>
             </div>
-            <ul class="hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
+            
+            <!-- Desktop Navigation - DIUBAH -->
+            <ul class="desktop-nav hidden md:flex space-x-6 text-gray-600 text-sm font-normal">
                 <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
                 <li><a href="ourbussiness.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">Our Business</a></li>
                 <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
                 <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Publication</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Career</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
+                <li><a href="publication.html" class="hover:text-blue-900 transition">Publication</a></li>
+                <li><a href="career.html" class="hover:text-blue-900 transition">Career</a></li>
+                <li><a href="contact.html" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
+            
+            <!-- Hamburger Icon -->
+            <button id="hamburger-btn" class="hamburger focus:outline-none">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
         </nav>
     </header>
-  <!-- Hero Section -->
-  <section class="relative">
-    <img 
-      src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
-      alt="Yellow offshore oil and gas platform structure standing in calm ocean under bright blue sky with white fluffy clouds" 
-      class="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
-      onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
-    />
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center px-6 md:px-16">
-      <h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-4xl border-b-4 border-white pb-2 leading-tight">Our Bussiness</h1>
-    </div>
-  </section>
 
-    <main>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul class="space-y-4 p-6 text-gray-600">
+            <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
+            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
+            <li><a href="ourbussiness.html" class="block py-2 text-blue-900 border-b border-blue-700">Our Business</a></li>
+            <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
+            <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
+            <li><a href="publication.html" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
+            <li><a href="career.html" class="block py-2 hover:text-blue-900 transition">Career</a></li>
+            <li><a href="contact.html" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-container">
+        <img 
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
+          alt="Yellow offshore oil and gas platform" 
+          class="hero-image"
+          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
+        />
+        <div class="hero-overlay">
+          <h1 class="hero-title">Our Business</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+   <main>
       <aside class="sidebar" role="navigation" aria-label="Business sidebar menu">
         <ul>
-          <li class="active" tabindex="0" aria-current="true">Overview</li>
-          <li tabindex="0">Oil &amp; Gas</li>
-          <li tabindex="0">Power</li>
-          <li tabindex="0">Copper &amp; Gold Mining</li>
+          <li class="active" tabindex="0" aria-current="true">
+            <a href="ourbussiness.html">Overview</a>
+          </li>
+          <li tabindex="0">
+            <a href="ourbussiness2.html">Oil &amp; Gas</a>
+          </li>
+          <li tabindex="0">
+            <a href="#">Power</a>
+          </li>
+          <li tabindex="0">
+            <a href="#">Cooper &amp; Gold Mining</a>
+          </li>
         </ul>
       </aside>
 
-      <section class="content-panel" role="main" aria-label="Overview of Our Business content">
+      <section class="content-panel">
         <h2>Overview of Our Business</h2>
-        <div class="icon-grid" aria-label="Icons representing various business aspects">
-          <div class="icon-block" tabindex="0" aria-describedby="desc1">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" >
+        <div class="icon-grid">
+          <div class="icon-block">
+            <svg viewBox="0 0 64 64" >
               <path fill="#0f3a91" d="M10 33h44v6H10z"/>
               <path fill="#61d6ff" d="M12 33l6-10 10 10 10-14 8 14 4-12v14H12z"/>
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext" id="desc1">Lorem ipsum</div>
+            <div class="icon-label">Exploration</div>
+            <div class="icon-subtext">Discovering new energy reserves</div>
           </div>
-          <div class="icon-block" tabindex="0" aria-describedby="desc2">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+          <div class="icon-block">
+            <svg viewBox="0 0 64 64">
               <rect fill="#0f3a91" x="20" y="20" width="24" height="24" rx="8" />
               <circle fill="#61d6ff" cx="32" cy="32" r="10" />
               <line x1="32" y1="22" x2="32" y2="42" stroke="#0f3a91" stroke-width="2"/>
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext" id="desc2">Lorem ipsum</div>
+            <div class="icon-label">Production</div>
+            <div class="icon-subtext">Efficient resource extraction</div>
           </div>
-          <div class="icon-block" tabindex="0" aria-describedby="desc3">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+          <div class="icon-block">
+            <svg viewBox="0 0 64 64">
               <polygon fill="#0f3a91" points="32 14 48 40 16 40" />
               <path fill="#61d6ff" d="M26,40h12v6H26z" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext" id="desc3">Lorem ipsum</div>
+            <div class="icon-label">Refining</div>
+            <div class="icon-subtext">Processing crude oil</div>
           </div>
-          <div class="icon-block" tabindex="0" aria-describedby="desc4">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" >
+          <div class="icon-block">
+            <svg viewBox="0 0 64 64" >
               <circle cx="32" cy="32" r="18" fill="#0f3a91" />
               <path fill="#61d6ff" d="M32 20a12 12 0 0110 18l-10 10-10-10a12 12 0 0110-18z" />
               <circle cx="32" cy="30" r="6" fill="#0f3a91" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext" id="desc4">Lorem ipsum</div>
+            <div class="icon-label">Distribution</div>
+            <div class="icon-subtext">Global energy delivery</div>
           </div>
-          <div class="icon-block" tabindex="0" aria-describedby="desc5">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+          <div class="icon-block">
+            <svg viewBox="0 0 64 64">
               <rect fill="#0f3a91" x="12" y="28" width="40" height="14" rx="6" />
               <circle fill="#61d6ff" cx="20" cy="40" r="8" />
               <circle fill="#61d6ff" cx="44" cy="40" r="8" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext" id="desc5">Lorem ipsum</div>
+            <div class="icon-label">Logistics</div>
+            <div class="icon-subtext">Transportation solutions</div>
           </div>
-          <div class="icon-block" tabindex="0" aria-describedby="desc6">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+          <div class="icon-block">
+            <svg viewBox="0 0 64 64">
               <ellipse cx="28" cy="40" rx="12" ry="16" fill="#0f3a91"/>
               <ellipse cx="40" cy="40" rx="12" ry="16" fill="#61d6ff"/>
               <rect x="24" y="38" width="16" height="12" fill="#0f3a91" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext" id="desc6">Lorem ipsum</div>
+            <div class="icon-label">Research</div>
+            <div class="icon-subtext">Innovation and development</div>
           </div>
-          <div class="icon-block" tabindex="0" aria-describedby="desc7">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+          <div class="icon-block">
+            <svg viewBox="0 0 64 64">
               <path fill="#0f3a91" d="M20 26h24l-8 22H28z" />
               <circle fill="#61d6ff" cx="32" cy="40" r="8" />
               <path fill="#0f3a91" d="M38 25l-8-10-8 10z" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext" id="desc7">Lorem ipsum</div>
+            <div class="icon-label">Technology</div>
+            <div class="icon-subtext">Advanced solutions</div>
           </div>
-          <div class="icon-block" tabindex="0" aria-describedby="desc8">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+          <div class="icon-block">
+            <svg viewBox="0 0 64 64">
               <path fill="#0f3a91" d="M52 42l-8-8V30l12-4v8z" />
               <circle fill="#61d6ff" cx="44" cy="36" r="12" />
               <path fill="#0f3a91" d="M44 20l1 5-5 4 5 3-1 5-11-10z" />
             </svg>
-            <div class="icon-label">Lorem</div>
-            <div class="icon-subtext" id="desc8">Lorem ipsum</div>
+            <div class="icon-label">Renewables</div>
+            <div class="icon-subtext">Sustainable energy</div>
           </div>
         </div>
 
         <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          As a global leader in the energy sector, we operate across the entire value chain - from exploration to distribution. 
+          With over 50 years of industry experience, we've developed advanced technologies and sustainable practices to responsibly 
+          develop energy resources that power economies and communities worldwide.
+          <br><br>
+          Our operations span across 15 countries with 32 active production fields and 4 major refineries. We maintain a diverse 
+          portfolio of both conventional and unconventional resources, leveraging cutting-edge techniques to maximize efficiency 
+          while minimizing environmental impact.
         </p>
       </section>
     </main>
     
     <!-- Indonesia Map Section -->
-    <div class="max-w-4xl mx-auto px-4 py-10">
-      <div class="bg-white rounded-lg shadow-md p-6">
-        <!-- Map Image -->
-        <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/0/05/Map_of_Indonesia_Demis.png" 
-          alt="Peta Indonesia berwarna biru"
-          class="w-full h-auto object-contain mb-6"
-        />
-        
-        <!-- Map Legend -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-          <div class="p-3 border-b border-gray-200">
-            <p class="font-medium text-blue-800">Lorem ipsum</p>
-            <p class="text-gray-600">Lorem ipsum</p>
-            <p class="text-gray-600">Lorem ipsum</p>
-          </div>
-          <div class="p-3 border-b border-gray-200">
-            <p class="font-medium text-blue-800">Lorem ipsum</p>
-            <p class="text-gray-600">Lorem ipsum</p>
-          </div>
-          <div class="p-3 border-b border-gray-200">
-            <p class="font-medium text-blue-800">Lorem ipsum</p>
-            <p class="text-gray-600">Lorem ipsum</p>
-            <p class="text-gray-600">Lorem ipsum</p>
-          </div>
+    <div class="map-section">
+        <div class="map-container">
+            <img 
+                src="img/map.png" 
+                alt="Indonesia Map showing our operational areas"
+                width="798"
+                height="309"
+                onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=Map+Placeholder';"
+            />
         </div>
         
-        <!-- See All Maps Button -->
-        <div class="text-center mt-8">
-          <a href="#" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-md transition-colors">
-            See All Maps >
-          </a>
+        <div class="map-legend">
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-title">Exploration Sites</div>
+                    <div class="legend-desc">Active exploration areas</div>
+                    <div class="legend-desc">5 locations nationwide</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-title">Production Fields</div>
+                    <div class="legend-desc">32 active production sites</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-title">Refineries</div>
+                    <div class="legend-desc">4 major processing facilities</div>
+                    <div class="legend-desc">Capacity: 500K bpd</div>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <a href="#" class="btn-see-all">See All Maps ></a>
+            </div>
         </div>
-      </div>
     </div>
     
-  <!-- Footer -->
-  <footer class="bg-blue-100 mt-16">
-    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
-      
-      <!-- Footer left with logo and contact -->
-      <div class="md:col-span-4 space-y-4">
-        <img 
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9ee687d7-d234-439d-9a4f-c7b4268f9ae9.png" 
-          alt="Oil and Gas company logo, abstract flame in blue, orange and gray colors with words Oil & Gas in blue and orange below and tagline Your Slogan Here below" 
-          class="w-28 h-28 object-contain"
-          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
-        />
-        <div class="text-sm text-gray-900">
-          <strong>Oil & Gas</strong><br />
-          (Alamat) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae pharetra dui.
-        </div>
-        <div class="flex items-center space-x-2 text-gray-800 text-sm">
-          <span aria-hidden="true" class="inline-block w-5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14a2 2 0 0 0 2 2h14"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10M7 14h4"></path></svg>
-          </span>
-          <span>+62</span>
-        </div>
-        <div class="flex items-center space-x-2 text-gray-800 text-sm">
-          <span aria-hidden="true" class="inline-block w-5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12 H8"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 16v2a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2-2v-2"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10"></path></svg>
-          </span>
-          <span>Lorem ipsum dolor</span>
-        </div>
-      </div>
+    <!-- Footer -->
+    <footer class="bg-blue-100 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
+            <div class="md:col-span-4 space-y-4">
+                <img 
+                    src="img/oilngaslogo.png" 
+                    alt="Oil and Gas company logo"
+                    class="w-28 h-28 object-contain"
+                    onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                />
+                <div class="text-sm text-gray-900">
+                    <strong>Global Energy Group</strong><br />
+                    123 Energy Boulevard, Houston, TX 77001
+                </div>
+                <div class="flex items-center space-x-2 text-gray-800 text-sm">
+                    <span aria-hidden="true" class="inline-block w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14a2 2 0 0 0 2 2h14"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10M7 14h4"></path></svg>
+                    </span>
+                    <span>+1 (800) 123-4567</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-800 text-sm">
+                    <span aria-hidden="true" class="inline-block w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12 H8"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 16v2a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2-2v-2"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10"></path></svg>
+                    </span>
+                    <span>info@globalenergygroup.com</span>
+                </div>
+            </div>
 
-      <!-- Footer middle with navigation links -->
-      <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
-        <div class="flex flex-col space-y-3">
-          <a href="#" class="hover:underline focus:underline focus:outline-none">About Us</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Our Business</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Investor</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Publication</a>
-        </div>
-        <div class="flex flex-col space-y-3">
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Career</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Contact Us</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Whistleblower</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Supplier Site</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Privacy Policy</a>
-        </div>
-      </nav>
+            <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
+                <div class="flex flex-col space-y-3">
+                    <a href="about.html" class="hover:underline focus:underline focus:outline-none">About Us</a>
+                    <a href="ourbussiness.html" class="hover:underline focus:underline focus:outline-none">Our Business</a>
+                    <a href="sustainbility.html" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
+                    <a href="investor.html" class="hover:underline focus:underline focus:outline-none">Investor</a>
+                    <a href="publication.html" class="hover:underline focus:underline focus:outline-none">Publication</a>
+                </div>
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Career</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Contact Us</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Whistleblower</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Supplier Site</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Privacy Policy</a>
+                </div>
+            </nav>
 
-      <!-- Footer right powered by -->
-      <div class="md:col-span-3 flex flex-col items-center md:items-end">
-        <span class="text-sm mb-2">Powered by:</span>
-        <img 
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c688afa-d093-4e07-b803-5615f3599ae9.png" 
-          alt="NMSN logo with blue letters and yellow swoosh design on white background" 
-          class="w-40 object-contain"
-          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
-        />
-      </div>
-
-    </div>
-  </footer>
+            <div class="md:col-span-3 flex flex-col items-center md:items-end">
+                <span class="text-sm mb-2">Powered by:</span>
+                <img 
+                    src="img/nmsnlogo.png" 
+                    alt="NMSN logo"
+                    class="w-40 object-contain"
+                    onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
+                />
+            </div>
+        </div>
+    </footer>    
+    <script src="js/script.js"></script>
 </body>
 </html>

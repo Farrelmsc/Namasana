@@ -1,23 +1,288 @@
+* {
+    font-family: Poppins, sans-serif; 
+}
 
-        /* Custom Scrollbar for carousel dots */
+body {
+    font-family: Poppins, sans-serif; 
+}
+        /* Perbaikan viewport dan overflow */
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        
+        /* Header dan navigasi mobile */
+        header {
+            box-sizing: border-box;
+        }
+        
+        nav {
+            padding: 0 16px;
+            max-width: 100vw;
+            overflow: hidden;
+        }
+        
+        .mobile-menu {
+            width: 100%;
+            right: -100%;
+        }
+        
+        /* Hero section responsif */
+        .hero-section img {
+            height: 40vh;
+            min-height: 250px;
+            max-height: 400px;
+        }
+        
+        /* Konten utama - mobile first */
+        main {
+            flex-direction: column;
+            padding: 0 16px;
+            margin: 20px auto;
+        }
+        
+        .sidebar {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+        
+        .content-panel {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .icon-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .icon-block {
+            padding: 12px;
+        }
+        
+        /* Video section responsif */
+        .video-container {
+            width: 100% !important;
+            height: auto !important;
+            max-width: 100%;
+            padding: 0 16px;
+            box-sizing: border-box;
+        }
+        
+        .video-container iframe {
+            width: 100% !important;
+            height: 200px !important;
+        }
+        
+        /* Footer responsif */
+        footer {
+            padding: 20px 16px;
+        }
+        
+        /* ==================== MEDIA QUERIES ==================== */
+        @media (min-width: 480px) {
+            .icon-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .video-container iframe {
+                height: 250px !important;
+            }
+        }
+        
+        @media (min-width: 640px) {
+            .hero-section img {
+                height: 45vh;
+            }
+            
+            .video-container iframe {
+                height: 300px !important;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            /* Desktop styles */
+            body {
+                overflow-x: visible;
+            }
+            
+            nav {
+                padding: 0 24px;
+            }
+            
+            .hero-section img {
+                height: 50vh;
+                max-height: 500px;
+            }
+            
+            main {
+                flex-direction: row;
+                max-width: 1200px;
+                padding: 0 24px;
+            }
+            
+            .sidebar {
+                width: 250px;
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+            
+            .icon-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            
+            .video-container {
+                width: 700px !important;
+                height: 360px !important;
+            }
+            
+            .video-container iframe {
+                height: 360px !important;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-section img {
+                height: 55vh;
+            }
+        }
+        
+        /* ==================== STYLING YANG SUDAH ADA ==================== */
+        /* Hamburger Menu Styles */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            background: none;
+            border: none;
+            z-index: 10;
+            transition: all 0.25s;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #1e40af;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+
+        .open .hamburger-middle {
+            display: none;
+        }
+
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            z-index: 5;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease-in-out;
+            overflow-y: auto;
+            padding-top: 80px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 4;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 768px) {
+            .video-container {
+                width: 100% !important;
+                height: auto !important;
+                aspect-ratio: 16/9;
+            }
+            
+            iframe {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .icon-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Existing CSS */
         .carousel::-webkit-scrollbar {
             display: none;
         }
 
-        /* Override Tailwind default buttons */
         button:focus {
             outline: none;
         }
-    
-    /* Video dimensions - smaller size */
-    .video-container {
-      width: 700px;
-      height: 360px;
-      max-width: 100%;
-      margin: 0 auto;
-    }
 
-        /* Footer Styles */
+        .video-container {
+            width: 700px;
+            height: 360px;
+            max-width: 100%;
+            margin: 40px auto;
+        }
+
         .footer-container {
             max-width: 80rem;
             margin-left: auto;
@@ -114,31 +379,122 @@
             font-weight: 700;
         }
 
-    @media (max-width: 768px) {
-      .footer-row {
-        flex-direction: column;
-        gap: 30px;
-      }
-      
-      .footer-section {
-        min-width: 100%;
-      }
-      
-      .video-container {
-        height: 300px;
-      }
-    }
-    
-    /* Navigation sticky */
-    .sticky-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    
-    /* Content spacing */
-    .content-section {
-      padding: 30px 0;
-    }
+        @media (max-width: 768px) {
+            .footer-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+            }
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .content-section {
+            padding: 30px 0;
+        }
+        
+        /* Our Business Page Specific */
+        main {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-right: 30px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .sidebar li.active {
+            background: #1d4ed8;
+            color: white;
+        }
+        
+        .sidebar li:not(.active):hover {
+            background: #e5e7eb;
+        }
+        
+        .content-panel {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .content-panel h2 {
+            font-size: 28px;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .icon-block {
+            text-align: center;
+            padding: 20px 15px;
+            border-radius: 10px;
+            background: #f9fafb;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .icon-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .icon-block svg {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+        }
+        
+        .icon-label {
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+        
+        .icon-subtext {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .description {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 16px;
+        }

@@ -5,52 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Investor - Oil & Gas</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: rgba(37, 99, 235, 0.5);
-      border-radius: 3px;
-    }
-  </style>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/investor.css">
 </head>
-<body class="bg-white font-sans">
-    <!-- Header Section -->
+<body>
     <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-        <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 select-none">
-            <div class="flex items-center space-x-3">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between h-16 select-none">
+            <div class="flex items-center space-x-3 pl-4 md:pl-0">
                 <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
-                    <div class="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-br from-yellow-400 to-red-500 text-white font-bold">
-                        O
-                    </div>
+                    <img 
+                        src="img/oilngaslogo.png" 
+                        alt="Oil & Gas Logo"
+                        class="w-7 h-7 rounded-full object-cover"
+                        onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                    />
                     <span>OIL & GAS</span>
                 </div>
             </div>
-            <ul class="hidden md:flex space-x-10 text-gray-600 font-semibold text-sm">
+            
+            <!-- Desktop Navigation -->
+            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 text-sm">
                 <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
                 <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
                 <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
                 <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
                 <li><a href="investor.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">Investor</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Publication</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Career</a></li>
-                <li><a href="#" class="hover:text-blue-900 transition">Contact Us</a></li>
+                <li><a href="publication.html" class="hover:text-blue-900 transition">Publication</a></li>
+                <li><a href="career.html" class="hover:text-blue-900 transition">Career</a></li>
+                <li><a href="contact.html" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
+            
+            <!-- Hamburger Icon -->
+            <button id="hamburger-btn" class="hamburger focus:outline-none pr-4 md:pr-0">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
         </nav>
     </header>
-      <!-- Mobile menu button -->
-      <div class="md:hidden">
-        <button id="mobile-menu-btn" aria-label="Open Menu" aria-expanded="false" class="focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
-          </svg>
-        </button>
-      </div>
-    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul class="space-y-4 p-6 text-gray-600">
+            <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
+            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
+            <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
+            <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
+            <li><a href="investor.html" class="block py-2 text-blue-900 border-b border-blue-700">Investor</a></li>
+            <li><a href="publication.html" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
+            <li><a href="career.html" class="block py-2 hover:text-blue-900 transition">Career</a></li>
+            <li><a href="contact.html" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <div id="overlay" class="overlay"></div>
       
   <!-- Hero Section -->
   <section class="relative">
@@ -70,7 +79,7 @@
   <main class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-10">
     
     <!-- Sidebar menu -->
-    <aside class="md:col-span-3 bg-white shadow-md rounded-md font-semibold text-gray-900 text-sm">
+    <aside class="md:col-span-3 bg-white shadow-md rounded-md text-gray-900 text-sm">
       <nav aria-label="Investor section navigation" class="overflow-auto max-h-[36rem] md:max-h-[42rem]">
         <ul class="divide-y divide-gray-200">
           <li><a href="#" class="block px-6 py-3 bg-blue-700 text-white rounded-t-md">Overview</a></li>
@@ -217,7 +226,7 @@
       <!-- Footer left with logo and contact -->
       <div class="md:col-span-4 space-y-4">
         <img 
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9ee687d7-d234-439d-9a4f-c7b4268f9ae9.png" 
+          src="img/oilngaslogo.png" 
           alt="Oil and Gas company logo, abstract flame in blue, orange and gray colors with words Oil & Gas in blue and orange below and tagline Your Slogan Here below" 
           class="w-28 h-28 object-contain"
           onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
@@ -243,11 +252,11 @@
       <!-- Footer middle with navigation links -->
       <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
         <div class="flex flex-col space-y-3">
-          <a href="#" class="hover:underline focus:underline focus:outline-none">About Us</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Our Business</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Investor</a>
-          <a href="#" class="hover:underline focus:underline focus:outline-none">Publication</a>
+            <a href="about.html" class="hover:underline focus:underline focus:outline-none">About Us</a>
+            <a href="ourbussiness.html" class="hover:underline focus:underline focus:outline-none">Our Business</a>
+            <a href="sustainbility.html" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
+            <a href="investor.html" class="hover:underline focus:underline focus:outline-none">Investor</a>
+            <a href="publication.html" class="hover:underline focus:underline focus:outline-none">Publication</a>
         </div>
         <div class="flex flex-col space-y-3">
           <a href="#" class="hover:underline focus:underline focus:outline-none">Career</a>
@@ -262,7 +271,7 @@
       <div class="md:col-span-3 flex flex-col items-center md:items-end">
         <span class="text-sm mb-2">Powered by:</span>
         <img 
-          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c688afa-d093-4e07-b803-5615f3599ae9.png" 
+          src="img/nmsnlogo.png" 
           alt="NMSN logo with blue letters and yellow swoosh design on white background" 
           class="w-40 object-contain"
           onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
@@ -272,16 +281,7 @@
     </div>
   </footer>
 
-<script>
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  mobileMenuBtn.addEventListener('click', () => {
-    const shown = mobileMenu.classList.toggle('hidden');
-    mobileMenuBtn.setAttribute('aria-expanded', !shown);
-  });
-</script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>
