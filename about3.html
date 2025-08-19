@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Vision, Mission, & Corporate Values | Oil & Gas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/about.css">
+    <style>
+        /* Custom styles for Vision/Mission section */
+        .vm-section {
+            margin-bottom: 40px;
+        }
+        
+        .vm-section h2 {
+            font-size: 1.75rem;
+            color: #0f3a91;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #61d6ff;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        
+        .vm-item {
+            margin-bottom: 30px;
+        }
+        
+        .vm-item h3 {
+            font-size: 1.25rem;
+            color: #0f3a91;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .vm-item p {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* Corporate Values styles */
+        .values-section h2 {
+            font-size: 1.75rem;
+            color: #0f3a91;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #61d6ff;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .value-card {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .icon-circle svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            color: #0f3a91;
+            font-weight: 600;
+        }
+        
+        .card-intro {
+            color: #4b5563;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .card-list {
+            padding-left: 20px;
+        }
+        
+        .card-list li {
+            color: #4b5563;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        .card-list li:before {
+            content: "•";
+            color: #0f3a91;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .vm-section h2,
+            .values-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .value-card {
+                padding: 20px;
+            }
+            
+            .icon-circle {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .icon-circle svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+<body class="bg-white font-sans">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between h-16 select-none">
+            <div class="flex items-center space-x-3 pl-4 md:pl-0">
+                <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
+                    <img 
+                        src="img/oilngaslogo.png" 
+                        alt="Oil & Gas Logo"
+                        class="w-7 h-7 rounded-full object-cover"
+                        onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                    />
+                    <span>OIL & GAS</span>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 text-sm">
+                <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
+                <li><a href="about.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">About Us</a></li>
+                <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
+                <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
+                <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
+                <li><a href="publication.html" class="hover:text-blue-900 transition">Publication</a></li>
+                <li><a href="career.html" class="hover:text-blue-900 transition">Career</a></li>
+                <li><a href="contact.html" class="hover:text-blue-900 transition">Contact Us</a></li>
+            </ul>
+            
+            <!-- Hamburger Icon -->
+            <button id="hamburger-btn" class="hamburger focus:outline-none pr-4 md:pr-0">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul class="space-y-4 p-6 text-gray-600">
+            <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
+            <li><a href="about.html" class="block py-2 text-blue-900 border-b border-blue-700">About Us</a></li>
+            <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
+            <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
+            <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
+            <li><a href="publication.html" class="block py-2 hover:text-blue-900 transition">Publication</a></li>
+            <li><a href="career.html" class="block py-2 hover:text-blue-900 transition">Career</a></li>
+            <li><a href="contact.html" class="block py-2 hover:text-blue-900 transition">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative mt-16">
+        <img 
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6115111a-4fb0-4863-8346-8fe88affca1b.png" 
+          alt="Yellow offshore oil and gas platform structure standing in calm ocean under bright blue sky with white fluffy clouds" 
+          class="w-full object-cover"
+          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2ef338ff-a773-487c-b5bb-133d98e8c5fe.png';"
+        />
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center px-6 md:px-16">
+          <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold max-w-4xl border-b-4 border-white pb-2 leading-tight">Vision, Mission & Values</h1>
+        </div>
+    </section>
+
+   <main>
+      <aside class="sidebar" role="navigation" aria-label="Business sidebar menu">
+        <ul>
+          <li tabindex="0">
+            <a href="about.html">About Company</a>
+          </li>
+          <li tabindex="0">
+            <a href="about2.html">Strategy</a>
+          </li>
+          <li class="active" tabindex="0" aria-current="true">
+            <a href="#">Vision, Mission, & Corporate Values</a>
+          </li>
+          <li tabindex="0">
+            <a href="#">Our Leadership</a>
+          </li>
+          <li tabindex="0">
+            <a href="#s">Company History</a>
+          </li>
+        </ul>
+      </aside>
+
+      <section class="content-panel" role="main" aria-label="Vision, Mission and Corporate Values content">
+        <!-- Vision & Mission Section -->
+        <div class="vm-section">
+            <h2>Vision & Mission</h2>
+            
+            <div class="vm-item">
+                <h3>Vision</h3>
+                <p>
+                    To be a global leader in sustainable energy solutions, driving innovation and excellence
+                    in the oil and gas industry while creating lasting value for our stakeholders and communities.
+                </p>
+            </div>
+            
+            <div class="vm-item">
+                <h3>Mission</h3>
+                <p>
+                    We are committed to responsibly developing energy resources through cutting-edge technology,
+                    operational excellence, and sustainable practices that power economies and improve lives
+                    worldwide.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Corporate Values Section -->
+        <div class="values-section">
+            <h2>Corporate Values</h2>
+            
+            <div class="values-grid">
+                <!-- Professional Card -->
+                <div class="value-card">
+                    <div class="card-header">
+                        <div class="icon-circle" style="background-color: #fecaca;">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="color: #ef4444;" fill="currentColor" viewBox="0 0 24 24" >
+                                <path d="M2 21h2v-2H2v2zm4 0h2v-6H6v6zm4-5h2v-8h-2v8zm4 0h2v-3h-2v3zm4-8v13h2V8h-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Professional</h3>
+                    </div>
+                    <p class="card-intro">
+                        We uphold the highest standards of expertise and conduct in all our operations:
+                    </p>
+                    <ul class="card-list">
+                        <li>Commitment to excellence in every aspect of our work</li>
+                        <li>Continuous development of technical expertise</li>
+                        <li>Accountability for our actions and decisions</li>
+                        <li>Adherence to industry best practices and standards</li>
+                    </ul>
+                </div>
+
+                <!-- Ethical Card -->
+                <div class="value-card">
+                    <div class="card-header">
+                        <div class="icon-circle" style="background-color: #bbf7d0;">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="color: #15803d;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Ethical</h3>
+                    </div>
+                    <p class="card-intro">
+                        Integrity guides our decisions and relationships with all stakeholders:
+                    </p>
+                    <ul class="card-list">
+                        <li>Uncompromising honesty in all business dealings</li>
+                        <li>Transparency in operations and communications</li>
+                        <li>Respect for human rights and dignity</li>
+                        <li>Compliance with laws and regulations worldwide</li>
+                    </ul>
+                </div>
+
+                <!-- Open Card -->
+                <div class="value-card">
+                    <div class="card-header">
+                        <div class="icon-circle" style="background-color: #bfdbfe;">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="color: #1d4ed8;" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.134 2 5 5.134 5 9c0 1.496.498 2.87 1.345 3.998L12 22l5.655-9.002A6.976 6.976 0 0019 9c0-3.866-3.134-7-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Open</h3>
+                    </div>
+                    <p class="card-intro">
+                        We foster a culture of transparency and collaboration:
+                    </p>
+                    <ul class="card-list">
+                        <li>Transparent communication with stakeholders</li>
+                        <li>Collaboration across teams and departments</li>
+                        <li>Receptive to new ideas and diverse perspectives</li>
+                        <li>Engagement with communities where we operate</li>
+                    </ul>
+                </div>
+
+                <!-- Innovative Card -->
+                <div class="value-card">
+                    <div class="card-header">
+                        <div class="icon-circle" style="background-color: #fef08a;">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="color: #a16207;" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11 3v12.17l-3.88-3.88a1.25 1.25 0 10-1.77 1.77l6.1 6.1a1.25 1.25 0 001.77 0l6.1-6.1a1.25 1.25 0 10-1.77-1.77L13 15.17V3h-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Innovative</h3>
+                    </div>
+                    <p class="card-intro">
+                        We embrace creativity and technological advancement:
+                    </p>
+                    <ul class="card-list">
+                        <li>Continuous improvement in processes and technologies</li>
+                        <li>Investment in research and development</li>
+                        <li>Adoption of sustainable energy solutions</li>
+                        <li>Forward-thinking approach to industry challenges</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="bg-blue-100 mt-8 md:mt-16">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+            <div class="md:col-span-4 space-y-4">
+                <img 
+                    src="img/oilngaslogo.png" 
+                    alt="Oil and Gas company logo"
+                    class="w-20 h-20 md:w-28 md:h-28 object-contain"
+                    onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                />
+                <div class="text-sm text-gray-900">
+                    <strong>Global Energy Group</strong><br />
+                    123 Energy Boulevard, Houston, TX 77001
+                </div>
+                <div class="flex items-center space-x-2 text-gray-800 text-sm">
+                    <span aria-hidden="true" class="inline-block w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5v14a2 2 0 0 0 2 2h14"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10M7 14h4"></path></svg>
+                    </span>
+                    <span>+1 (800) 123-4567</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-800 text-sm">
+                    <span aria-hidden="true" class="inline-block w-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12 H8"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 16v2a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2-2v-2"></path><path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10"></path></svg>
+                    </span>
+                    <span>info@globalenergygroup.com</span>
+                </div>
+            </div>
+
+            <nav class="md:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-6 text-sm font-medium text-blue-700 leading-relaxed">
+                <div class="flex flex-col space-y-3">
+                    <a href="about.html" class="hover:underline focus:underline focus:outline-none">About Us</a>
+                    <a href="ourbussiness.html" class="hover:underline focus:underline focus:outline-none">Our Business</a>
+                    <a href="sustainbility.html" class="hover:underline focus:underline focus:outline-none">Our Sustainability</a>
+                    <a href="investor.html" class="hover:underline focus:underline focus:outline-none">Investor</a>
+                    <a href="publication.html" class="hover:underline focus:underline focus:outline-none">Publication</a>
+                </div>
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Career</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Contact Us</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Whistleblower</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Supplier Site</a>
+                    <a href="#" class="hover:underline focus:underline focus:outline-none">Privacy Policy</a>
+                </div>
+            </nav>
+
+            <div class="md:col-span-3 flex flex-col items-center md:items-end">
+                <span class="text-sm mb-2">Powered by:</span>
+                <img 
+                    src="img/nmsnlogo.png" 
+                    alt="NMSN logo"
+                    class="w-32 md:w-40 object-contain"
+                    onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/666b5b8f-5f12-4d24-8b1b-c844a7521f87.png';"
+                />
+            </div>
+        </div>
+    </footer>    
+    <script src="js/about.js"></script>
+</body>
+</html>
