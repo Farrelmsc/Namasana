@@ -29,9 +29,24 @@
             </div>
             
             <!-- Desktop Navigation (Hanya ditampilkan di desktop) -->
+    <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between h-16 select-none">
+            <div class="flex items-center space-x-3 pl-4 md:pl-0">
+                <div class="text-lg font-extrabold text-blue-900 flex items-center space-x-2 cursor-pointer">
+                    <img 
+                        src="img/oilngaslogo.png" 
+                        alt="Oil & Gas Logo"
+                        class="w-7 h-7 rounded-full object-cover"
+                        onerror="this.onerror=null; this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c6faca9-3925-4688-8616-d4832d445f1b.png';"
+                    />
+                    <span>OIL & GAS</span>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation -->
             <ul class="desktop-nav hidden md:flex space-x-10 text-gray-600 text-sm">
-                <li><a href="index.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">Home</a></li>
-                <li><a href="about.html" class="hover:text-blue-900 transition">About Us</a></li>
+                <li><a href="index.html" class="hover:text-blue-900 transition">Home</a></li>
+                <li><a href="about.html" class="text-blue-900 border-b-2 border-blue-700 pb-1">About Us</a></li>
                 <li><a href="ourbussiness.html" class="hover:text-blue-900 transition">Our Business</a></li>
                 <li><a href="sustainbility.html" class="hover:text-blue-900 transition">Our Sustainability</a></li>
                 <li><a href="investor.html" class="hover:text-blue-900 transition">Investor</a></li>
@@ -40,8 +55,8 @@
                 <li><a href="contact.html" class="hover:text-blue-900 transition">Contact Us</a></li>
             </ul>
             
-            <!-- Hamburger Icon (Hanya ditampilkan di mobile) -->
-            <button id="hamburger-btn" class="hamburger focus:outline-none">
+            <!-- Hamburger Icon -->
+            <button id="hamburger-btn" class="hamburger focus:outline-none pr-4 md:pr-0">
                 <span class="hamburger-top"></span>
                 <span class="hamburger-middle"></span>
                 <span class="hamburger-bottom"></span>
@@ -49,11 +64,11 @@
         </nav>
     </header>
 
-    <!-- Mobile Menu (Hanya aktif di mobile) -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <ul class="space-y-4 p-6 text-gray-600">
-            <li><a href="active" class="block py-2 text-blue-900 border-b border-blue-700">Home</a></li>
-            <li><a href="about.html" class="block py-2 hover:text-blue-900 transition">About Us</a></li>
+            <li><a href="index.html" class="block py-2 hover:text-blue-900 transition">Home</a></li>
+            <li><a href="about.html" class="block py-2 text-blue-900 border-b border-blue-700">About Us</a></li>
             <li><a href="ourbussiness.html" class="block py-2 hover:text-blue-900 transition">Our Business</a></li>
             <li><a href="sustainbility.html" class="block py-2 hover:text-blue-900 transition">Our Sustainability</a></li>
             <li><a href="investor.html" class="block py-2 hover:text-blue-900 transition">Investor</a></li>
@@ -64,7 +79,6 @@
     </div>
     
     <div id="overlay" class="overlay"></div>
-
     <!-- Main Content -->
     <main class="pt-20 max-w-7xl mx-auto px-4 md:px-12 select-none">
         <!-- Carousel Section -->
@@ -318,4 +332,5 @@
     </footer>    
     <script src="js/script.js"></script>
 </body>
+
 </html>
